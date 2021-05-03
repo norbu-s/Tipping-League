@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "axios": "^0.21.1",
+    "express": "^4.17.1",
+    "node": "^16.0.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "tipping-league",
+  "description": "a friendly tipping competition",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/norbu-s/Tipping-League.git"
+  },
+  "author": "norbu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/norbu-s/Tipping-League/issues"
+  },
+  "homepage": "https://github.com/norbu-s/Tipping-League#readme"
+}
