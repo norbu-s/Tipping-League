@@ -1,24 +1,26 @@
 {
-  "dependencies": {
-    "axios": "^0.21.1",
-    "express": "^4.17.1",
-    "node": "^16.0.0"
-  },
-  "scripts": {
-    "start": "node server.js"
-  },
-  "name": "tipping-league",
-  "description": "a friendly tipping competition",
+  "name": "mern",
   "version": "1.0.0",
+  "description": "Mern Demo",
   "main": "server.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/norbu-s/Tipping-League.git"
+  "scripts": {
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node server.js",
+    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "client": "cd client && npm run start",
+    "seed": "node scripts/seedDB.js",
+    "install": "cd client && npm install",
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "npm run build"
   },
-  "author": "norbu",
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/norbu-s/Tipping-League/issues"
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "nodemon": "^1.18.7"
   },
-  "homepage": "https://github.com/norbu-s/Tipping-League#readme"
+  "dependencies": {
+    "express": "^4.16.3",
+    "if-env": "^1.0.4"
+  }
 }
