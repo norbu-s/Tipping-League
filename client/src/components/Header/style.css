@@ -1,8 +1,29 @@
-#index-navbar{
-    align-items: flex-start;
-    background-color: blue;
+header{
+    max-width: 100%; 
+    padding: 10px;
 }
 
-.logo{
-    background-color: blue;
+#index-navbar{
+   background-color: white;
+    color: black;
+    max-width: 100%; 
+    padding: 10px;
 }
+
+#navbarSupportedContent{
+  float:right;
+
+}
+
+#index-link{
+  font-size: large;
+
+}
+
+@media (min-width: 800px) {
+    .app{
+      padding: 0 100px;
+      margin-top:5vh;
+      min-height: 90vh;
+    }
+  }

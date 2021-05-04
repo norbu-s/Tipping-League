@@ -5,7 +5,10 @@ import Leadership from "../src/pages/Leadership";
 import Results from "../src/pages/Results";
 import Signup from "../src/pages/Signup";
 import Tipping from "../src/pages/Tipping";
-import { HashRouter as Router, Switch, Route} from "react-router-dom";import "bootstrap";
+import League from "../src/pages/League";
+
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
+import "bootstrap";
 import "../src/App.css";
 
 
@@ -17,6 +20,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Landing} />
           <Route exact path="/home" component={Home} />
+          <Route exact path="/league" component={League} />
           <Route exact path="/results" component={Results} />
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/tipping" component={Tipping} />

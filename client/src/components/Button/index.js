@@ -3,16 +3,19 @@ import "bootstrap";
 import "./style.css";
 
 
-function Button () {
+function ActionLink() {
+  function handleClick(e) {
+    e.preventDefault();
+    console.log('The link was clicked.');
+  }
+
     return (
-        <div>
-            <div className="mb-2">
-                <Button variant="primary" size="lg">
-                Large button
-                </Button>{' '}
-          </div>
-        </div>
-    )
+     <div className="button">
+    <a href="#" onClick={handleClick} butt>
+     Create Your league
+    </a>
+    </div>
+  );
 }
 
-export default Button;
+export default ActionLink;
