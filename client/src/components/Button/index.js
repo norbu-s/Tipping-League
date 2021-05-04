@@ -11,7 +11,7 @@ function ActionLink() {
 
     return (
      <div className="button">
-    <a href="#" onClick={handleClick} butt>
+    <a href="/signup" onClick={handleClick} button>
      Create Your league
     </a>
     </div>

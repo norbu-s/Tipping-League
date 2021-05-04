@@ -1,5 +1,5 @@
 // Requiring our models and passport as we've configured it
-var db = require("../models");
+var db = require("../Tipping_League");
 var passport = require("../config/passport");
 
 module.exports = function(app) {

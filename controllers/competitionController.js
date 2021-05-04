@@ -1,4 +1,4 @@
-const db = require("../models");
+const db = require("../Tipping_League");
 
 const competitionController = {
   getAll: function(req, res) {

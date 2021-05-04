@@ -1,35 +1,50 @@
-import React, { Component } from "react";
-import Home from "../src/pages/Home";
-import Landing from "../src/pages/Landing Page";
-import Leadership from "../src/pages/Leadership";
-import Results from "../src/pages/Results";
-import Signup from "../src/pages/Signup";
-import Tipping from "../src/pages/Tipping";
-import League from "../src/pages/League";
-
+// import React, { Component } from "react";
+import React from "react";
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Landing from "./pages/Landing Page";
+import Leadership from "./pages/Leadership";
+import Results from "./pages/Results";
+import Signup from "./pages/Signup";
+import Tipping from "./pages/Tipping";
+import League from "./pages/League";
 import "bootstrap";
 import "../src/App.css";
 
 
 
+
 function App() {
-  return (
-    <Router>
-      <div className="App">
-        <Switch>
-          <Route exact path="/" component={Landing} />
-          <Route exact path="/home" component={Home} />
-          <Route exact path="/league" component={League} />
-          <Route exact path="/results" component={Results} />
-          <Route exact path="/signup" component={Signup} />
-          <Route exact path="/tipping" component={Tipping} />
-          <Route exact path="/leadership" component={Leadership} />
-        </Switch>
-      </div>
-    </Router>
-  );
-}
+    return (
+      <Router basename="/">
+        <div className="App">
+          <Switch>
+            <Route exact path="/">
+              <Landing />
+            </Route>
+            <Route exact path="/Home">
+              <Home />
+            </Route>
+            <Route exact path="/signup">
+              <Signup />
+            </Route>
+            <Route exact path="/league">
+              <League />
+            </Route>
+            <Route exact path="/tipping">
+              <Tipping />
+            </Route>
+            <Route exact path="/results">
+              <Results />
+            </Route>
+            <Route exact path="/leadership">
+              <Leadership />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
+    );
+  }
 
 export default App;
 

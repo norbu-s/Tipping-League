@@ -21,6 +21,9 @@ function Header() {
                 <Link className={`nav-link dawn-color`} to="/league">League</Link>
                 </li>
                 <li className={`nav-item`}>
+                <Link className={`nav-link dawn-color`} to="/signup">Signup</Link>
+                </li>
+                <li className={`nav-item`}>
                 <Link className={`nav-link dawn-color`} to="/results">Results</Link>
                 </li>
                  <li className={`nav-item`}>
