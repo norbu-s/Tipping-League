@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { useState, useEffect } from "react";
-import axios from "axios";
+import Button from "./components/Button";
 import logo from "./logo.svg";
 import "./App.css";
 
@@ -8,15 +7,10 @@ import "./App.css";
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+        <div className="App">
+          <h2>To Create a League Please Sign Up</h2>
+          <Button />
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
     );
   }
 }
