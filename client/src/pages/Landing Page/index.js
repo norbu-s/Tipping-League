@@ -1,16 +1,17 @@
-import React from 'react'
+import React from 'react';
+import Header from "../../components/Header";
+import Button from "../../components/Button";
+import "./style.css";
+
+
 
 function landingPage () {
     return (
         <div>
             <Header />
             <div className="sign-up">
-                <h2>To Create a League Please Sign Up</h2>
-                <div className="mb-2">
-                <Button variant="primary" size="lg">
-                Large button
-                </Button>{' '}
-            </div>
+                <h2>To Create a League Please Sign Up!</h2>
+            <Button />
             </div>
         </div>
     )

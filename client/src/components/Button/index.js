@@ -1,6 +1,9 @@
 import React from 'react'
+import "bootstrap";
+import "./style.css";
 
-const Button = () => {
+
+function Button () {
     return (
         <div>
             <div className="mb-2">
