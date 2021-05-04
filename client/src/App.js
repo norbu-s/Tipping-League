@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 import logo from "./logo.svg";
 import "./App.css";
-import LandingPage from "../src/pages/Landing Page"
+
 
 class App extends Component {
   render() {
