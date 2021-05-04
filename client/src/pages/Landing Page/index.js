@@ -6,10 +6,12 @@ function landingPage () {
             <Header />
             <div className="sign-up">
                 <h2>To Create a League Please Sign Up</h2>
-                <button 
-
+                <div className="mb-2">
+                <Button variant="primary" size="lg">
+                Large button
+                </Button>{' '}
             </div>
-            
+            </div>
         </div>
     )
 }
