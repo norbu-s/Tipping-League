@@ -8,13 +8,19 @@ import Results from "./pages/Results";
 import Signup from "./pages/SignUp";
 import Tipping from "./pages/Tipping";
 import League from "./pages/League";
+// import { ImageBackground, StyleSheet, Text, View } from "react-native";
 import "bootstrap";
 import "../src/App.css";
 
-
+// const image = { url:("../src/components/images/Logo.png") };
 
 
 function App() {
+  // <View style={styles.container}>
+  //   <ImageBackground source={image} style={styles.image}>
+  //     <Text style={styles.text}>Inside</Text>
+  //   </ImageBackground>
+  // </View>
     return (
       <Router basename="/">
         <div className="App">
@@ -46,5 +52,8 @@ function App() {
     );
   }
 
+
 export default App;
+
+
 

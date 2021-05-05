@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import Logo from "../Header/images/Logo.png";
 import "./style.css";
-import "bootstrap"
+import { Button } from 'react-bootstrap';
 
 function Header() {
     return (
@@ -15,7 +14,7 @@ function Header() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent"> 
             <ul id="index-link" className="navbar-nav ml-auto">
                 <li className={`nav-item`}>
-                <Link id="home" className={`nav-link dawn-color dawn-underline`} to="/">Home</Link>
+                <Link id="home" className={`nav-link dawn-color dawn-underline`} to="/login">Login</Link>
                 </li>
                 {/* <li className={`nav-item`}>
                 <Link className={`nav-link dawn-color`} to="/league">League</Link>

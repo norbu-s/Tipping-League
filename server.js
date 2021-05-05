@@ -5,10 +5,11 @@ const app = express();
 const cors = require("cors");
 const mysql = require("mysql")
 const routes = require("./routes")
-const session = require('express-session');
+// const session = require('express-session');
 const sequelize = require('./config/connection');
 // const helpers = require('./utils/helpers');
-const exphbs = require('express-handlebars');
+// const exphbs = require('express-handlebars');
+
 
 app.use(express.json());
 
@@ -35,7 +36,15 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 }
 
-app.use("/",routes);
+app.use("/", routes);
+
+app.post('/register', (req, res) => {
+  debug.query("INSERT INTO Users (first_name,last_name,username,password) VALUES (?,?)", (err, request) => {
+    console.log(err);
+  }
+  );
+});
+
 
 app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
