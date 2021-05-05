@@ -9,7 +9,7 @@ function Home() {
         )
         //API call to get result details//
         React.useEffect(function () {
-            fetch("https://heisenbug-premier-league-live-scores-v1.p.rapidapi.com/api/premierleague/scorers")
+            fetch("/table")
                 .then(res => {
                     return (res.json())
                 }).then(results => {
