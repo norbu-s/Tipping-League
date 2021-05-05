@@ -13,7 +13,7 @@
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build"
   },
-  "author": "",
+  "author": "Norbu Sherpa",
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^4.1.0",
@@ -22,11 +22,16 @@
   "dependencies": {
     "axios": "^0.21.1",
     "cors": "^2.8.5",
+    "dotenv": "^8.5.1",
     "express": "^4.16.3",
+    "express-handlebars": "^5.3.1",
+    "express-session": "^1.17.1",
     "if-env": "^1.0.4",
     "mysql": "^2.18.1",
+    "mysql2": "^2.2.5",
     "node-fetch": "^2.6.1",
     "react-hook-form": "^7.4.0",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "sequelize": "^6.6.2"
   }
 }

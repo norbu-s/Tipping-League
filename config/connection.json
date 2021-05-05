@@ -1,3 +1,5 @@
+
+
 {
     "development": {
       "username": "root",
@@ -20,3 +22,9 @@
       "dialect": "mysql"
     }
   }
+
+
+
+
+
+

@@ -1,4 +1,5 @@
 const db = require("../Tipping_League");
+const router = require('express').Router();
 
 const competitionController = {
   getAll: function(req, res) {
