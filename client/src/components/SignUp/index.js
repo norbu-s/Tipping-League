@@ -1,33 +1,57 @@
 import React, { Component } from "react";
 
-function SignUp () {
-        return (
-            <form>
-                <h3>Sign Up</h3>
-                <div className="form-group">
-                    <label>First name</label>
-                    <input type="text" className="form-control" placeholder="First name" />
-                </div>
 
-                <div className="form-group">
-                    <label>Last name</label>
-                    <input type="text" className="form-control" placeholder="Last name" />
-                </div>
+class RegisterBox extends React.Component {
 
-                <div className="form-group">
-                    <label>Email address</label>
-                    <input type="email" className="form-control" placeholder="Enter email" />
-                </div>
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
 
-                <div className="form-group">
-                    <label>Password</label>
-                    <input type="password" className="form-control" placeholder="Enter password" />
-                </div>
+  submitRegister(e) {}
 
-                <button type="submit" className="btn btn-primary btn-block">Sign Up</button>
-            </form>
-        );
-    }
+  render() {
+    return (
+      <div className="inner-container">
+        <div className="header">
+          Register
+        </div>
+        <div className="box">
+
+          <div className="input-group">
+            <label htmlFor="username">Username</label>
+            <input
+              type="text"
+              name="username"
+              className="login-input"
+              placeholder="Username"/>
+          </div>
+
+          <div className="input-group">
+            <label htmlFor="email">Email</label>
+            <input type="text" name="email" className="login-input" placeholder="Email"/>
+          </div>
+
+          <div className="input-group">
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              name="password"
+              className="login-input"
+              placeholder="Password"/>
+          </div>
+          <button
+            type="button"
+            className="login-btn"
+            onClick={this
+            .submitRegister
+            .bind(this)}>Register</button>
+        </div>
+      </div>
+    );
+  }
+}
 
 
-export default SignUp;
+
+export default RegisterBox;

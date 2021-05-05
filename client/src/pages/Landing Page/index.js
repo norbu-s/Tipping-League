@@ -2,9 +2,9 @@ import React from 'react';
 import Header from "../../components/Header";
 import { Link } from "react-router-dom";
 import Login from "../../components/Login";
+// import SignUp from "../../components/SignUp";
 import "./style.css";
-// import LogoImg from "./images/Logo.png"
-import { Navbar } from 'react-bootstrap';
+
 
 
 
@@ -27,22 +27,6 @@ import { Navbar } from 'react-bootstrap';
                  </div>
                   </Navbar.Brand>
                 </Navbar> */}
-            {/* <ul id="index-link" className="navbar-nav ml-auto">
-                <li className={`nav-item`}>
-                <Link id="home" className={`nav-link dawn-color dawn-underline`} to="/login">Login</Link>
-                </li> */}
-                {/* <li className={`nav-item`}>
-                <Link className={`nav-link dawn-color`} to="/league">League</Link>
-                </li>
-                <li className={`nav-item`}>
-                <Link className={`nav-link dawn-color`} to="/signup">Signup</Link>
-                </li> */}
-                {/* <li className={`nav-item`}>
-                <Link className={`nav-link dawn-color`} to="/results">Results</Link>
-                </li>
-                 <li className={`nav-item`}>
-                <Link className={`nav-link dawn-color`} to="/leadership">Leadership Board</Link>      */}
-              {/* </li> */}
             {/* </ul> */}
           </div>  
         </nav>
@@ -50,35 +34,10 @@ import { Navbar } from 'react-bootstrap';
             <div className="sign-up">
                 <h2>Build you own custom tipping competition </h2>
                 <p>Click the button below to make you own tipping competition.</p>
-                <Link to="/signup" className="btn btn-primary">Create a competition</Link>
+                <Link to="/signup" className="btn btn-primary">Sign Up</Link>
             </div>
             <div className="login">
-                <Login />
-            
-                {/* <form>
-                <h3>Sign In</h3>
-                <div className="form-group">
-                    <label>Username</label>
-                    <input type="email" className="form-control" placeholder="Enter email" />
-                </div>
-
-                <div className="form-group">
-                    <label>Password</label>
-                    <input type="password" className="form-control" placeholder="Enter password" />
-                </div>
-
-                <div className="form-group">
-                    <div className="custom-checkbox">
-                        <input type="checkbox" className="custom-control-input" id="customCheck1" />
-                        <label className="custom-control-label" htmlFor="customCheck1">Remember me</label>
-                    </div>
-                </div>
-
-                <button type="submit" className="btn btn-primary btn-block">Submit</button>
-                <p className="forgot-password text-right">
-                    Forgot <a href="#">password?</a>
-                </p>
-            </form> */}
+          <Login />
             </div>
         </div>
     )

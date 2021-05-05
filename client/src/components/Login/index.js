@@ -1,34 +1,52 @@
 import React, { Component } from "react";
+import "./style.css";
 
-function Login() {
-        return (
-            <form>
-                <h3>Sign In</h3>
+//Login Box
+class LoginBox extends React.Component {
 
-                <div className="form-group">
-                    <label>Email address</label>
-                    <input type="email" className="form-control" placeholder="Enter email" />
-                </div>
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
 
-                <div className="form-group">
-                    <label>Password</label>
-                    <input type="password" className="form-control" placeholder="Enter password" />
-                </div>
+  submitLogin(e) {}
 
-                <div className="form-group">
-                    <div className="custom-control custom-checkbox">
-                        <input type="checkbox" className="custom-control-input" id="customCheck1" />
-                        <label className="custom-control-label" htmlFor="customCheck1">Remember me</label>
-                    </div>
-                </div>
+  render() {
+    return (
+      <div className="inner-container">
+        <div className="header">
+          Login
+        </div>
+        <div className="box">
 
-                <button type="submit" className="btn btn-primary btn-block">Submit</button>
-                <p className="forgot-password text-right">
-                    Forgot <a href="#">password?</a>
-                </p>
-            </form>
-        );
-    }
+          <div className="input-group">
+            <label htmlFor="username">Username</label>
+            <input
+              type="text"
+              name="username"
+              className="login-input"
+              placeholder="Username"/>
+          </div>
 
+          <div className="input-group">
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              name="password"
+              className="login-input"
+              placeholder="Password"/>
+          </div>
 
-export default Login;
+          <button
+            type="button"
+            className="login-btn"
+            onClick={this
+            .submitLogin
+            .bind(this)}>Login</button>
+        </div>
+      </div>
+    );
+  }
+
+}
+export default LoginBox;
