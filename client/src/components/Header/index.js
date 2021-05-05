@@ -17,12 +17,12 @@ function Header() {
                 <li className={`nav-item`}>
                 <Link id="home" className={`nav-link dawn-color dawn-underline`} to="/">Home</Link>
                 </li>
-                <li className={`nav-item`}>
+                {/* <li className={`nav-item`}>
                 <Link className={`nav-link dawn-color`} to="/league">League</Link>
                 </li>
                 <li className={`nav-item`}>
                 <Link className={`nav-link dawn-color`} to="/signup">Signup</Link>
-                </li>
+                </li> */}
                 <li className={`nav-item`}>
                 <Link className={`nav-link dawn-color`} to="/results">Results</Link>
                 </li>
