@@ -2,7 +2,7 @@
 import React from "react";
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import Landing from "./pages/Landing Page";
+// import Landing from "./pages/Landing Page";
 import Leadership from "./pages/Leadership";
 import Results from "./pages/Results";
 import Signup from "./pages/SignUp";
@@ -20,9 +20,6 @@ function App() {
         <div className="App">
           <Switch>
             <Route exact path="/">
-              <Landing />
-            </Route>
-            <Route exact path="/Home">
               <Home />
             </Route>
             <Route exact path="/signup">
