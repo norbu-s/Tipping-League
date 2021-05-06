@@ -1,10 +1,16 @@
-        module.exports = (sequelize, DataTypes) => {
+module.exports = (sequelize, DataTypes) => {
+  const Competition = sequelize.define('Competition', {
 
-            const Competition = sequelize.define('Movies', {
+     competition_name: DataTypes.STRING,
+        userId: DataTypes.INTEGER,
+  });
 
-                competition_name: DataTypes.STRING,
-                userId: DataTypes.INTEGER,
-            },
-        );
-            return Competition;
-        };
+  Competition.associate = (models) => {
+    Competition.hasMany(models.Users, {
+      onDelete: 'cascade',
+    });
+  };
+
+  return Competition;
+};
+
