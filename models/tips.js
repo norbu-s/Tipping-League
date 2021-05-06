@@ -9,19 +9,28 @@ module.exports = (sequelize, DataTypes) => {
     });
     
     Tips.associate = (models) => {
-    Tips.hasMany(models.Users, {
+      Tips.hasMany(models.Users, {
+      foreignKey: {
+        allowNull: false,
+      },
       onDelete: 'cascade',
     });
   };
 
     Tips.associate = (models) => {
-    Tips.hasOne(models.Competition, {
+      Tips.hasOne(models.Competition, {
+      foreignKey: {
+        allowNull: false,
+      },
       onDelete: 'cascade',
     });
   };
     
     Tips.associate = (models) => {
-    Tips.hasOne(models.Team, {
+      Tips.hasMany(models.Team, {
+      foreignKey: {
+        allowNull: false,
+      },
       onDelete: 'cascade',
     });
   };

@@ -8,6 +8,9 @@ module.exports = (sequelize, DataTypes) => {
 
   Results.associate = (models) => {
     Results.hasOne(models.Tips, {
+      foreignKey: {
+        allowNull: false,
+      },
       onDelete: 'cascade',
     });
   };
