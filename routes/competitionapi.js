@@ -2,9 +2,10 @@ const db = require("../models");
 // const axios = require("axios");
 // let comp;
 
+// const router = express.Router()
 
 module.exports = (app) => {
-    app.get("/api/competition/:name", (req, res) => {
+    app.get("/league/:name", (req, res) => {
         db.Movies.findOne({
             where: {
                 name: req.params.competition_name,
@@ -12,7 +13,7 @@ module.exports = (app) => {
         }).then((dbCompetition) => res.json(dbCompetition));
     });
 
-    app.post('/api/competition', (req, res) => {
+    app.post('/league', (req, res) => {
         console.log(req.body);
         db.Competition.create({
             name: req.body.competition_name,
@@ -20,7 +21,7 @@ module.exports = (app) => {
         }).then((dbCompetition) => res.json(dbCompetition));
     });
     
-    app.get('/api/competition/', (req, res) => {
+    app.get('/league/', (req, res) => {
         db.Competition.findAll({}).then((dbCompetition) => res.json(dbCompetition));
     });
 }
