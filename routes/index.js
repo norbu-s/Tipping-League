@@ -2,10 +2,12 @@ const path = require("path");
 const router = require("express").Router();
 // const apiRoutes = require("./api");
 const rapidRoutes = require("./rapidapi");
+const competitionRoutes = require("./competition");
 
 
 // router.use("/api", apiRoutes);
 router.use("/rapidapi", rapidRoutes);
+router.use("/competition", competitionRoutes);
 
 
 router.use(function(req, res) {

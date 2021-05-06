@@ -6,7 +6,7 @@ const cors = require("cors");
 const mysql = require("mysql")
 const routes = require("./routes")
 // const session = require('express-session');
-const sequelize = require('./config/connection');
+// const sequelize = require('./config/connection');
 // const helpers = require('./utils/helpers');
 // const exphbs = require('express-handlebars');
 
@@ -14,6 +14,8 @@ const sequelize = require('./config/connection');
 app.use(express.json());
 
 app.use(cors());
+
+const db = require('./models');
 
 // const sess = {
 //   secret: 'Super secret secret',
@@ -50,6 +52,11 @@ app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
-app.listen(PORT, function() {
-  console.log(`🌎 ==> API server now on port ${PORT}!`);
+
+db.sequelize.sync({ force: false }).then(() => {
+  app.listen(PORT, () => console.log(`🌎 ==> API server now on port ${PORT}!`));
 });
+
+// app.listen(PORT, function() {
+//   console.log(`🌎 ==> API server now on port ${PORT}!`);
+// });
