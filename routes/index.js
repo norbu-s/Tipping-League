@@ -7,7 +7,7 @@ const competitionRoutes = require("./competitionapi");
 
 // router.use("/api", apiRoutes);
 router.use("/rapidapi", rapidRoutes);
-app.use("/competitionapi", competitionRoutes);
+router.use("/competitionapi", competitionRoutes);
 
 
 router.use(function(req, res) {
