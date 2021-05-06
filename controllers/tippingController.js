@@ -1,4 +1,5 @@
-const db = require("../Tipping_League");
+const db = require("../models");
+const router = require('express').Router();
 
 const tipsController = {
   getAll: function(req, res) {

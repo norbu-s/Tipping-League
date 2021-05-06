@@ -5,6 +5,7 @@ const app = express();
 const cors = require("cors");
 const mysql = require("mysql")
 const routes = require("./routes")
+const db = require('./models');
 // const session = require('express-session');
 // const sequelize = require('./config/connection');
 // const helpers = require('./utils/helpers');
@@ -15,7 +16,7 @@ app.use(express.json());
 
 app.use(cors());
 
-const db = require('./models');
+
 
 // const sess = {
 //   secret: 'Super secret secret',
@@ -57,6 +58,3 @@ db.sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log(`🌎 ==> API server now on port ${PORT}!`));
 });
 
-// app.listen(PORT, function() {
-//   console.log(`🌎 ==> API server now on port ${PORT}!`);
-// });
