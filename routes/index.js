@@ -15,6 +15,7 @@ const usersRoutes = require("./usersapi");
 router.use("/competitionapi", competitionRoutes);
 router.use("/leadershipapi", leadershipRoutes);
 router.use("/rapidapi", rapidRoutes);
+router.use("/resultsapi", resultsRoutes);
 router.use("/tipsapi", tipsRoutes);
 router.use("/usersapi", usersRoutes);
 
