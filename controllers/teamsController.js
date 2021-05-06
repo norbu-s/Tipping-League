@@ -4,15 +4,13 @@ const teamsController = {
   getAll: function(req, res) {
     db.Teams
       .find({})
-      .then(model => res.json(model))
+      .then(teams => res.json(teams))
       .catch(err => res.status(422).json(err))
   },
   findById: function(req, res) {
     db.Teams
       .findById(req.params.id)
-      .then(dbModel => res.json(dbModel))
+      .then(dbTeams=> res.json(dbTeams))
       .catch(err => res.status(422).json(err));
   },
 }
-
-module.exports = teamsController;

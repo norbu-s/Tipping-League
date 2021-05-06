@@ -36,6 +36,6 @@ module.exports = (sequelize, DataTypes) => {
   };
 
 
-  return Competition;
+  return Tips;
 };
 
