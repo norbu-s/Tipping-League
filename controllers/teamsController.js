@@ -1,29 +1,18 @@
 const db = require("../models");
-const router = require('express').Router();
 
 const teamsController = {
   getAll: function(req, res) {
-    db.Tipping_League
+    db.Teams
       .find({})
       .then(model => res.json(model))
       .catch(err => res.status(422).json(err))
   },
-//   save: function(req, res) {
-//     db.Tipping_League
-//       .create({
-//         competitionId: req.body.id,
-//         competition_name: req.body.name,
-//         userId: req.body.userId,
-//       })
-//       .then(model => res.json(model))
-//       .catch(err => res.status(422).json(err))
-//   },
-//   delete: function(req, res) {
-//     db.Tipping_League
-//       .findOneAndDelete({ competitionId: req.params.id })
-//       .then(model => res.json(model))
-//       .catch(err => res.status(422).json(err))
-//   }
+  findById: function(req, res) {
+    db.Teams
+      .findById(req.params.id)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
 }
 
 module.exports = teamsController;

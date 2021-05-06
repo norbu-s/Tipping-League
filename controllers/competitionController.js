@@ -1,29 +1,38 @@
 const db = require("../models");
-const router = require('express').Router();
 
-const competitionController = {
-  getAll: function(req, res) {
-    db.Tipping_League
-      .find({})
-      .then(model => res.json(model))
-      .catch(err => res.status(422).json(err))
+module.exports = {
+  findAll: function(req, res) {
+    db.Competition
+      .find(req.query)
+      .sort({ date: -1 })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
   },
-  save: function(req, res) {
-    db.Tipping_League
-      .create({
-        competitionId: req.body.id,
-        competition_name: req.body.name,
-        userId: req.body.userId,
-      })
-      .then(model => res.json(model))
-      .catch(err => res.status(422).json(err))
+  findById: function(req, res) {
+    db.Competition
+      .findById(req.params.id)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
   },
-  delete: function(req, res) {
-    db.Tipping_League
-      .findOneAndDelete({ competitionId: req.params.id })
-      .then(model => res.json(model))
-      .catch(err => res.status(422).json(err))
+  create: function(req, res) {
+    db.Competition
+      .create(req.body)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+  update: function(req, res) {
+    db.Competition
+      .findOneAndUpdate({ _id: req.params.id }, req.body)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+  remove: function(req, res) {
+    db.Competition
+      .findById({ _id: req.params.id })
+      .then(dbModel => dbModel.remove())
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
   }
-}
+};
 
 module.exports = competitionController;
