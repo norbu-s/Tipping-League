@@ -5,4 +5,5 @@ module.exports = (sequelize, DataTypes) => {
         team_name: DataTypes.STRING,
     },
     );
+      return Teams;
 }

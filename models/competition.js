@@ -8,6 +8,7 @@ module.exports = (sequelize, DataTypes) => {
   Competition.associate = (models) => {
     Competition.hasMany(models.Users, {
       foreignKey: {
+         name: "userId",
         allowNull: false,
       },
       onDelete: 'cascade',
