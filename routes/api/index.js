@@ -2,12 +2,12 @@ const router = require("express").Router();
 // const userRoutes = require("./user");
 
 // router.use("/user", userRoutes);
-const competitionRoutes = require("../competitionapi");
+const competitionRoutes = require("../api/competitionapi");
 // const leadershipRoutes = require("./leadershipapi");
-const rapidRoutes = require("../rapidapi");
-const resultsRoutes = require("../resultsapi");
-const tipsRoutes = require("../tipsapi");
-const usersRoutes = require("../usersapi");
+const rapidRoutes = require("../api/rapidapi");
+const resultsRoutes = require("../api/resultsapi");
+const tipsRoutes = require("../api/tipsapi");
+const usersRoutes = require("../api/usersapi");
 
 
 
