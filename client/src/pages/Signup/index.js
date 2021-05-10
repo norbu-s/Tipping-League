@@ -1,111 +1,52 @@
-import React, { Component } from "react";
-import { useState, useEffect } from "react";
-import Axios from "axios";
-import Header from "../../components/Header";
-import "./style.css";
+import React from "react";
+// import loginImg from "../../login.svg";
 
+// function SignUp() {
+//   const [username, setUsername] = useState();
+//   const [password, setPassword] = useState();
 
-export default class SignUp extends Component {
-    render() {
+//   const handleSubmit = e => {
+//     e.preventDefault();
+//     console.log("username is " + username);
+//     console.log("password is " + password);
+//   };
 
-        const [password, setPassword] = useState("");
-        const [title, setTitle] = useState("");
+export class SignUp extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
-        useEffect(() => {
-    Axios.get("http://localhost:3001/showpasswords").then((response) => {
-      setPasswordList(response.data);
-    });
-  }, []);
-
-  const addPassword = () => {
-    Axios.post("http://localhost:3001/addpassword", {
-      password: password,
-      title: title,
-    });
-  };
-
-  const decryptPassword = (encryption) => {
-    Axios.post("http://localhost:3001/decryptpassword", {
-      password: encryption.password,
-      iv: encryption.iv,
-    }).then((response) => {
-      setPasswordList(
-        passwordList.map((val) => {
-          return val.id == encryption.id
-            ? {
-                id: val.id,
-                password: val.password,
-                title: response.data,
-                iv: val.iv,
-              }
-            : val;
-        })
-      );
-    });
-  };
-
-        return (
-            <div>
-            <Header />
-            <form>
-                <h3>Register</h3>
-                <div className="AddingPassword">
-                        <label>First name</label>
-                        <input type="text" className="form-control" placeholder="First name"
-                         onChange={(event) => {
-                        setFirstName(event.target.value);
-                    }}/>
-                    </div>
-                    <div className="form-group">
-                        <label>Last name</label>
-                        <input type="text" className="form-control" placeholder="Last name"
-                        onChange={(event) => {
-                        setLastName(event.target.value);
-                    }}/>
-                    </div>
-                    <div className="form-group">
-                         <label>Email</label>
-                        <input type="email" className="form-control" placeholder="Enter email"
-                        onChange={(event) => {
-                        setEmail(event.target.value);
-                    }}/>
-                    </div>
-                    <div className="AddingPassword">
-                         <label>Password</label>
-                        <input type="password" className="form-control" placeholder="password123"
-                        onChange={(event) => {
-                        setPassword(event.target.value);
-                    }}/>
-                    </div>
-                  
-                    <div className="Passwords">
-                        {passwordList.map((val, key) => {
-                        return (
-                                <div
-                                className="password"
-                                onClick={() => {
-                                    decryptPassword({
-                                    password: val.password,
-                                    iv: val.iv,
-                                    id: val.id,
-                                    });
-                                }}
-                                key={key}
-                                >
-                                <h3>{val.title}</h3>
-                                </div>
-                            );
-                            })}
-                    </div>
-                    
-        );
-
-                <button type="submit" className="btn btn-dark btn-lg btn-block">Register</button>
-                <p className="forgot-password text-right">
-                    Already registered <a href="#">log in?</a>
-                </p>
-                </form>
+  render() {
+    return (
+      <div className="base-container" ref={this.props.containerRef}>
+        <div className="header">Register</div>
+        <div className="content">
+          <div className="image">
+            <img src={loginImg} />
+          </div>
+          <div className="form">
+            <div className="form-group">
+              <label htmlFor="username">Username</label>
+              <input type="text" name="username" placeholder="username" />
             </div>
-        );
-    }
+            <div className="form-group">
+              <label htmlFor="email">Email</label>
+              <input type="text" name="email" placeholder="email" />
+            </div>
+            <div className="form-group">
+              <label htmlFor="password">Password</label>
+              <input type="text" name="password" placeholder="password" />
+            </div>
+          </div>
+        </div>
+        <div className="footer">
+          <button type="button" className="btn">
+            Register
+          </button>
+        </div>
+      </div>
+    );
+  }
 }
+
+export default SignUp;

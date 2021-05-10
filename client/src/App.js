@@ -31,16 +31,16 @@ function App() {
             <Route exact path="/Home">
               <Home />
               </Route>
-            <Route exact path="/signup">
+            <Route exact path="/Signup">
               <Signup />
             </Route>
-            <Route exact path="/league">
-              <League />
-            </Route>
-            <Route exact path="/tipping">
+            {/* <Route exact path="/League">
+              <League /> */}
+            {/* </Route> */}
+            <Route exact path="/Tips">
               <Tipping />
             </Route>
-            <Route exact path="/results">
+            <Route exact path="/Results">
               <Results />
             </Route>
             <Route exact path="/leadership">
