@@ -34,7 +34,7 @@ import "./style.css";
             <div className="sign-up">
                 <h2>Build you own custom tipping competition </h2>
                 <p>Click the button below to make you own tipping competition.</p>
-                <Link to="../SignUp/index" className="btn btn-primary">Sign Up</Link>
+                <Link to="../SignUp/" className="btn btn-primary">Sign Up</Link>
             </div>
             <div className="login">
           <Login />

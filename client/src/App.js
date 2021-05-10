@@ -5,7 +5,7 @@ import Home from "./pages/Home";
 import Landing from "./pages/Landing Page";
 import Leadership from "./pages/Leadership";
 import Results from "./pages/Results";
-import Signup from "./pages/SignUp";
+import SignUp from "./pages/SignUp";
 import Tipping from "./pages/Tipping";
 import League from "./pages/League";
 // import { ImageBackground, StyleSheet, Text, View } from "react-native";
@@ -31,8 +31,8 @@ function App() {
             <Route exact path="/Home">
               <Home />
               </Route>
-            <Route exact path="/Signup">
-              <Signup />
+            <Route exact path="/SignUp">
+              <SignUp />
             </Route>
             {/* <Route exact path="/League">
               <League /> */}
