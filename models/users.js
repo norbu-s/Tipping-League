@@ -1,8 +1,8 @@
-const { Model, DataTypes } = require('sequelize');
+const { Models, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/config.json');
 
-class User extends Model {
+class Users extends Models {
   checkPassword(loginPw) {
     return bcrypt.compareSync(loginPw, this.password);
   }
@@ -36,7 +36,7 @@ User.init(
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          len: [6],
+          len: [8, 30],
         },
       },
         Notification: {
@@ -46,11 +46,19 @@ User.init(
         competitionId: {
           type: DataTypes.INTEGER,
           references: {
-            model: 'competition',
-            key: 'id',
+          model: 'competition',
+          key: 'id',
       },
     },
   },
+   User.hasMany(models.Competitions, {
+      foreignKey: {
+        name: "competitionId",
+        allowNull: true
+      },
+      onDelete: "CASCADE"
+   }),
+   
   {
     hooks: {
       async beforeCreate(newUserData) {
@@ -62,8 +70,9 @@ User.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'user',
+    modelName: 'Users',
   }
 );
 
-module.exports = User;
+
+module.exports = Users;

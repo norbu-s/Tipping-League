@@ -1,34 +1,28 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/config.json');
+module.exports = function (sequilize, DataTypes) {
 
-class Competition extends Model {}
-
-Competition.init(
-  {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true,
-    },
-   name: {
+  const Competition = sequilize.define("competition", {
+   
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
-    userId: {
-          type: DataTypes.INTEGER,
-          references: {
-            model: 'users',
-            key: 'id',
+    }
+  });
+    Competition.associate = models => {
+    Competition.hasOne(models.review, {
+      foreignKey: {
+        name: "competitionId",
+        allowNull: false
       },
-    },  
-    },
-  {
-    sequelize,
-    freezeTableName: true,
-    underscored: true,
-    modelName: 'Competition',
-  }
-);
+      onDelete: "CASCADE"
+    }),
 
-module.exports = Competition;
+    Competition.belongsTo(models.user);
+  },
+    {
+      freezeTableName: true,
+      underscored: true,
+      modelName: 'competition',
+    }
+
+  return Competition;
+};
