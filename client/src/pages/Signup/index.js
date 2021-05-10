@@ -1,57 +1,28 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+  
+// import './App.css';
+import React from "react";
 
-class SignUp extends Component {
-    constructor() {
-        super();
 
-        this.state = {
-            email: '',
-            password: '',
-            name: '',
-            notification: false
-        };
+function SignUp() {
+  const [users, setUsers] = React.useState({
+    first_name: "",
+    last_name: "",
+    email: "",
+    password: "",
+    notification: false,
+  });
 
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
 
-    handleChange(e) {
-        let target = e.target;
-        let value = target.type === 'checkbox' ? target.checked : target.value;
-        let name = target.name;
+  //API call to get employee details//
+  React.useEffect(function () {
+    fetch("https://randomuser.me/api?results=10")
+    .then(res => {
+      return(res.json())
+    }).then(users => {
+      setUsers(users.results) 
+    })
+    },[])
 
-        this.setState({
-          [name]: value
-        });
-    }
-
-    handleSubmit(e) {
-      e.preventDefault();
-      if(this.state.email && this.state.password && this.state.username) {
-            if(this.state.email && this.state.password && this.state.username) {
-            //api call here, then set form object to blank
-            API.userSignup({
-                email: this.state.email,
-                username: this.state.username,
-                password: this.state.password,
-                notification: this.state.password
-              })
-                .then(() => this.setState({
-                  email: "",
-                  username: "",
-                  password: "",
-                  notification:""
-                }))
-                .catch(err => console.log(err));
-        }
-    }
-
-        console.log('The form was submitted with the following data:');
-        console.log(this.state);
-    }
-
-    render() {
         return (
         <div className="FormCenter">
             <form onSubmit={this.handleSubmit} className="FormFields">
@@ -74,7 +45,7 @@ class SignUp extends Component {
 
               <div className="FormField">
                 <label className="FormField__CheckboxLabel">
-                    <input className="FormField__Checkbox" type="checkbox" name="hasAgreed" value={this.state.hasAgreed} onChange={this.handleChange} /> Check on this to recieve a eamil reminder for tipping
+                    <input className="FormField__Checkbox" type="checkbox" name="hasAgreed" value={this.state.hasAgreed} onChange={this.handleChange} /> Check on this to recieve a reminder for tipping.
                 </label>
               </div>
 
@@ -85,6 +56,5 @@ class SignUp extends Component {
           </div>
         );
     }
-}
 
 export default SignUp;

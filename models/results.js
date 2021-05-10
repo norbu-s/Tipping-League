@@ -1,21 +1,38 @@
-module.exports = (sequelize, DataTypes) => {
-  const Results = sequelize.define('Results', {
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
 
-        points: DataTypes.INTEGER,
-        round:DataTypes.STRING,
-        tipId: DataTypes.INTEGER,
-  });
+class Results extends Model {}
 
-  Results.associate = (models) => {
-    Results.hasOne(models.Tips, {
-      foreignKey: {
-        name:"tipId",
-        allowNull: false,
+Results.init(
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+   points: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+    tipId: {
+          type: DataTypes.INTEGER,
+          references: {
+            model: 'tips',
+            key: 'id',
       },
-      onDelete: 'cascade',
-    });
-  };
+    },
+    points: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+    },
+  {
+    sequelize,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'Results',
+  }
+);
 
-  return Results;
-};
-
+module.exports = Results;

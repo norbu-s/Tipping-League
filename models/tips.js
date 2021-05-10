@@ -1,41 +1,48 @@
-module.exports = (sequelize, DataTypes) => {
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
 
-    const Tips = sequelize.define('Tips', {
+class Tips extends Model {}
 
-        competitionId: DataTypes.INTEGER,
-        userId: DataTypes.INTEGER,
-        teamId:DataTypes.INTEGER,
-        game: DataTypes.INTEGER,
-    });
-    
-    Tips.associate = (models) => {
-      Tips.hasMany(models.Users, {
-      foreignKey: {
-        allowNull: false,
+Tips.init(
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+   competitionId: {
+      type: DataTypes.INTEGER,
+          references: {
+            model: 'competitions',
+            key: 'id',
       },
-      onDelete: 'cascade',
-    });
-  };
-
-    Tips.associate = (models) => {
-      Tips.hasOne(models.Competition, {
-      foreignKey: {
-        allowNull: false,
+    },
+    userId: {
+          type: DataTypes.INTEGER,
+          references: {
+            model: 'users',
+            key: 'id',
       },
-      onDelete: 'cascade',
-    });
-  };
-    
-    Tips.associate = (models) => {
-      Tips.hasMany(models.Team, {
-      foreignKey: {
-        allowNull: false,
-      },
-      onDelete: 'cascade',
-    });
-  };
+    },
+   teamId: {
+          type: DataTypes.INTEGER,
+          references: {
+            model: 'teams',
+            key: 'id',
+     },
+     game: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    },  
+    },
+  {
+    sequelize,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'Tips',
+  }
+);
 
-
-  return Tips;
-};
-
+module.exports = Tips;
