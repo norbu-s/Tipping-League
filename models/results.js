@@ -1,38 +1,32 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/config.json');
+module.exports = function (sequilize, DataTypes) {
 
-class Results extends Model {}
-
-Results.init(
-  {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true,
-    },
-   points: {
+  const Results = sequilize.define("results", {
+   
+    points: {
       type: DataTypes.INTEGER,
       allowNull: true,
-    },
-    tipId: {
-          type: DataTypes.INTEGER,
-          references: {
-            model: 'tips',
-            key: 'id',
-      },
     },
     points: {
       type: DataTypes.INTEGER,
       allowNull: true,
     },
-    },
+  });
+  Results.associate = models => {
+    Results.hasOne(models.tips, {
+      foreignKey: {
+        name: "resultsId",
+        allowNull: false
+      },
+      onDelete: "CASCADE"
+    }),
+
+      Results.belongsTo(models.Tips);
+  },
   {
-    sequelize,
     freezeTableName: true,
     underscored: true,
     modelName: 'Results',
   }
-);
 
-module.exports = Results;
+  return Results;
+}

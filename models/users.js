@@ -1,21 +1,8 @@
-const { Models, DataTypes } = require('sequelize');
+
 const bcrypt = require('bcrypt');
-const sequelize = require('../config/config.json');
+module.exports = function (sequilize, DataTypes) {
 
-class Users extends Models {
-  checkPassword(loginPw) {
-    return bcrypt.compareSync(loginPw, this.password);
-  }
-}
-
-User.init(
-  {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true,
-    },
+  const Users = sequilize.define("Tips", {
     name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -24,55 +11,54 @@ User.init(
         len: [40],
       },
     },
-      email: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true,
-        validate: {
-          isEmail: true,
-        },
-      },
-      password: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          len: [8, 30],
-        },
-      },
-        Notification: {
-          type: DataTypes.BOOLEAN,
-          allowNull: true,
-        },
-        competitionId: {
-          type: DataTypes.INTEGER,
-          references: {
-          model: 'competition',
-          key: 'id',
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+      validate: {
+        isEmail: true,
       },
     },
-  },
-   User.hasMany(models.Competitions, {
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [8, 30],
+      },
+    },
+    Notification: {
+      type: DataTypes.BOOLEAN,
+      allowNull: true,
+    }
+  });
+  Users.associate = models => {
+    Users.hasMany(models.competition, {
       foreignKey: {
         name: "competitionId",
-        allowNull: true
+        allowNull: false
       },
       onDelete: "CASCADE"
-   }),
-   
-  {
-    hooks: {
-      async beforeCreate(newUserData) {
-        newUserData.password = await bcrypt.hash(newUserData.password, 10);
-        return newUserData;
+    }),
+        
+      class Users extends Models {
+        checkPassword(loginPw) {
+          return bcrypt.compareSync(loginPw, this.password);
+        }
       },
-    },
-    sequelize,
-    timestamps: false,
-    freezeTableName: true,
-    underscored: true,
-    modelName: 'Users',
+   
+    {
+      hooks: {
+        async beforeCreate(newUserData) {
+          newUserData.password = await bcrypt.hash(newUserData.password, 10);
+          return newUserData;
+        },
+      },
+      timestamps: false,
+      freezeTableName: true,
+      underscored: true,
+      modelName: 'Users',
+    };
+
+    return Users;
   }
-);
-
-
-module.exports = Users;
+}

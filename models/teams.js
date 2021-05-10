@@ -1,27 +1,16 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/config.json');
+module.exports = function (sequilize, DataTypes) {
 
-class Teams extends Model {}
-
-Teams.init(
-  {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true,
-    },
-   team_name: {
+  const Teams = sequilize.define("teams", {
+    team_name: {
       type: DataTypes.STRING,
       allowNull: true,
     },
-    },
-  {
-    sequelize,
-    freezeTableName: true,
-    underscored: true,
-    modelName: 'Teams',
-  }
-);
-
-module.exports = Teams;
+  },
+    {
+      freezeTableName: true,
+      underscored: true,
+      modelName: 'Teams',
+    }
+  );
+  return Teams;
+}
