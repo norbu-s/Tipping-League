@@ -13,7 +13,10 @@ module.exports = (sequelize, DataTypes) => {
         },
         email: DataTypes.STRING,
         password: DataTypes.STRING
-    }, {
+  }, {
+        notification: DataTypes.BOOLEAN
+  },
+    {
         freezeTableName: true,
         instanceMethods: {
             generateHash(password) {
