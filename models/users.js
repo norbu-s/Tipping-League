@@ -29,36 +29,36 @@ module.exports = function (sequilize, DataTypes) {
     Notification: {
       type: DataTypes.BOOLEAN,
       allowNull: true,
-    }
+    },
+    // leagueID: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false,
+    //   foreignKey: {
+    //     name: "leagueId",
+    //     allowNull: false,
+    //     onDelete: "CASCADE"
+    //   }
+    // }
   });
-  Users.associate = models => {
-    Users.hasMany(models.competition, {
-      foreignKey: {
-        name: "competitionId",
-        allowNull: false
-      },
-      onDelete: "CASCADE"
-    }),
-        
-      class Users extends Models {
-        checkPassword(loginPw) {
-          return bcrypt.compareSync(loginPw, this.password);
-        }
-      },
-   
-    {
-      hooks: {
-        async beforeCreate(newUserData) {
-          newUserData.password = await bcrypt.hash(newUserData.password, 10);
-          return newUserData;
-        },
-      },
-      timestamps: false,
-      freezeTableName: true,
-      underscored: true,
-      modelName: 'Users',
-    };
+  Users.associate = (models) => {
+    Users.belongsToMany(models.Competiton, {
+      through: 'League',
+      as: 'competiton',
+      foreignKey: 'userId'
+    });
+  };
+
+Users.prototype.validPassword = function(password) {
+    return bcrypt.compareSync(password, this.password);
+  };
+
+  Users.addHook("beforeCreate", users => {
+    users.password = bcrypt.hashSync(
+      users.password,
+      bcrypt.genSaltSync(10),
+      null
+    );
+  });
 
     return Users;
   }
-}
