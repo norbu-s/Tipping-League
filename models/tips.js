@@ -21,6 +21,7 @@ module.exports = function (sequilize, DataTypes) {
         key: 'id'
       }
     }
-  });
+    });
+
     return Tips;
   };
