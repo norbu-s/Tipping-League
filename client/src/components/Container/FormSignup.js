@@ -1,7 +1,7 @@
 import React from 'react';
 import validate from './validateInfo';
 import useForm from './useForm';
-// import './Form.css';
+
 
 const FormSignup = ({ submitForm }) => {
   const { handleChange, handleSubmit, values, errors } = useForm(
@@ -13,8 +13,7 @@ const FormSignup = ({ submitForm }) => {
     <div className='form-content-right'>
       <form onSubmit={handleSubmit} className='form' noValidate>
         <h1>
-          Get started with us today! Create your account by filling out the
-          information below.
+         Please fill in you details below to register!
         </h1>
         <div className='form-inputs'>
           <label className='form-label'>Username</label>
@@ -64,6 +63,16 @@ const FormSignup = ({ submitForm }) => {
           />
           {errors.password2 && <p>{errors.password2}</p>}
         </div>
+        <div className='form-inputs'>
+          <label className='form-label'>Notification Reminder</label>
+          <input
+            className='form-input'
+            type='checkbox'
+            name='checkbox'
+            value={values.checkbox}
+            onChange={handleChange}
+          />
+          </div>
         <button className='form-input-btn' type='submit'>
           Sign up
         </button>

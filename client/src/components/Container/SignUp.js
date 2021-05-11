@@ -64,6 +64,16 @@ const FormSignup = ({ submitForm }) => {
           />
           {errors.password2 && <p>{errors.password2}</p>}
         </div>
+        <div className='form-inputs'>
+          <label className='form-label'>Check this box to recieve a reminder for tipping</label>
+          <input
+            className='form-input'
+            type='checkbox'
+            name='checkbox'
+            value={values.checkbox}
+            onChange={handleChange}
+          />
+          </div>
         <button className='form-input-btn' type='submit'>
           Sign up
         </button>
