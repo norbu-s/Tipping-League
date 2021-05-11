@@ -1,7 +1,5 @@
 const router = require("express").Router();
-// const userRoutes = require("./user");
 
-// router.userRoute("/user", userRoutes);
 const userLoginRoutes = require("../api/userLoginapi")
 const competitionRoutes = require("../api/competitionapi");
 // const leadershipRoutes = require("./leadershipapi");
