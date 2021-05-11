@@ -13,8 +13,8 @@ module.exports = function (sequilize, DataTypes) {
     },
     email: {
       type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
+      allowNull: true,
+      unique: false,
       validate: {
         isEmail: true,
       },
@@ -48,16 +48,13 @@ module.exports = function (sequilize, DataTypes) {
     });
   };
 
-  Users.prototype.validPassword = function (password) {
+  Users.prototype.validPassword = function(password) {
     return bcrypt.compareSync(password, this.password);
   };
-
-  Users.addHook("beforeCreate", users => {
-    users.password = bcrypt.hashSync(
-      users.password,
-      bcrypt.genSaltSync(10),
-      null
-    );
+  // Hooks are automatic methods that run during various phases of the User Model lifecycle
+  // In this case, before a User is created, we will automatically hash their password
+  Users.addHook("beforeCreate", function(Users) {
+    Users.password = bcrypt.hashSync(Users.password, bcrypt.genSaltSync(10), null);
   });
 
   return Users;

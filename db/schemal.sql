@@ -5,8 +5,6 @@ CREATE DATABASE Tipping_League;
 
 USE Tipping_League;
 
-USE Tipping_League;
-
 CREATE TABLE Users(
 id INT AUTO_INCREMENT NOT NULL,
 name VARCHAR(20) NOT NULL,

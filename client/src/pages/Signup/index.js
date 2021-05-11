@@ -1,4 +1,4 @@
-import axios from 'axios';
+// import axios from 'axios';
 import React, { Component } from 'react';  
 import { Button, Card, CardFooter, CardBody, CardGroup, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';  
 // import  validateInfo from "../../components/Container/validateInfo"
@@ -54,7 +54,6 @@ class Reg extends Component {
       // "mode" : "no-cors",
       body: JSON.stringify({  
   
-  
         Name: this.state.Name,
         Email: this.state.Email,
         Password: this.state.Password,  
@@ -65,33 +64,33 @@ class Reg extends Component {
       .then((Result) => {
         let errors = {};
 
-  // if (!values.username.trim()) {
+  // if (!value.username.trim()) {
   //   errors.username = 'Username required';
   // }
-  // else if (!/^[A-Za-z]+/.test(values.name.trim())) {
+  // else if (!/^[A-Za-z]+/.test(value.name.trim())) {
   //   errors.name = 'Enter a valid name';
   // }
-  if (!values.Name) {
+  if (! this.state.Name.value) {
     errors.Name = 'Name is required';
-  } else if (abcdefghijklmnopqrstuvwxyz.test(values.Name)) {
-    errors.Name = 'Name cannot have special characters';
-    if (!values.Email) {
+  // } else if (abcdefghijklmnopqrstuvwxyz.test(value.Name)) {
+  //   errors.Name = 'Name cannot have special characters';
+    if (!this.state.Email.value) {
       errors.Email = 'Email required';
-    } else if (!/\S+@\S+\.\S+/.test(values.Email)) {
-      errors.Email = 'Email address is invalid';
+    } else if (!/\S+@\S+\.\S+/.test(this.state.Email.value)) {
+      this.state.Email.value = 'Email address is invalid';
     }
-    if (!values.password) {
+    if (!this.state.password.value) {
       errors.password = 'Password is required';
-    } else if (values.password.length < 6) {
+    } else if (this.state.password.value.length < 6) {
       errors.password = 'Password needs to be 6 characters or more';
     }
-    if (!values.password2) {
+    if (!this.state.password2) {
       errors.password2 = 'Password is required';
-    } else if (values.password2 !== values.password) {
+    } else if (this.state.password2.value !== this.state.password.value) {
       errors.password2 = 'Passwords do not match';
     }
     if (Result.Status == 'Success')
-      this.props.history.push("/Home");
+      this.state.props.history.push("/Home");
    }  else
           alert('Sorrrrrry !!!! Un-authenticated User !!!!!')  
       })  
