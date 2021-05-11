@@ -1,6 +1,6 @@
 const router = require("express").Router();
 
-const userloginRoutes = require("../api/userloginapi");
+const loginRoutes = require("../api/login");
 const competitionRoutes = require("../api/competitionapi");
 // const leadershipRoutes = require("../api/leadershipapi");
 const rapidRoutes = require("../api/rapidapi");
@@ -10,7 +10,7 @@ const usersRoutes = require("../api/usersapi");
 
 
 
-router.use("/userLoginapi", userloginRoutes);
+router.use("/loginapi", loginRoutes);
 router.use("/competitionapi", competitionRoutes);
 // router.use("/leadershipapi", leadershipRoutes);
 router.use("/rapidapi", rapidRoutes);

@@ -24,8 +24,7 @@ module.exports = {
         name:req.body.name,
         email: req.body.email,
         password: req.body.password,
-        checkbox: req.body.checkbox,
-        notification: req.body.notification
+        checlbox:req.body.checkbox,
       })
       .then(Users => res.json(Users))
       .catch(err => res.status(422).json(err));
