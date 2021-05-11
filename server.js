@@ -1,19 +1,23 @@
 const express = require("express");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
-const app = express();
-const cors = require("cors");
 const mysql = require("mysql")
-const routes = require("./routes")
 const db = require('./models');
+const routes = require("./routes");
+const cors = require("cors");
 // const session = require('express-session');
 // const sequelize = require('./config/config.json');
-// // const helpers = require('./utils/helpers');
 // const exphbs = require('express-handlebars');
 
+const app = express();
+
+// app.use((req, res, next) => {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//   next();
+// });
 
 app.use(express.json());
-
 app.use(cors());
 
 
@@ -31,26 +35,20 @@ app.use(cors());
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 
-app.engine('handlebars', hbs.engine);
-app.set('view engine', 'handlebars');
+// app.engine('handlebars', hbs.engine);
+// app.set('view engine', 'handlebars');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 }
 
-app.use("/", routes);
 
-app.post('/register', (req, res) => {
-  debug.query("INSERT INTO Users (first_name,last_name,username,password) VALUES (?,?)", (err, request) => {
-    console.log(err);
-  }
-  );
+app.use("/",routes);
+
+app.get("*", function(req, res) {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
-
-// app.get("*", function(req, res) {
-//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
-// });
 
 
 db.sequelize.sync({ force: false }).then(() => {

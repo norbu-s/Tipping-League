@@ -1,6 +1,7 @@
+import axios from 'axios';
 import React, { Component } from 'react';  
 import { Button, Card, CardFooter, CardBody, CardGroup, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';  
-import  validateInfo from "../../components/Container/validateInfo"
+// import  validateInfo from "../../components/Container/validateInfo"
 class Reg extends Component {  
   
   constructor() {  
@@ -42,21 +43,21 @@ class Reg extends Component {
     this.setState({ Checkbox: event.target.value })  
   }  
 
-  register(event) {  
+  async register(event) { 
   
-    fetch('http://localhost3001/api/userapi/', {  
+    fetch('http://localhost:3001/api/usersapi/', {  
       method: 'post',  
       headers: {  
-        'Accept': 'application/json',  
-        'Content-Type': 'application/json'  
-      },  
+        // 'Accept': '"Access-Control-Allow-Origin", "*"',
+        // 'Accept':'"Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept"',
+      },
+      // "mode" : "no-cors",
       body: JSON.stringify({  
   
   
         Name: this.state.Name,
         Email: this.state.Email,
-        Password: this.state.Password,
-        Password2: this.state.Password2,  
+        Password: this.state.Password,  
         Checkbox: this.state.Checkbox,   
       }
       )
@@ -64,15 +65,15 @@ class Reg extends Component {
       .then((Result) => {
         let errors = {};
 
-  if (!values.username.trim()) {
-    errors.username = 'Username required';
-  }
+  // if (!values.username.trim()) {
+  //   errors.username = 'Username required';
+  // }
   // else if (!/^[A-Za-z]+/.test(values.name.trim())) {
   //   errors.name = 'Enter a valid name';
   // }
   if (!values.Name) {
     errors.Name = 'Name is required';
-  } else if (abcdefghijklmnopqrstuvwxyz.test(values.email)) {
+  } else if (abcdefghijklmnopqrstuvwxyz.test(values.Name)) {
     errors.Name = 'Name cannot have special characters';
     if (!values.Email) {
       errors.Email = 'Email required';
@@ -107,7 +108,7 @@ class Reg extends Component {
                   <Form>  
                     <div className="row" className="mb-2 pageheading">  
                       <div className="heading">  
-                        <h1>Please fill in you details to Sign up</h1>
+                        <h1>Please fill in Your details to Sign up</h1>
                         </div>  
                     </div>  
                     <InputGroup className="mb-3">  

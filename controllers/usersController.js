@@ -1,5 +1,7 @@
 const db = require("../models");
 
+
+
 module.exports = {
  
   findAll: function(req, res) {
@@ -11,26 +13,33 @@ module.exports = {
   findById: function(req, res) {
     db.User
       .findById(req.params.id)
-      .then(Users => res.json(Users))
+      .then(dbUsers => res.json(dbUsers))
       .catch(err => res.status(422).json(err));
   },
-  create: function(req, res) {
+
+  SignUp: function (req, res) {
+    // console.log("test")
     db.Users
-      .create(req.body)
+      .SignUp({
+        name:req.body.name,
+        email: req.body.email,
+        password: req.body.password,
+        checlbox:req.body.checkbox,
+      })
       .then(Users => res.json(Users))
       .catch(err => res.status(422).json(err));
   },
   update: function(req, res) {
     db.Users
       .findOneAndUpdate({ _id: req.params.id }, req.body)
-      .then(Users => res.json(Users))
+      .then(dbUsers => res.json(dbUsers))
       .catch(err => res.status(422).json(err));
   },
   remove: function(req, res) {
     db.Users
       .findById({ _id: req.params.id })
-      .then(Users => Users.remove())
-      .then(Users => res.json(Users))
+      .then(dbUsers => dbUsers.remove())
+      .then(dbUsers => res.json(dbUsers))
       .catch(err => res.status(422).json(err));
   }
 };

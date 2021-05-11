@@ -3,13 +3,13 @@ const usersController = require("../../controllers/usersController");
 
 router.route("/")
   .get(usersController.findAll)
-  .post(usersController.create);
+  .post(usersController.SignUp);
 
 
 router
   .route("/:id")
   .get(usersController.findById)
-  .put(usersController.update)
-  .delete(usersController.remove);
+  // .put(usersController.update)
+  // .delete(usersController.remove);
 
 module.exports = router;
