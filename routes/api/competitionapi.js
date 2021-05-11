@@ -8,8 +8,7 @@ router.route("/")
 
 router
   .route("/:id")
-  .get(competitionController.findById)
-  .put(competitionController.update)
+  .get(competitionController.findByPk)
   .delete(competitionController.remove);
 
 module.exports = router;

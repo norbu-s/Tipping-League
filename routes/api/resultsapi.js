@@ -3,12 +3,12 @@ const resultsController = require("../../controllers/resultsController");
 
 router.route("/")
   .get(resultsController.findAll)
-  // .post(resultsController.create);
+  .post(resultsController.create);
 
 
 router
   .route("/:id")
-  .get(resultsController.findById)
+  // .get(resultsController.findByPK)
   // .put(resultsController.update)
   // .delete(resultsController.remove);
 

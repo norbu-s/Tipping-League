@@ -8,8 +8,8 @@ router.route("/")
 
 router
   .route("/:id")
-  .get(tipsController.findById)
-  .put(tipsController.update)
-  .delete(tipsController.remove);
+  // .get(tipsController.findById)
+  // .put(tipsController.update)
+  // .delete(tipsController.remove);
 
 module.exports = router;

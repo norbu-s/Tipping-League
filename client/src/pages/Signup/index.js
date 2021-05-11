@@ -48,10 +48,8 @@ class Reg extends Component {
     fetch('http://localhost:3001/api/usersapi/', {  
       method: 'post',  
       headers: {  
-        // 'Accept': '"Access-Control-Allow-Origin", "*"',
-        // 'Accept':'"Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept"',
+      "content-type": "application/json"
       },
-      // "mode" : "no-cors",
       body: JSON.stringify({  
   
         Name: this.state.Name,

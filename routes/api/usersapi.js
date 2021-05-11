@@ -2,7 +2,7 @@ const router = require("express").Router();
 const usersController = require("../../controllers/usersController");
 
 router.route("/")
-  // .get(usersController.findAll)
+  .get(usersController.findAll)
   .post(usersController.SignUp);
 
 

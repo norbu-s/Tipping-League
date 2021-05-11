@@ -23,7 +23,7 @@ FOREIGN KEY (userId) references Users (id)
 );
 
 
-REATE TABLE Tips(
+CREATE TABLE Tips(
 id INT AUTO_INCREMENT NOT NULL,
 competitionId INT NOT NULL,
 teamId INT NOT NULL,

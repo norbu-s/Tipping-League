@@ -7,12 +7,12 @@ module.exports = {
       .then(Tips => res.json(Tips))
       .catch(err => console.log(err))
   },
-  findById: function(req, res) {
-    db.Tips
-      .findById(req.params.id)
-      .then(dbTips => res.json(dbTips))
-      .catch(err => res.status(422).json(err));
-  },
+  // findById: function(req, res) {
+  //   db.Tips
+  //     .findById(req.params.id)
+  //     .then(dbTips => res.json(dbTips))
+  //     .catch(err => res.status(422).json(err));
+  // },
   create: function(req, res) {
     db.Tips
       .create(req.body)

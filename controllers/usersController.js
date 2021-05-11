@@ -4,12 +4,12 @@ const db = require("../models");
 
 module.exports = {
  
-  // findAll: function(req, res) {
-  //   db.Users
-  //     .findAll()
-  //     .then(Users => res.json(Users))
-  //     .catch(err => console.log(err))
-  // },
+  findAll: function(req, res) {
+    db.Users
+      .findAll()
+      .then(Users => res.json(Users))
+      .catch(err => console.log(err))
+  },
   // findById: function(req, res) {
   //   db.User
   //     .findById(req.params.id)
