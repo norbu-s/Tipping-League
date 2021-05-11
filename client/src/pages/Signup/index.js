@@ -48,7 +48,8 @@ class Reg extends Component {
     fetch('http://localhost:3001/api/usersapi/', {  
       method: 'post',  
       headers: {  
-      "content-type": "application/json"
+       'Content-Type': 'application/json',
+        'Accept': 'application/json'
       },
       body: JSON.stringify({  
   
@@ -77,15 +78,15 @@ class Reg extends Component {
     } else if (!/\S+@\S+\.\S+/.test(this.state.Email.value)) {
       this.state.Email.value = 'Email address is invalid';
     }
-    if (!this.state.password.value) {
-      errors.password = 'Password is required';
-    } else if (this.state.password.value.length < 6) {
-      errors.password = 'Password needs to be 6 characters or more';
+    if (!this.state.Password.value) {
+      errors.Password = 'Password is required';
+    } else if (this.state.Password.value.length < 6) {
+      errors.Password = 'Password needs to be 6 characters or more';
     }
-    if (!this.state.password2) {
-      errors.password2 = 'Password is required';
-    } else if (this.state.password2.value !== this.state.password.value) {
-      errors.password2 = 'Passwords do not match';
+    if (!this.state.Password2) {
+      errors.Password2 = 'Password is required';
+    } else if (this.state.Password2.value !== this.state.Password.value) {
+      errors.Password2 = 'Passwords do not match';
     }
     if (Result.Status == 'Success')
       this.state.props.history.push("/Home");
