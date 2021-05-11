@@ -1,34 +1,74 @@
-const db = require("../models");
+const router = require('express').Router();
+const { User } = require('../models');
 
-loginForm.on("submit", function (event) {
-    event.preventDefault();
-    var userData = {
-      email: emailInput.val().trim(),
-      password: passwordInput.val().trim()
-    };
+// CREATE new user
+router.post('/', async (req, res) => {
+  try {
+    const dbUsersData = await Users.create({
+      username: req.body.username,
+      email: req.body.email,
+      password: req.body.password,
+      notification:req.body.notification
+    });
 
-    if (!userData.email || !userData.password) {
+    req.session.save(() => {
+      req.session.loggedIn = true;
+
+      res.status(200).json(dbUsersData);
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+// Login
+router.post('/login', async (req, res) => {
+  try {
+    const dbUserData = await Users.findOne({
+      where: {
+        email: req.body.email,
+      },
+    });
+
+    if (!dbUsersData) {
+      res
+        .status(400)
+        .json({ message: 'Incorrect email or password. Please try again!' });
       return;
     }
 
-    // If we have an email and password we run the loginUser function and clear the form
-    loginUser(userData.email, userData.password);
-    emailInput.val("");
-    passwordInput.val("");
-  });
+    const validPassword = await dbUsersData.checkPassword(req.body.password);
 
-  // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
-  function loginUser(email, password) {
-    $.post("/api/login", {
-      email: email,
-      password: password
-    })
-      .then(function() {
-        window.location.replace("/members");
-        // If there's an error, log the error
-      })
-      .catch(function(err) {
-        console.log(err);
-      });
+    if (!validPassword) {
+      res
+        .status(400)
+        .json({ message: 'Incorrect email or password. Please try again!' });
+      return;
+    }
+
+    req.session.save(() => {
+      req.session.loggedIn = true;
+
+      res
+        .status(200)
+        .json({ user: dbUsersData, message: 'You are now logged in!' });
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
   }
 });
+
+// Logout
+router.post('/logout', (req, res) => {
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
+  }
+});
+
+module.exports = router;

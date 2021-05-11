@@ -1,7 +1,8 @@
 // Requiring our models and passport as we've configured it
 const bcrypt = require("bcrypt");
-const db = require("../models");
-const passport = require("../config/passport");
+const db = require("../../models");
+const passport = require("../../config/passport");
+const loginController = require("../../controllers/loginController");
 
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -17,8 +18,8 @@ module.exports = function(app) {
   app.post("/api/signup", function(req, res) {
       Tipping_League.User.create({
       email: req.body.email,
-      password: await bcrypt.hash(req.body.password, 10),
-      name: req.body.first_name,
+      password: bcrypt.hash(req.body.password, 10),
+      name: req.body.name,
       notification:  req.body.notification
     })
       .then(function() {

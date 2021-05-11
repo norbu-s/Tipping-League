@@ -14,7 +14,7 @@ module.exports = function (sequilize, DataTypes) {
     email: {
       type: DataTypes.STRING,
       allowNull: true,
-      unique: false,
+      unique: true,
       validate: {
         isEmail: true,
       },
@@ -30,15 +30,7 @@ module.exports = function (sequilize, DataTypes) {
       type: DataTypes.BOOLEAN,
       allowNull: true,
     },
-    // leagueID: {
-    //   type: DataTypes.INTEGER,
-    //   allowNull: false,
-    //   foreignKey: {
-    //     name: "leagueId",
-    //     allowNull: false,
-    //     onDelete: "CASCADE"
-    //   }
-    // }
+
   });
   Users.associate = (models) => {
     Users.belongsToMany(models.Competition, {
@@ -46,16 +38,19 @@ module.exports = function (sequilize, DataTypes) {
       as: 'competiton',
       foreignKey: 'userId'
     });
-  };
-
-  Users.prototype.validPassword = function(password) {
-    return bcrypt.compareSync(password, this.password);
-  };
-  // Hooks are automatic methods that run during various phases of the User Model lifecycle
-  // In this case, before a User is created, we will automatically hash their password
-  Users.addHook("beforeCreate", function(Users) {
-    Users.password = bcrypt.hashSync(Users.password, bcrypt.genSaltSync(10), null);
-  });
+  },
+  {
+    hooks: {
+      async beforeCreate(newUserData) {
+        newUserData.password = await bcrypt.hash(newUserData.password, 10);
+        return newUserData;
+      },
+    },
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'Users',
+  }
 
   return Users;
 };

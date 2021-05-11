@@ -22,7 +22,7 @@ class Login extends Component {
         this.setState({ Password: event.target.value })  
     }  
     login(event) {  
-        debugger;  
+        // debugger;  
         fetch('http://localhost:3001/api/login', {  
             method: 'post',  
             headers: {
@@ -55,8 +55,8 @@ class Login extends Component {
                                 <Card className="p-2">  
                                     <CardBody>  
                                         <Form>  
-                                            <div class="row" className="mb-2 pageheading">  
-                                                <div class="col-sm-12 btn btn-primary">  
+                                            <div className="row" className="mb-2 pageheading">  
+                                                <div className="col-sm-12 btn btn-primary">  
                                                     Login  
                              </div>  
                                             </div>  
