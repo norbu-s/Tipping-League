@@ -41,6 +41,7 @@
     "path": "^0.12.7",
     "react-hook-form": "^7.4.0",
     "react-router-dom": "^5.2.0",
+    "reactstrap": "^8.9.0",
     "sequelize": "^6.6.2",
     "validator": "^10.11.0",
     "zxcvbn": "^4.4.2"
