@@ -1,32 +1,23 @@
 module.exports = function (sequilize, DataTypes) {
 
-  const Results = sequilize.define("results", {
+  const Results = sequilize.define("Results", {
    
     points: {
       type: DataTypes.INTEGER,
       allowNull: true,
-    },
-    points: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-    },
+    }
   });
-  Results.associate = models => {
-    Results.hasOne(models.tips, {
-      foreignKey: {
-        name: "resultsId",
-        allowNull: false
-      },
-      onDelete: "CASCADE"
-    }),
+  
+  // Results.associate = models => {
+  //   Results.hasOne(models.Tips, {
+  //    through: 'Tips',
+  //     as: 'tips',
+  //     foreignKey: 'tipId',
+  //     onDelete: "CASCADE"
+  //   }),
 
-      Results.belongsTo(models.Tips);
-  },
-  {
-    freezeTableName: true,
-    underscored: true,
-    modelName: 'Results',
-  }
+  //     Results.belongsTo(models.Tips);
+  // };
 
   return Results;
-}
+};

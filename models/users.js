@@ -2,7 +2,7 @@
 const bcrypt = require('bcrypt');
 module.exports = function (sequilize, DataTypes) {
 
-  const Users = sequilize.define("Tips", {
+  const Users = sequilize.define("Users", {
     name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -41,14 +41,14 @@ module.exports = function (sequilize, DataTypes) {
     // }
   });
   Users.associate = (models) => {
-    Users.belongsToMany(models.Competiton, {
+    Users.belongsToMany(models.Competition, {
       through: 'League',
       as: 'competiton',
       foreignKey: 'userId'
     });
   };
 
-Users.prototype.validPassword = function(password) {
+  Users.prototype.validPassword = function (password) {
     return bcrypt.compareSync(password, this.password);
   };
 
@@ -60,5 +60,5 @@ Users.prototype.validPassword = function(password) {
     );
   });
 
-    return Users;
-  }
+  return Users;
+};

@@ -1,26 +1,26 @@
 module.exports = function (sequilize, DataTypes) {
 
-  const Competition = sequilize.define("competition", {
+  const Competition = sequilize.define("Competition", {
    
-    // name: {
-    //   type: DataTypes.STRING,
-    //   allowNull: false,
-    // },
-    // leagueID: {
-    //   type: DataTypes.INTEGER,
-    //   allowNull: false,
-    //   foreignKey: {
-    //     name: "leagueId",
-    //     allowNull: false,
-    //     onDelete: "CASCADE"
-    //   }
-    // }
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    tipId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      foreignKey: {
+      name: "tipId",
+      allowNull: false,
+      onDelete: "CASCADE"
+      }
+    }
   });
 
    Competition.associate = (models) => {
     Competition.belongsToMany(models.Users, {
       through: 'League',
-      as: 'competiton',
+      as: 'Users',
       foreignKey: 'competitionId'
     });
   };

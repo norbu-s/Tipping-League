@@ -4,34 +4,23 @@ module.exports = function (sequilize, DataTypes) {
     game: {
       type: DataTypes.INTEGER,
       allowNull: false,
+    },
+    teamsId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'Teams',
+        key: 'id'
+      }
+    },
+    competitonId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'Competition',
+        key: 'id'
+      }
     }
   });
-
-    Tips.associate = models => {
-      Tips.hasOne(models.users, {
-        foreignKey: {
-          name: "userId",
-          allowNull: false
-        },
-        foreignKey: {
-          name: "teamId",
-          allowNull: false
-        },
-        foreignKey: {
-          name: "competitionId",
-          allowNull: false
-        },
-        onDelete: "CASCADE"
-      }),
-        Tips.belongsTo(models.users);
-        Tips.belongsTo(models.competitions);
-        Tips.belongsTo(models.teams);
-    },
-   {
-      freezeTableName: true,
-      underscored: true,
-      modelName: 'Tips',
-    }
-
-  return Tips;
-}
+    return Tips;
+  };

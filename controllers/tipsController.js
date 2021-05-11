@@ -3,10 +3,9 @@ const db = require("../models");
 module.exports = {
   findAll: function(req, res) {
     db.Tips
-      .find(req.query)
-      .sort({ date: -1 })
-      .then(dbTips => res.json(dbTips))
-      .catch(err => res.status(422).json(err));
+      .findAll()
+      .then(Tips => res.json(Tips))
+      .catch(err => console.log(err))
   },
   findById: function(req, res) {
     db.Tips

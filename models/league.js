@@ -1,25 +1,22 @@
-module.exports = function (sequilize, DataTypes) {
+module.exports = function(sequelize, DataTypes) {
 
-    const League = sequilize.define('League', {
-        desc: {
-      allowNull: false,
-      type: DataTypes.STRING,
-      defaultValue: 'no description'
-    },
-    admin: {
-      allowNull: false,
+  const League = sequelize.define('League', {
+    userId: {
       type: DataTypes.INTEGER,
-      validate: {
-        notEmpty: true
+      allowNull: false,
+      references: {
+        model: 'Users',
+        key: 'id'
+      }
+    },
+    competitonId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'Competition',
+        key: 'id'
       }
     }
   });
-  League.associate = (models) => {
-    league.belongsToMany(models.Users, {
-      through: 'League',
-      as: 'users',
-      foreignKey: 'leagueId'
-    });
-  };
   return League;
 };
