@@ -1,6 +1,6 @@
 module.exports = function (sequilize, DataTypes) {
 
-  const Competition = sequilize.define("Competition", {
+  const Competitions = sequilize.define("Competitions", {
    
     name: {
       type: DataTypes.STRING,
@@ -10,20 +10,21 @@ module.exports = function (sequilize, DataTypes) {
       type: DataTypes.INTEGER,
       allowNull: false,
       foreignKey: {
-      name: "tipId",
-      allowNull: false,
-      onDelete: "CASCADE"
+        name: "tipId",
+        allowNull: false,
+        onDelete: "CASCADE"
       }
-    }
+    },
   });
+  
 
-   Competition.associate = (models) => {
-    Competition.belongsToMany(models.Users, {
+   Competitions.associate = (models) => {
+    Competitions.belongsToMany(models.Users, {
       through: 'League',
       as: 'Users',
-      foreignKey: 'competitionId'
+      foreignKey: 'CompetitionsId'
     });
   };
 
-  return Competition;
+  return Competitions;
 };

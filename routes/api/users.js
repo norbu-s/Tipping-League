@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const passport = require("../../config/passport");
 const usersController = require("../../controllers/usersController");
-const competitionController = require("../../controllers/competitionController");
+const competitionsController = require("../../controllers/competitionsController");
 const tipsController = require("../../controllers/tipsController");
 const resultsController = require("../../controllers/tipsController");
 
@@ -16,7 +16,7 @@ router.post("/login", passport.authenticate("local"), function (req, res) {
     res.json(req.user);
   });
 
-  router.post("/register", usersController.SignUp, (req, res) => {
+router.post("/register", usersController.SignUp, (req, res) => {
   req.login(user, function(err) {
     if (err) { return next(err); }
     return res.json(req.user);
@@ -51,17 +51,17 @@ router.post("/login", passport.authenticate("local"), function (req, res) {
   });
 
   //Routes for Competiton 
-router.route("/competition")
-  .post(competitionController.create, function (req, res) {
+router.route("/competitions")
+  .post(competitionsController.create, function (req, res) {
     res.status(200).send("Competition has been successfully created!")
   });
 
-  router.post("competition/", competitionController.findAll)
-  router.post("competition/:id", competitionController.findById)
+  router.post("competitions/", competitionsController.findAll)
+  router.post("competitions/:id", competitionsController.findById)
 
-  router.route("/competition/:id")
-  .put(competitionController.update)
-  .delete(competitionController.remove)
+  router.route("/competitions/:id")
+  .put(competitionsController.update)
+  .delete(competitionsController.remove)
 
 //Routes for Tips
 router.route("/tips")
@@ -80,7 +80,7 @@ router.route("/tips")
   //Routes for Results
   router.route("/results")
   .post(resultsController.create, function(req, res) {
-    res.status(200).send("tip has been added!")
+    res.status(200).send("Reults has been added!")
   })
 
   router.get("results/", resultsController.findAll)

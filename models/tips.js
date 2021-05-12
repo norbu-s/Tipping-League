@@ -13,7 +13,7 @@ module.exports = function (sequilize, DataTypes) {
         key: 'id'
       }
     },
-    competitonId: {
+    competitonsId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {

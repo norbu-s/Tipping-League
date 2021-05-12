@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
 
-  const League = sequelize.define('League', {
+  const Leagues = sequelize.define('Leagues', {
     userId: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -9,14 +9,14 @@ module.exports = function(sequelize, DataTypes) {
         key: 'id'
       }
     },
-    competitonId: {
+    competitonsId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'Competition',
+        model: 'Leagues',
         key: 'id'
       }
     }
   });
-  return League;
+  return Leagues;
 };
