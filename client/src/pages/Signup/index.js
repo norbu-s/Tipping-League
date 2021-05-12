@@ -43,7 +43,7 @@ class Reg extends Component {
 
   async register(event) { 
   
-    fetch('http://localhost:3001/api/usersapi/', {  
+    fetch('http://localhost:3001/api/usersapi/signup', {  
       method: 'post',  
       headers: {  
        'Content-Type': 'application/json',

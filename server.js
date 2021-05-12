@@ -1,12 +1,13 @@
 const express = require("express");
-const path = require("path");
+// const path = require("path");
 const PORT = process.env.PORT || 3001;
-const mysql = require("mysql")
-const db = require('./models');
-const routes = require("./routes");
-const cors = require("cors");
+// const mysql = require("mysql")
+// const db = require('./models');
+// const routes = require("./routes");
+// const cors = require("cors");
 const session = require('express-session');
 const sequelize = require('./config/config.json');
+const passport = require("./config/passport");
 // const exphbs = require('express-handlebars');
 
 const app = express();
@@ -25,13 +26,11 @@ const sess = {
 
 app.use(session(sess));
 
-// const hbs = exphbs.create({ helpers });
+
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 
-// app.engine('handlebars', hbs.engine);
-// app.set('view engine', 'handlebars');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -39,7 +38,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 }
 
 
-app.use("/",routes);
+app.use("/", routes);
+require("./routes/api/html-routes.js")(app);
 
 // app.get("*", function(req, res) {
 //   res.sendFile(path.join(__dirname, "./client/build/index.html"));

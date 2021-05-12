@@ -20,15 +20,15 @@ module.exports = {
       .then(dbCompetition => res.json(dbCompetition))
       .catch(err => res.status(422).json(err));
   },
-  // update: function(req, res) {
-  //   db.Competition
-  //     .findOneAndUpdate({ _id: req.params.id }, req.body)
-  //     .then(dbCompetition => res.json(dbCompetition))
-  //     .catch(err => res.status(422).json(err));
-  // },
+  update: function(req, res) {
+    db.Competition
+      .findOneAndUpdate({ _id: req.params.id }, req.body)
+      .then(dbCompetition => res.json(dbCompetition))
+      .catch(err => res.status(422).json(err));
+  },
   remove: function(req, res) {
     db.Competition
-      .findById({ _id: req.params.id })
+      .findByPk({ _id: req.params.id })
       .then(dbCompetition => dbCompetition.remove())
       .then(dbCompetition => res.json(dbCompetition))
       .catch(err => res.status(422).json(err));

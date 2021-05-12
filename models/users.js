@@ -12,10 +12,6 @@ module.exports = function (sequilize, DataTypes) {
     name: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: false,
-      validate: {
-        len: [1, 40],
-      },
     },
     email: {
       type: DataTypes.STRING,
@@ -28,9 +24,6 @@ module.exports = function (sequilize, DataTypes) {
     password: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        len: [8, 30],
-      },
     },
     // notification: {
     //   type: DataTypes.BOOLEAN,
