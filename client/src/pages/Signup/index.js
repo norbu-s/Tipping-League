@@ -58,32 +58,36 @@ class Reg extends Component {
       }
       )
     }).then((Response) => Response.json())  
-      .then((Result) => {
-        let errors = {};
+      .then((result) => {
+        console.log(result);
+        if (result.Status == 'Invalid')  
+                    alert('Invalid User');  
+                else
+                    window.location.href="/"
 
-  if (! this.name.value) {
-    errors.name = 'Name is required';
-  // } else if (abcdefghijklmnopqrstuvwxyz.test(value.Name)) {
-  //   errors.Name = 'Name cannot have special characters';
-    if (! this.email.value) {
-      errors.email = 'Email required';
-    } else if (!/\S+@\S+\.\S+/.test(this.email.value)) {
-      this.email.value = 'Email address is invalid';
-    }
-    if (!this.password.value) {
-      errors.password = 'Password is required';
-    } else if (this.password.value.length < 6) {
-      errors.password = 'Password needs to be 6 characters or more';
-    }
-    if (!this.password2) {
-      errors.password2 = 'Password is required';
-    } else if (this.state.password2.value !== this.password.value) {
-      errors.password2 = 'Passwords do not match';
-    }
-    if (Result.Status == 'Success')
-      props.history.push("/Home");
-   }  else
-          alert('Sorrrrrry !!!! Un-authenticated User !!!!!')  
+  // if (! this.name) {
+  //   errors.name = 'Name is required';
+  // // } else if (abcdefghijklmnopqrstuvwxyz.test(value.Name)) {
+  // //   errors.Name = 'Name cannot have special characters';
+  //   if (! this.email) {
+  //     errors.email = 'Email required';
+  //   } else if (!/\S+@\S+\.\S+/.test(this.email)) {
+  //     this.email = 'Email address is invalid';
+  //   }
+  //   if (!this.password) {
+  //     errors.password = 'Password is required';
+  //   } else if (this.password.length < 6) {
+  //     errors.password = 'Password needs to be 6 characters or more';
+  //   }
+  //   if (!this.password2) {
+  //     errors.password2 = 'Password is required';
+  //   } else if (this.password2 !== this.password) {
+  //     errors.password2 = 'Passwords do not match';
+  //   }
+  //   if (Result.Status == 'Success')
+  //     window.location.href="/Home"
+  //  }  else
+  //         alert('Sorrrrrry !!!! Un-authenticated User !!!!!')  
       })  
   }
   

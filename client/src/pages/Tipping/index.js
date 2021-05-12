@@ -7,7 +7,7 @@ function Tipping() {
     )
 
     React.useEffect(function () {
-        fetch('http://localhost:3001/api/rapidapi/matches')
+        fetch('http://localhost:3001/api/rapid/matches')
             .then(res => {
                 return (res.json())
             }).then(rank => {

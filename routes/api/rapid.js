@@ -26,7 +26,7 @@ router.get("/table", function (req, res) {
 
 router.get("/matches", function (req, res) {
     // res.json("it works")
-    fetch("https://heisenbug-premier-league-live-scores-v1.p.rapidapi.com/api/premierleague?matchday=35", {
+    fetch("https://heisenbug-premier-league-live-scores-v1.p.rapidapi.com/api/premierleague/match/events", {
         headers: {
             "x-rapidapi-key": "8ca7052b47mshbb0b7605acc559ep1584fejsnddfe3689550a",
             "x-rapidapi-host": "heisenbug-premier-league-live-scores-v1.p.rapidapi.com",

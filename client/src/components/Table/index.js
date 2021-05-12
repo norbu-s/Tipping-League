@@ -1,4 +1,4 @@
-import "./style.css";
+// import "./style.css";
 
 
 function Table(props) {
@@ -10,9 +10,9 @@ function Table(props) {
             </thead>
            <tbody>{
                 //js to cycle to all user print another row with first name and last name.(m)
-                props.users.map(user => {
+                props.teams.map(teams => {
                     return (
-                     <tr key={records.team}><td>{records.played}</td><td>{records.win}</td><td>{records.draw}</td><td>{records.loss}</td><td>{records.goalsFor}</td><td>{records.goalsAgainst}</td><td>{records.points}</td></tr>
+                     <tr key={teams.team}><td>{teams.played}</td><td>{teams.win}</td><td>{teams.draw}</td><td>{teams.loss}</td><td>{teams.goalsFor}</td><td>{teams.goalsAgainst}</td><td>{teams.points}</td></tr>
                         )
                     })
             }</tbody> 

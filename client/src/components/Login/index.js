@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import { Link, useHistory } from "react-router-dom";
  
 // import './App.css';  
 import { Button, Card, CardBody, CardGroup, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';  
 class Login extends Component {  
     constructor() {  
-        super();  
+        super();
+        
+        // let history = useHistory();
   
         this.state = {  
             email: '',  
@@ -40,8 +43,7 @@ class Login extends Component {
                 if (result.Status == 'Invalid')  
                     alert('Invalid User');  
                 else
-                    window.location.href="/Home"
-                    // this.props.history.push("/Home");  
+                    this.props.history.push("/Home");  
             })  
     }  
   
@@ -60,7 +62,7 @@ class Login extends Component {
                                             <div className="row" className="mb-2 pageheading">  
                                                 <div className="col-sm-12 btn btn-primary">  
                                                     Login  
-                             </div>  
+                                            </div>  
                                             </div>  
                                             <InputGroup className="mb-3">  
   

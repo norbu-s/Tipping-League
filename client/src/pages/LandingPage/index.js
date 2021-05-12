@@ -11,7 +11,7 @@ import "./style.css";
 function LandingPage(props) {
     console.log(props)
     return (
-      <div>
+      <div className ="landing-page">
           <nav id="index-navbar" className={`navbar navbar-expand-lg navbar-light col-12 dawn-background-2`}>
           <button id="index-nav-toggler" className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
@@ -39,7 +39,7 @@ function LandingPage(props) {
             </div>
         <div className="login">
           
-          {/* <Login history = {} /> */}
+          <Login />
             </div>
         </div>
     )
