@@ -9,7 +9,7 @@ module.exports = function(sequelize, DataTypes) {
         key: 'id'
       }
     },
-    competitonsId: {
+    competitionsId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {

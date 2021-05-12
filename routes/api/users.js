@@ -16,18 +16,22 @@ router.post("/login", passport.authenticate("local"), function (req, res) {
     res.json(req.user);
   });
 
-router.post("/register", usersController.SignUp, (req, res) => {
-  req.login(user, function(err) {
-    if (err) { return next(err); }
-    return res.json(req.user);
-    })
-      .then(function() {
-        res.redirect(307, "/login");
-      })
-      .catch(function(err) {
-        res.status(401).json(err);
-      });
-  });
+router.post("/register", usersController.SignUp)
+  // (req, res)
+// { 
+//   console.log("test")
+//   usersController.SignUp()
+  // req.login(users, function (err) {
+  //   if (err) { return next(err); }
+  //   return res.json(req.user);
+  //   })
+  //     .then(function() {
+  //       res.redirect(307, "/login");
+  //     })
+  //     .catch(function(err) {
+  //       res.status(401).json(err);
+  //     });
+  // });
 
   // Route for logging user out
   router.get("/logout", function(req, res) {

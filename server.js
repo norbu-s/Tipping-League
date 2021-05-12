@@ -25,6 +25,7 @@ const sess = {
   saveUninitialized: false,
 };
 
+app.use(passport.initialize());
 app.use(session(sess));
 
 

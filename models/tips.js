@@ -17,7 +17,7 @@ module.exports = function (sequilize, DataTypes) {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'Competition',
+        model: 'Competitions',
         key: 'id'
       }
     }

@@ -1,4 +1,5 @@
-import React, { Component } from 'react';  
+import React, { Component } from 'react';
+ 
 // import './App.css';  
 import { Button, Card, CardBody, CardGroup, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';  
 class Login extends Component {  
@@ -6,20 +7,20 @@ class Login extends Component {
         super();  
   
         this.state = {  
-            Email: '',  
-            Password: ''  
+            email: '',  
+            password: ''  
         }  
   
-        this.Password = this.Password.bind(this);  
-        this.Email = this.Email.bind(this);  
+        this.password = this.password.bind(this);  
+        this.email = this.email.bind(this);  
         this.login = this.login.bind(this);  
     }  
   
-    Email(event) {  
-        this.setState({ Email: event.target.value })  
+    email(event) {  
+        this.setState({ email: event.target.value })  
     }  
-    Password(event) {  
-        this.setState({ Password: event.target.value })  
+    password(event) {  
+        this.setState({ password: event.target.value })  
     }  
     login(event) {  
         // debugger;  
@@ -30,16 +31,17 @@ class Login extends Component {
                 'Content-Type': 'application/json'  
             },  
             body: JSON.stringify({  
-                Email: this.state.Email,  
-                Password: this.state.Password  
+                email: this.state.email,  
+                password: this.state.password  
             })  
         }).then((Response) => Response.json())  
             .then((result) => {  
                 console.log(result);  
                 if (result.Status == 'Invalid')  
                     alert('Invalid User');  
-                else  
-                    this.props.history.push("/Home");  
+                else
+                    window.location.href="/Home"
+                    // this.props.history.push("/Home");  
             })  
     }  
   
@@ -62,11 +64,11 @@ class Login extends Component {
                                             </div>  
                                             <InputGroup className="mb-3">  
   
-                                                <Input type="text" onChange={this.Email} placeholder="Enter Email" />  
+                                                <Input type="text" onChange={this.email} placeholder="Enter Email" />  
                                             </InputGroup>  
                                             <InputGroup className="mb-4">  
   
-                                                <Input type="password" onChange={this.Password} placeholder="Enter Password" />  
+                                                <Input type="password" onChange={this.password} placeholder="Enter Password" />  
                                             </InputGroup>  
                                             <Button onClick={this.login} color="success" block>Login</Button>  
                                         </Form>  

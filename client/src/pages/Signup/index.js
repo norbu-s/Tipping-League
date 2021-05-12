@@ -103,16 +103,16 @@ class Reg extends Component {
                         </div>  
                     </div>  
                     <InputGroup className="mb-3">  
-                      <Input type="text" onChange={this.Name} placeholder="Enter Your Full Name" />  
+                      <Input type="text" onChange={this.name} placeholder="Enter Your Full Name" />  
                     </InputGroup>  
                     <InputGroup className="mb-3">  
-                      <Input type="text"  onChange={this.Email} placeholder="Enter Email" />  
+                      <Input type="text"  onChange={this.email} placeholder="Enter Email" />  
                     </InputGroup>  
                     <InputGroup className="mb-3">  
-                      <Input type="password"  onChange={this.Password} placeholder="Enter Password" />  
+                      <Input type="password"  onChange={this.password} placeholder="Enter Password" />  
                     </InputGroup>  
                     <InputGroup className="mb-3">  
-                      <Input type="password" onChange={this.Password2} placeholder="Enter Password" />
+                      <Input type="password" onChange={this.password2} placeholder="Enter Password" />
                       </InputGroup>  
                     <InputGroup className="mb-3">  
                       <Input type="checkbox"  onChange={this.checkbox} />  

@@ -8,7 +8,8 @@ import "./style.css";
 
 
 
-  function LandingPage () {
+function LandingPage(props) {
+    console.log(props)
     return (
       <div>
           <nav id="index-navbar" className={`navbar navbar-expand-lg navbar-light col-12 dawn-background-2`}>
@@ -36,8 +37,9 @@ import "./style.css";
                 <p>Click the button below to make you own tipping competition.</p>
                 <Link to="../SignUp/" className="btn btn-primary">Sign Up</Link>
             </div>
-            <div className="login">
-          <Login />
+        <div className="login">
+          
+          {/* <Login history = {} /> */}
             </div>
         </div>
     )
