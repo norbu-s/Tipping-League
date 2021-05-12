@@ -1,46 +1,44 @@
 // import axios from 'axios';
 import React, { Component } from 'react';  
 import { Button, Card, CardFooter, CardBody, CardGroup, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';  
-// import  validateInfo from "../../components/Container/validateInfo"
 class Reg extends Component {  
   
   constructor() {  
     super();  
   
     this.state = {  
-      Name: '',  
-      Email: '',  
-      Password: '',
-      Password2:'',
-      Checkbox: false  
+      name: '',  
+      email: '',  
+      password: '',
+      password2:'',
+      checkbox: false  
     }  
   
-    this.Name = this.Name.bind(this)
-    this.Email = this.Email.bind(this);  
-    this.Password = this.Password.bind(this);
-    this.Password2 = this.Password2.bind(this);
-    this.Checkbox = this.Checkbox.bind(this);    
+    this.name = this.name.bind(this)
+    this.email = this.email.bind(this);  
+    this.password = this.password.bind(this);
+    this.password2 = this.password2.bind(this);
+    this.checkbox = this.checkbox.bind(this);    
     this.register = this.register.bind(this);  
   }  
   
-  Name(event) {  
-    this.setState({ Name: event.target.value })  
+  name(event) {  
+    this.setState({ name: event.target.value })  
   }  
   
-  
-  Email(event) {  
-    this.setState({ Email: event.target.value })  
+  email(event) {  
+    this.setState({ email: event.target.value })  
   }  
   
-  Password(event) {  
-    this.setState({ Password: event.target.value })  
+  password(event) {  
+    this.setState({ password: event.target.value })  
   }  
   
-  Password2(event) {
-      this.setState({ Password2: event.target.value })  
+  password2(event) {
+      this.setState({ password2: event.target.value })  
   }  
-  Checkbox(event) {  
-    this.setState({ Checkbox: event.target.value })  
+  checkbox(event) {  
+    this.setState({ checkbox: event.target.value })  
   }  
 
   async register(event) { 
@@ -53,47 +51,42 @@ class Reg extends Component {
       },
       body: JSON.stringify({  
   
-        Name: this.state.Name,
-        Email: this.state.Email,
-        Password: this.state.Password,  
-        Checkbox: this.state.Checkbox,   
+        name: this.state.name,
+        email: this.state.email,
+        password: this.state.password,  
+        checkbox: this.state.checkbox,   
       }
       )
     }).then((Response) => Response.json())  
       .then((Result) => {
         let errors = {};
 
-  // if (!value.username.trim()) {
-  //   errors.username = 'Username required';
-  // }
-  // else if (!/^[A-Za-z]+/.test(value.name.trim())) {
-  //   errors.name = 'Enter a valid name';
-  // }
-  if (! this.state.Name.value) {
-    errors.Name = 'Name is required';
+  if (! this.name.value) {
+    errors.name = 'Name is required';
   // } else if (abcdefghijklmnopqrstuvwxyz.test(value.Name)) {
   //   errors.Name = 'Name cannot have special characters';
-    if (!this.state.Email.value) {
-      errors.Email = 'Email required';
-    } else if (!/\S+@\S+\.\S+/.test(this.state.Email.value)) {
-      this.state.Email.value = 'Email address is invalid';
+    if (! this.email.value) {
+      errors.email = 'Email required';
+    } else if (!/\S+@\S+\.\S+/.test(this.email.value)) {
+      this.email.value = 'Email address is invalid';
     }
-    if (!this.state.Password.value) {
-      errors.Password = 'Password is required';
-    } else if (this.state.Password.value.length < 6) {
-      errors.Password = 'Password needs to be 6 characters or more';
+    if (!this.password.value) {
+      errors.password = 'Password is required';
+    } else if (this.password.value.length < 6) {
+      errors.password = 'Password needs to be 6 characters or more';
     }
-    if (!this.state.Password2) {
-      errors.Password2 = 'Password is required';
-    } else if (this.state.Password2.value !== this.state.Password.value) {
-      errors.Password2 = 'Passwords do not match';
+    if (!this.password2) {
+      errors.password2 = 'Password is required';
+    } else if (this.state.password2.value !== this.password.value) {
+      errors.password2 = 'Passwords do not match';
     }
     if (Result.Status == 'Success')
-      this.state.props.history.push("/Home");
+      props.history.push("/Home");
    }  else
           alert('Sorrrrrry !!!! Un-authenticated User !!!!!')  
       })  
-    }
+  }
+  
     render() {  
   
     return (  
@@ -110,7 +103,7 @@ class Reg extends Component {
                         </div>  
                     </div>  
                     <InputGroup className="mb-3">  
-                      <Input type="text"  onChange={this.Name} placeholder="Enter Your Full Name" />  
+                      <Input type="text" onChange={this.Name} placeholder="Enter Your Full Name" />  
                     </InputGroup>  
                     <InputGroup className="mb-3">  
                       <Input type="text"  onChange={this.Email} placeholder="Enter Email" />  
@@ -124,7 +117,8 @@ class Reg extends Component {
                     <InputGroup className="mb-3">  
                       <Input type="checkbox"  onChange={this.checkbox} />  
                     </InputGroup>   
-                    <Button  onClick={this.register}  color="success" block>Create Account</Button>  
+                    <Button onClick={this.register} color="success" block>Create Account</Button>
+                    <useFrom />
                   </Form>  
                 </CardBody>  
               </Card>  

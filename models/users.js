@@ -32,10 +32,10 @@ module.exports = function (sequilize, DataTypes) {
         len: [8, 30],
       },
     },
-    Notification: {
-      type: DataTypes.BOOLEAN,
-      allowNull: true,
-    },
+    // notification: {
+    //   type: DataTypes.BOOLEAN,
+    //   allowNull: true,
+    // },
 
   });
   Users.associate = (models) => {
