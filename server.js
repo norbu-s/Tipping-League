@@ -1,10 +1,10 @@
 const express = require("express");
-// const path = require("path");
+const path = require("path");
 const PORT = process.env.PORT || 3001;
-// const mysql = require("mysql")
-// const db = require('./models');
-// const routes = require("./routes");
-// const cors = require("cors");
+const mysql = require("mysql")
+const db = require('./models');
+const routes = require("./routes");
+const cors = require("cors");
 const session = require('express-session');
 const sequelize = require('./config/config.json');
 const passport = require("./config/passport");

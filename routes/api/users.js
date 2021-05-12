@@ -10,7 +10,7 @@ router.post("/login", passport.authenticate("local"), function (req, res) {
     res.json(req.user);
   });
 
-  router.post("/signup", usersController.SignUp, (req, res) => {
+  router.post("/register", usersController.SignUp, (req, res) => {
   req.login(user, function(err) {
     if (err) { return next(err); }
     return res.json(req.user);

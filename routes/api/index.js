@@ -1,9 +1,9 @@
 const router = require("express").Router();
 
-const rapidRoutes = require("../api/rapidapi");
-const usersRoutes = require("../api/usersapi");
+const rapidRoutes = require("./rapid");
+const usersRoutes = require("./users");
 
-router.use("/rapidapi", rapidRoutes);
-router.use("/usersapi", usersRoutes);
+router.use("/rapid", rapidRoutes);
+router.use("/users", usersRoutes);
 
 module.exports = router;
