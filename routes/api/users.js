@@ -22,7 +22,7 @@ router.post("/register", usersController.SignUp, (req, res) => {
     return res.json(req.user);
     })
       .then(function() {
-        res.redirect(307, "/api/login");
+        res.redirect(307, "/login");
       })
       .catch(function(err) {
         res.status(401).json(err);
@@ -36,7 +36,7 @@ router.post("/register", usersController.SignUp, (req, res) => {
   });
 
   // Route for getting some data about our user to be used client side
-  router.get("/api/user_data", function(req, res) {
+  router.get("/user_data", function(req, res) {
     if (!req.user) {
       // The user is not logged in, send back an empty object
       res.json({});

@@ -39,7 +39,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 }
 
 app.use("/", routes)
-// require("./routes/")(app);
 
 
 app.get("*", function(req, res) {
