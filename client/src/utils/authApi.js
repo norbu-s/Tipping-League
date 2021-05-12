@@ -5,6 +5,6 @@ const url = "http://localhost:3001";
 
 export default {
   register: function() {
-    return axios.get(url + "/api/user/authenticated", {withCredentials: true});
+    return axios.get(url + "/api/users/authenticated", {withCredentials: true});
   },
 };

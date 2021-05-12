@@ -8,6 +8,7 @@ const cors = require("cors");
 const session = require('express-session');
 const sequelize = require('./config/config.json');
 const passport = require("./config/passport");
+const router = require("./routes/api/rapid");
 // const exphbs = require('express-handlebars');
 
 const app = express();
@@ -37,13 +38,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 }
 
+app.use("/", routes)
+// require("./routes/")(app);
 
-app.use("/", routes);
-require("./routes/api/html-routes.js")(app);
 
-// app.get("*", function(req, res) {
-//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
-// });
+app.get("*", function(req, res) {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
 
 
 db.sequelize.sync({ force: false }).then(() => {

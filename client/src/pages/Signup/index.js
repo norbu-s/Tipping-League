@@ -43,7 +43,7 @@ class Reg extends Component {
 
   async register(event) { 
   
-    fetch('http://localhost:3001/api/users/signup', {  
+    fetch('http://localhost:3001/api/users/register', {  
       method: 'post',  
       headers: {  
        'Content-Type': 'application/json',
@@ -54,7 +54,7 @@ class Reg extends Component {
         name: this.state.name,
         email: this.state.email,
         password: this.state.password,  
-        checkbox: this.state.checkbox,   
+        // checkbox: this.state.checkbox,   
       }
       )
     }).then((Response) => Response.json())  

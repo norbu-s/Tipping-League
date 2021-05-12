@@ -8,9 +8,9 @@ module.exports = {
       .then(dbCompetition => res.json(dbCompetition))
       .catch(err => res.status(422).json(err));
   },
-  findByPk: function(req, res) {
+  findById: function(req, res) {
     db.Competition
-      .findByPk(req.params.id)
+      .findById(req.params.id)
       .then(dbCompetition => res.json(dbCompetition))
       .catch(err => res.status(422).json(err));
   },

@@ -5,6 +5,12 @@ const competitionController = require("../../controllers/competitionController")
 const tipsController = require("../../controllers/tipsController");
 const resultsController = require("../../controllers/tipsController");
 
+router.get("/authenticated", (req, res) => {
+  if (req.user) {
+    return res.json({ isAuthenticated: true, id: req.user.id });
+  } 
+  return res.json({ isAuthenticated: false });
+});
 
 router.post("/login", passport.authenticate("local"), function (req, res) {
     res.json(req.user);
@@ -50,8 +56,8 @@ router.route("/competition")
     res.status(200).send("Competition has been successfully created!")
   });
 
-  router.get("competition/", competitionController.findAll)
-  router.get("competition/:id", competitionController.findByPk)
+  router.post("competition/", competitionController.findAll)
+  router.post("competition/:id", competitionController.findById)
 
   router.route("/competition/:id")
   .put(competitionController.update)
@@ -72,7 +78,7 @@ router.route("/tips")
 
 
   //Routes for Results
-  router.route("/tips")
+  router.route("/results")
   .post(resultsController.create, function(req, res) {
     res.status(200).send("tip has been added!")
   })
