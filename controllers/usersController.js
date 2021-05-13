@@ -8,7 +8,7 @@ const usersController = {
         name:req.body.name,
         email: req.body.email,
         password: req.body.password,
-        // notification:req.body.notification,
+        notification:req.body.notification,
       })
       .then(Users => res.json(Users))
       .catch(err => {
