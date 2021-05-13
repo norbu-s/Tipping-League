@@ -1,20 +1,23 @@
 const express = require("express");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
-const mysql = require("mysql")
+// const mysql = require("mysql")
 const db = require('./models');
 const routes = require("./routes");
 const cors = require("cors");
 const session = require('express-session');
-const sequelize = require('./config/config.json');
+// const sequelize = require('./config/config.json');
 const passport = require("./config/passport");
-const router = require("./routes/api/rapid");
+// const router = require("./routes/api/rapid");
+
 // const exphbs = require('express-handlebars');
+// const cron = require('node-cron');
 
 const app = express();
 
-const dotenv = require('dotenv');
-dotenv.config();
+
+// const dotenv = require('dotenv');
+// dotenv.config();
 
 app.use(express.json());
 app.use(cors());
@@ -47,6 +50,7 @@ app.use("/", routes)
 app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
+
 
 
 db.sequelize.sync({ force: false }).then(() => {

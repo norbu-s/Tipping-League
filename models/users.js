@@ -33,7 +33,7 @@ module.exports = function (sequilize, DataTypes) {
   });
   Users.associate = (models) => {
     Users.belongsToMany(models.Competitions, {
-      through: 'League',
+      through: 'Leagues',
       as: 'Competitons',
       foreignKey: 'userId'
     });

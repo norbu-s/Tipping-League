@@ -4,7 +4,7 @@ module.exports = function (sequilize, DataTypes) {
     team_name: {
       type: DataTypes.STRING,
       allowNull: true,
-    }
+    },
   });
 
   Teams.associate = (models) => {
