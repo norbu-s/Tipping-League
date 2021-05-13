@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 // import Search from '../../components/Search';
 // import Table from '../../components/Table';
 import Header from "../../components/Header";
-import Button from "../../components/Button";
+// import Button from "../../components/Button";
 
 function Home() {
     const [teams, setTeams] = React.useState(

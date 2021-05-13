@@ -2,23 +2,24 @@ import React from 'react'
 import Header from "../../components/Header"
 
 function Tipping() {
-    const [rank, setRank] = React.useState(
+    const [tips, setTips] = React.useState(
         []
     )
 
     React.useEffect(function () {
-        fetch('http://localhost:3001/api/rapid/matches')
+        fetch('http://localhost:3001/api/users/fixtures')
             .then(res => {
                 return (res.json())
-            }).then(rank => {
-                setUsers(rank.results)
+            }).then(tips => {
+                setTips(tips.results)
             })
     }, [])
-    console.log(res)
+    // console.log(res)
      return (
-    <div className="App">
+         <div className="App">
+           <Header />
       <h1>English Premier League Standings</h1>
-      <Table rank={filteredRank}/>
+      {/* <Table rank={filteredRank}/> */}
     </div>
   );
 }

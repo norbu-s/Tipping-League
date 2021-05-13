@@ -4,6 +4,7 @@ const usersController = require("../../controllers/usersController");
 const competitionsController = require("../../controllers/competitionsController");
 const tipsController = require("../../controllers/tipsController");
 const resultsController = require("../../controllers/tipsController");
+const fixturesController = require("../../controllers/fixturesController");
 
 router.get("/authenticated", (req, res) => {
   if (req.user) {
@@ -17,21 +18,7 @@ router.post("/login", passport.authenticate("local"), function (req, res) {
   });
 
 router.post("/register", usersController.SignUp)
-  // (req, res)
-// { 
-//   console.log("test")
-//   usersController.SignUp()
-  // req.login(users, function (err) {
-  //   if (err) { return next(err); }
-  //   return res.json(req.user);
-  //   })
-  //     .then(function() {
-  //       res.redirect(307, "/login");
-  //     })
-  //     .catch(function(err) {
-  //       res.status(401).json(err);
-  //     });
-  // });
+
 
   // Route for logging user out
   router.get("/logout", function(req, res) {
@@ -93,4 +80,8 @@ router.route("/tips")
   // router.route("/results/:id")
   // .put(resultsController.update)
   // .delete(resultsController.remove)
+
+  //Routes for Fixtures
+    router.get("/fixtures", fixturesController.findAll)
+
 module.exports = router;
