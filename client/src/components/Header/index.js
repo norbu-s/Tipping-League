@@ -13,21 +13,21 @@ function Header() {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent"> 
             <ul id="index-link" className="navbar-nav ml-auto">
-                <li className={`nav-item`}>
-                <Link id="home" className={`nav-link dawn-color dawn-underline`} to="/login">Login</Link>
-                </li>
+                {/* <li className={`nav-item`}> */}
+                <Link id="home" className={`nav-link dawn-color dawn-underline`} to="/logout">Logout</Link>
+                {/* </li> */}
                 {/* <li className={`nav-item`}>
                 <Link className={`nav-link dawn-color`} to="/league">League</Link>
                 </li>
                 <li className={`nav-item`}>
                 <Link className={`nav-link dawn-color`} to="/signup">Signup</Link>
                 </li> */}
-                <li className={`nav-item`}>
+                {/* <li className={`nav-item`}> */}
                 <Link className={`nav-link dawn-color`} to="/results">Results</Link>
-                </li>
-                 <li className={`nav-item`}>
-                <Link className={`nav-link dawn-color`} to="/leadership">Leadership Board</Link>     
-              </li>
+                {/* </li> */}
+                 {/* <li className={`nav-item`}> */}
+                <Link className={`nav-link dawn-color`} to="/leadership">Leader Board</Link>     
+              {/* </li> */}
             </ul>
           </div>  
         </nav>

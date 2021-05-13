@@ -31,7 +31,7 @@ function App() {
             <Route exact path="/Home">
               <Home />
               </Route>
-            <Route exact path="/SignUp">
+            <Route exact path="/Signup">
               <SignUp />
             </Route>
             {/* <Route exact path="/League">
@@ -43,8 +43,11 @@ function App() {
             <Route exact path="/Results">
               <Results />
             </Route>
-            <Route exact path="/leadership">
+            <Route exact path="/Leadership">
               <Leadership />
+                </Route>
+              <Route exact path="/Logout">
+              <Landing />
             </Route>
           </Switch>
         </div>

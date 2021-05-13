@@ -63,7 +63,7 @@ class Reg extends Component {
         if (result.Status == 'Invalid')  
                     alert('Invalid User');  
                 else
-                    window.location.href="/"
+                    window.location.href="/Home/"
 
   // if (! this.name) {
   //   errors.name = 'Name is required';
