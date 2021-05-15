@@ -7,13 +7,5 @@ module.exports = function (sequilize, DataTypes) {
     },
   });
 
-  Teams.associate = (models) => {
-    Teams.belongsToMany(models.Results, {
-      through: 'Tips',
-      as: 'teams',
-      foreignKey: 'teamsId'
-    });
-  };
-
   return Teams;
 }

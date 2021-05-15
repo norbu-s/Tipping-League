@@ -3,12 +3,6 @@ const bcrypt = require('bcrypt');
 module.exports = function (sequilize, DataTypes) {
 
   const Users = sequilize.define("Users", {
-    // id: {
-    //   type: DataTypes.INTEGER,
-    //   autoIncrement: true,
-    //   primaryKey: true,
-    //   unique: true, 
-    // },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -29,16 +23,17 @@ module.exports = function (sequilize, DataTypes) {
       type: DataTypes.BOOLEAN,
       allowNull: true,
     },
-
   });
+
+  // Users.belongsToMany(Competitons, { through: 'UserCompetitons' });
+  
   Users.associate = (models) => {
-    Users.belongsToMany(models.Competitions, {
-      through: 'Leagues',
-      as: 'Competitons',
-      foreignKey: 'userId'
+    Users.hasMany(models.Tips, {
+      as: "Tips",
+      foreignKey:"usersId"
     });
-  },
-    
+  };
+  
   Users.prototype.validPassword = function(password) {
     return bcrypt.compareSync(password, this.password);
   };

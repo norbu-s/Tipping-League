@@ -29,6 +29,6 @@ module.exports = function (sequilize, DataTypes) {
             type: DataTypes.INTEGER,
             allowNull: true,
         },
-    })
+    });
     return Fixtures;
 };

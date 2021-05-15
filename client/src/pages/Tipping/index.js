@@ -1,7 +1,6 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
-// import Search from '../../components/Search';
 // import Table from '../../components/Table';
 import Header from "../../components/Header";
 // import Button from "../../components/Button";
@@ -39,7 +38,6 @@ function Home() {
             })
     }, [])
 
-    }
     return (
         <div className="App">
             <Header />
@@ -51,4 +49,4 @@ function Home() {
     );
 }
 
-    export default Home;
+export default Home;

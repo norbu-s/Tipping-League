@@ -1,27 +1,48 @@
 module.exports = function (sequilize, DataTypes) {
 
   const Tips = sequilize.define("Tips", {
-    game: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
+    tipsId: {
+       type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true    
     },
-    teamsId: {
+    teamId: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'Teams',
-        key: 'id'
+      allowNull: true,
+      foreignKey: {
+        name: "teamsId",
+        allowNull: true,
       }
     },
-    competitonsId: {
+    draw:{
+      type: DataTypes.BOOLEAN,
+      allowNull: true,
+    },
+    points: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'Competitions',
-        key: 'id'
+      allowNull: true,
+    },
+    fixturesId: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      foreignKey: {
+        name: "fixturesId",
+        allowNull: false,
       }
-    }
-    });
+    },
+  });
+  Tips.associate = (models) => {
+    Tips.hasOne(models.Fixtures, {
+      as: "Fixtures",
+      foreignKey:"fixturesId"
 
+    });
+  };
+  Tips.associate = (models) => {
+    Tips.hasOne(models.Teams, {
+      as: "Teams",
+      foreignKey:"teamsId"
+    });
+  };
     return Tips;
   };

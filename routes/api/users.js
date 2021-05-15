@@ -1,7 +1,6 @@
 const router = require("express").Router();
 const passport = require("../../config/passport");
 const usersController = require("../../controllers/usersController");
-const competitionsController = require("../../controllers/competitionsController");
 const tipsController = require("../../controllers/tipsController");
 const resultsController = require("../../controllers/tipsController");
 const fixturesController = require("../../controllers/fixturesController");
@@ -42,19 +41,6 @@ router.post("/register", usersController.SignUp)
     }
   });
 
-  //Routes for Competiton 
-router.route("/competitions")
-  .post(competitionsController.create, function (req, res) {
-    res.status(200).send("Competition has been successfully created!")
-  });
-
-  router.post("competitions/", competitionsController.findAll)
-  router.post("competitions/:id", competitionsController.findById)
-
-  router.route("/competitions/:id")
-  .put(competitionsController.update)
-  .delete(competitionsController.remove)
-
 //Routes for Tips
 router.route("/tips")
   .post(tipsController.create, function(req, res) {
@@ -63,9 +49,10 @@ router.route("/tips")
 
   router.get("tips/", tipsController.findAll)
   router.get("tips/:id", tipsController.findById)
+  router.put("tips/:id", tipsController.addPoints)
+
 
   router.route("/tips/:id")
-  .put(tipsController.update)
   .delete(tipsController.remove)
 
 

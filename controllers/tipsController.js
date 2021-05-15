@@ -15,13 +15,19 @@ module.exports = {
   },
   create: function(req, res) {
     db.Tips
-      .create(req.body)
+      .create({
+        game: req.body.game,
+        teams: req.body.teams,
+        competitonsId: req.body.competitonsId,
+        draw: req.body.draw,
+      })
       .then(dbTips => res.json(dbTips))
       .catch(err => res.status(422).json(err));
   },
-  update: function(req, res) {
+  addPoints: function(req, res) {
     db.Tips
-      .findOneAndUpdate({ _id: req.params.id }, req.body)
+      .findOneAndUpdate({ _id: req.params.id },
+        req.body.points)
       .then(dbTips => res.json(dbTips))
       .catch(err => res.status(422).json(err));
   },

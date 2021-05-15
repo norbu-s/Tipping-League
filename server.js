@@ -1,7 +1,7 @@
 const express = require("express");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
-// const mysql = require("mysql")
+const mysql = require("mysql")
 const db = require('./models');
 const routes = require("./routes");
 const cors = require("cors");
@@ -12,9 +12,18 @@ const nodemailer = require('nodemailer');
 const app = express();
 const fs = require('fs');
 const fetch = require("node-fetch");
-const { default: axios } = require("axios");
+require ("dotenv").config();
+// const { default: axios } = require("axios");
+const { addPoints } = require("./controllers/tipsController");
+var env       = process.env.NODE_ENV || 'development';
+var config = require('./config/config.json')[env];
 
-
+var connection = mysql.createConnection({
+  host     : config.host,
+  user     : config.username,
+  password : config.password,
+  database : config.my_db
+})
 
 app.use(cors({
   credentials: true,
@@ -25,72 +34,81 @@ app.use(cors({
 //Test for scheduled Job
 app.use(express.json());
 
+// Schedule tasks to be run on the server.
+// cron.schedule('* * * * *', function () {
+//  let teams;
 
-cron.schedule('11 01 15 * *', function () {
-  console.log('---------------------');
-  console.log('Running Cron Job');
-  var unirest = require("unirest");
+//   fetch('http://localhost:3001/api/rapid/table')
+//             .then(res => {
+//                 return (res.json())
+//             })
+//   const results = teams.filter((team) => {
+//     if (teams.team1.score > teams.team2.score,
+        
 
-  var req = unirest("GET", "https://heisenbug-premier-league-live-scores-v1.p.rapidapi.com/api/premierleague");
+//       )
+      
+//       fetch('http://localhost:3001/api/rapid/table', {
+//         method: 'post',  
+//          headers: {  
+//        'Content-Type': 'application/json',
+//         'Accept': 'application/json'
+//       },
+//       body: JSON.stringify({  
+//         points: this.state.points,    
+//       }
+//       )
+//       }).then((Response) => Response.json())  
+//       .then((result) => {
+//         console.log(result);
 
-  req.query({
-    "live": "true"
-  });
-});
+   
+//   })
 
-req.headers({
-	"x-rapidapi-key": "xxxxxxxxx",
-	"x-rapidapi-host": "xxxxxxxx",
-	"useQueryString": true
-});
-
-
-req.end(function (res) {
-	if (res.error) throw new Error(res.error);
-
-	console.log(res.body);
-});
-
+//     console.log("return", teams)
+//   console.log('running a task every minute');
+// });
 
 let transporter = nodemailer.createTransport({
   service:"Gmail",
   auth: {
-    user: 'xxxxxxx@gmail.com',
-    pass: 'xxxxxxxxxxxxx'
+    user: process.env.EMAIL_SENDER,
+    pass: process.env.EMAIL_PASSWORD
   },
   tls:{
         rejectUnauthorized:false
     }
 });
 
-cron.schedule('47 00 14 * *', function () {
-  const result = [];
-  mysql.connection.query("SELECT email From Tipping_League.Users where notification = 1;",
+cron.schedule('55 21 15 * *', function () {
+  connection.query("SELECT email From Tipping_League.Users where notification = 1;",
     function (error, results, fields) {
       if (error) throw error;
-      console.log(result[0]);
+      console.log(results);
+      results.forEach(result => {
+        console.log("send email to", result)
+        let messageOptions = {
+        from: 'Tipping League',
+        to: result.email,
+        subject: 'Tipping Reminder',
+        text: "Hi there. Don't forget to tip this weekend."
+        };
+          transporter.sendMail(messageOptions, function(error, info) {
+        if (error) {
+          throw error;
+        } else {
+          console.log('Email successfully sent!');
+        }
+  });
+      })
     // Any operations on the data retrieved from the query here.
-})
+
 
   console.log('---------------------');
   console.log('Running Cron Job');
  
-
-  let messageOptions = {
-    from: 'Tipping League',
-    to: result,
-    subject: 'Tipping Reminder',
-    text: "Hi there. Don't forget to tip this weekend."
-  };
-
-  transporter.sendMail(messageOptions, function(error, info) {
-    if (error) {
-      throw error;
-    } else {
-      console.log('Email successfully sent!');
-    }
-  });
 });
+})
 
 
 // Serve up static assets (usually on heroku)

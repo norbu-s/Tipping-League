@@ -8,8 +8,8 @@ router.get("/table", function (req, res) {
     // res.json("it works")
     fetch("https://heisenbug-premier-league-live-scores-v1.p.rapidapi.com/api/premierleague/table", {
         headers: {
-            "x-rapidapi-key": "8ca7052b47mshbb0b7605acc559ep1584fejsnddfe3689550a",
-            "x-rapidapi-host": "heisenbug-premier-league-live-scores-v1.p.rapidapi.com",
+            "x-rapidapi-key": process.env.API_KEY,
+            "x-rapidapi-host": process.env.API_URL,
             "useQueryString": true
         }
     }
@@ -28,8 +28,8 @@ router.get("/matches", function (req, res) {
     // res.json("it works")
     fetch("https://heisenbug-premier-league-live-scores-v1.p.rapidapi.com/api/premierleague/match/events", {
         headers: {
-            "x-rapidapi-key": "8ca7052b47mshbb0b7605acc559ep1584fejsnddfe3689550a",
-            "x-rapidapi-host": "heisenbug-premier-league-live-scores-v1.p.rapidapi.com",
+            "x-rapidapi-key": process.env.API_KEY,
+            "x-rapidapi-host": process.env.API_URL,
             "useQueryString": true
         }
     }

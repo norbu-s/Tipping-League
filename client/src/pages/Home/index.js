@@ -10,9 +10,9 @@ function Home() {
     const [teams, setTeams] = React.useState(
         []
     )
-        const[searchText, setSearchText] = React.useState(
-        ""
-      )
+    //     const[searchText, setSearchText] = React.useState(
+    //     ""
+    //   )
     React.useEffect(function () {
         fetch('http://localhost:3001/api/rapid/table')
             .then(res => {
@@ -21,12 +21,12 @@ function Home() {
                 setTeams(teams.records)
             })
     }, [])
-    const filteredTeams = teams.filter ( (team) => {
-        if (teams.team.toLowerCase().includes(searchText.toLowerCase()))
-        return true;
-        else return false;
-    })
-    console.log("return", teams)
+    // const filteredTeams = teams.filter ( (team) => {
+    //     if (teams.team.toLowerCase().includes(searchText.toLowerCase()))
+    //     return true;
+    //     else return false;
+    // })
+    // console.log("return", teams)
     return (
         <div className="App">
             <Header />
