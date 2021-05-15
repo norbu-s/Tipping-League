@@ -31,15 +31,16 @@ cron.schedule('11 01 15 * *', function () {
   console.log('Running Cron Job');
   var unirest = require("unirest");
 
-var req = unirest("GET", "https://heisenbug-premier-league-live-scores-v1.p.rapidapi.com/api/premierleague");
+  var req = unirest("GET", "https://heisenbug-premier-league-live-scores-v1.p.rapidapi.com/api/premierleague");
 
-req.query({
-	"live": "true"
+  req.query({
+    "live": "true"
+  });
 });
 
 req.headers({
-	"x-rapidapi-key": "ac34d3c942msh9afb02ea49970a9p1a1af6jsnbedf0f5785b4",
-	"x-rapidapi-host": "heisenbug-premier-league-live-scores-v1.p.rapidapi.com",
+	"x-rapidapi-key": "xxxxxxxxx",
+	"x-rapidapi-host": "xxxxxxxx",
 	"useQueryString": true
 });
 
@@ -54,8 +55,8 @@ req.end(function (res) {
 let transporter = nodemailer.createTransport({
   service:"Gmail",
   auth: {
-    user: 'tu1466896@gmail.com',
-    pass: 'lxwomnqwfatsubtw'
+    user: 'xxxxxxx@gmail.com',
+    pass: 'xxxxxxxxxxxxx'
   },
   tls:{
         rejectUnauthorized:false
