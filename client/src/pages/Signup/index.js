@@ -11,14 +11,14 @@ class Reg extends Component {
       email: '',  
       password: '',
       password2:'',
-      checkbox: false  
+      notification: 0  
     }  
   
     this.name = this.name.bind(this)
     this.email = this.email.bind(this);  
     this.password = this.password.bind(this);
     this.password2 = this.password2.bind(this);
-    this.checkbox = this.checkbox.bind(this);    
+    this.notification = this.notification.bind(this);    
     this.register = this.register.bind(this);  
   }  
   
@@ -37,8 +37,9 @@ class Reg extends Component {
   password2(event) {
       this.setState({ password2: event.target.value })  
   }  
-  checkbox(event) {  
-    this.setState({ checkbox: event.target.value })  
+  notification(event) {
+    console.log(event.target.checked)
+    this.setState({ notification: event.target.checked })  
   }  
 
   async register(event) { 
@@ -54,7 +55,7 @@ class Reg extends Component {
         name: this.state.name,
         email: this.state.email,
         password: this.state.password,  
-        // checkbox: this.state.checkbox,   
+        notification: this.state.notification,   
       }
       )
     }).then((Response) => Response.json())  
@@ -119,7 +120,7 @@ class Reg extends Component {
                       <Input type="password" onChange={this.password2} placeholder="Enter Password" />
                       </InputGroup>  
                     <InputGroup className="mb-3">  
-                      <Input type="checkbox"  onChange={this.checkbox} />  
+                      <Input type="checkbox"  onChange={this.notification} />  
                     </InputGroup>   
                     <Button onClick={this.register} color="success" block>Create Account</Button>
                     <useFrom />

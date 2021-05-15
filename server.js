@@ -35,40 +35,29 @@ app.use(cors({
 app.use(express.json());
 
 // Schedule tasks to be run on the server.
-// cron.schedule('* * * * *', function () {
-//  let teams;
-
-//   fetch('http://localhost:3001/api/rapid/table')
-//             .then(res => {
-//                 return (res.json())
-//             })
-//   const results = teams.filter((team) => {
-//     if (teams.team1.score > teams.team2.score,
-        
-
-//       )
-      
-//       fetch('http://localhost:3001/api/rapid/table', {
-//         method: 'post',  
-//          headers: {  
-//        'Content-Type': 'application/json',
-//         'Accept': 'application/json'
-//       },
-//       body: JSON.stringify({  
-//         points: this.state.points,    
-//       }
-//       )
-//       }).then((Response) => Response.json())  
-//       .then((result) => {
-//         console.log(result);
-
-   
-//   })
-
-//     console.log("return", teams)
-//   console.log('running a task every minute');
-// });
-
+cron.schedule('42 22 15 * *', function () {
+  fetch('https://heisenbug-premier-league-live-scores-v1.p.rapidapi.com/api/premierleague?', {
+    headers: {
+      "x-rapidapi-key": process.env.API_KEY,
+      "x-rapidapi-host": process.env.API_URL,
+      "useQueryString": true
+    }
+  })
+    .then(res => {
+      return (res.json())
+    }).then(results => {
+      console.log(results)
+      results.forEach(result => {
+        console.log(result)
+        if (result.team1.teamScore === result.team1.teamScore) { addPoints }
+        if (result.team1.teamScore > result.team1.teamScore) { }
+      })
+     
+      // console.log("return", teams)
+      console.log('running a task every minute');
+    });
+});
+  
 let transporter = nodemailer.createTransport({
   service:"Gmail",
   auth: {

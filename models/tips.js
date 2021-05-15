@@ -1,12 +1,7 @@
 module.exports = function (sequilize, DataTypes) {
 
   const Tips = sequilize.define("Tips", {
-    tipsId: {
-       type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true    
-    },
-    teamId: {
+    teamsId: {
       type: DataTypes.INTEGER,
       allowNull: true,
       foreignKey: {
