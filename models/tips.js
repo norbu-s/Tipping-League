@@ -26,18 +26,18 @@ module.exports = function (sequilize, DataTypes) {
       }
     },
   });
-  Tips.associate = (models) => {
-    Tips.hasOne(models.Fixtures, {
-      as: "Fixtures",
-      foreignKey:"fixturesId"
+  // Tips.associate = (models) => {
+  //   Tips.hasOne(models.Fixtures, {
+  //     as: "Fixtures",
+  //     foreignKey:"fixturesId"
 
-    });
-  };
-  Tips.associate = (models) => {
-    Tips.hasOne(models.Teams, {
-      as: "Teams",
-      foreignKey:"teamsId"
-    });
-  };
+  //   });
+  // };
+  // Tips.associate = (models) => {
+  //   Tips.hasOne(models.Teams, {
+  //     as: "Teams",
+  //     foreignKey:"teamsId"
+  //   });
+  // };
     return Tips;
   };

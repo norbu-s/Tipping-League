@@ -14,9 +14,10 @@ const fs = require('fs');
 const fetch = require("node-fetch");
 require ("dotenv").config();
 // const { default: axios } = require("axios");
-const { addPoints } = require("./controllers/tipsController");
+// const { addPoints } = require("./controllers/tipsController");
 var env       = process.env.NODE_ENV || 'development';
 var config = require('./config/config.json')[env];
+
 
 var connection = mysql.createConnection({
   host     : config.host,
@@ -35,8 +36,8 @@ app.use(cors({
 app.use(express.json());
 
 // Schedule tasks to be run on the server.
-cron.schedule('42 22 15 * *', function () {
-  fetch('https://heisenbug-premier-league-live-scores-v1.p.rapidapi.com/api/premierleague?', {
+cron.schedule('53 01 16 * *', function () {
+  fetch('https://heisenbug-premier-league-live-scores-v1.p.rapidapi.com/api/premierleague?matchday:1', {
     headers: {
       "x-rapidapi-key": process.env.API_KEY,
       "x-rapidapi-host": process.env.API_URL,
@@ -49,16 +50,15 @@ cron.schedule('42 22 15 * *', function () {
       console.log(results)
       results.forEach(result => {
         console.log(result)
-        if (result.team1.teamScore === result.team1.teamScore) { addPoints }
-        if (result.team1.teamScore > result.team1.teamScore) { }
-        if (result.team1.teamScore > result.team1.teamScore) { }
+        // if (result.team1.teamScore === result.team1.teamScore) { addPoints }
+        // if (result.team1.teamScore > result.team1.teamScore) { }
+        // if (result.team1.teamScore > result.team1.teamScore) { }
       })
      
       // console.log("return", teams)
       console.log('running a task every minute');
     });
 });
-  
 let transporter = nodemailer.createTransport({
   service:"Gmail",
   auth: {

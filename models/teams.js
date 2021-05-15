@@ -6,6 +6,11 @@ module.exports = function (sequilize, DataTypes) {
       allowNull: true,
     },
   });
-
+  Teams.associate = (models) => {
+    Teams.hasMany(models.Tips, {
+      as: "Tips",
+      foreignKey: "teamsId"
+    });
+  }
   return Teams;
 }

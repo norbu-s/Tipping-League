@@ -30,5 +30,11 @@ module.exports = function (sequilize, DataTypes) {
             allowNull: true,
         },
     });
+    Fixtures.associate = (models) => {
+    Fixtures.hasMany(models.Tips, {
+      as: "Tips",
+      foreignKey:"fixturesId"
+    });
+  };
     return Fixtures;
 };

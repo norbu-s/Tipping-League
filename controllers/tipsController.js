@@ -38,4 +38,5 @@ module.exports = {
       .then(dbTips => res.json(dbTips))
       .catch(err => res.status(422).json(err));
   }
+  
 };
