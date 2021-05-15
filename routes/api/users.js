@@ -5,6 +5,7 @@ const competitionsController = require("../../controllers/competitionsController
 const tipsController = require("../../controllers/tipsController");
 const resultsController = require("../../controllers/tipsController");
 const fixturesController = require("../../controllers/fixturesController");
+const jobController = require("../../controllers/jobController");
 
 router.get("/authenticated", (req, res) => {
   if (req.user) {
@@ -82,6 +83,11 @@ router.route("/tips")
   // .delete(resultsController.remove)
 
   //Routes for Fixtures
-    router.get("/fixtures", fixturesController.findAll)
+router.get("/fixtures", fixturesController.findAll)
+    
+
+//Routes for scheduled Job
+
+router.get("/notification", jobController.mailingList)
 
 module.exports = router;

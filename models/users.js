@@ -3,12 +3,12 @@ const bcrypt = require('bcrypt');
 module.exports = function (sequilize, DataTypes) {
 
   const Users = sequilize.define("Users", {
-    id: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
-      primaryKey: true,
-      unique: true, 
-    },
+    // id: {
+    //   type: DataTypes.INTEGER,
+    //   autoIncrement: true,
+    //   primaryKey: true,
+    //   unique: true, 
+    // },
     name: {
       type: DataTypes.STRING,
       allowNull: false,

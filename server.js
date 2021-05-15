@@ -11,6 +11,8 @@ const cron = require('node-cron');
 const nodemailer = require('nodemailer');
 const app = express();
 const fs = require('fs');
+const fetch = require("node-fetch");
+const { default: axios } = require("axios");
 
 
 
@@ -21,37 +23,61 @@ app.use(cors({
 }));
 
 //Test for scheduled Job
-// app.use(express.json());
-// cron.schedule('20 20 13 * *', function() {
-//   console.log('---------------------');
-//   console.log('Running Cron Job');
-//   fs.unlink('./error.log', err => {
-//     if (err) throw err;
-//     console.log('Error file successfully deleted');
-//   });
-// });
+app.use(express.json());
+
+
+cron.schedule('11 01 15 * *', function () {
+  console.log('---------------------');
+  console.log('Running Cron Job');
+  var unirest = require("unirest");
+
+var req = unirest("GET", "https://heisenbug-premier-league-live-scores-v1.p.rapidapi.com/api/premierleague");
+
+req.query({
+	"live": "true"
+});
+
+req.headers({
+	"x-rapidapi-key": "ac34d3c942msh9afb02ea49970a9p1a1af6jsnbedf0f5785b4",
+	"x-rapidapi-host": "heisenbug-premier-league-live-scores-v1.p.rapidapi.com",
+	"useQueryString": true
+});
+
+
+req.end(function (res) {
+	if (res.error) throw new Error(res.error);
+
+	console.log(res.body);
+});
+
 
 let transporter = nodemailer.createTransport({
-  // host: 'smtp.icloud.com',
-  // port: 587,
-  // secure: true,
   service:"Gmail",
   auth: {
     user: 'tu1466896@gmail.com',
-    pass: 'xxxxxxxxxx'
+    pass: 'lxwomnqwfatsubtw'
   },
   tls:{
         rejectUnauthorized:false
     }
 });
 
-cron.schedule('25 21 13 * *', function() {
+cron.schedule('47 00 14 * *', function () {
+  const result = [];
+  mysql.connection.query("SELECT email From Tipping_League.Users where notification = 1;",
+    function (error, results, fields) {
+      if (error) throw error;
+      console.log(result[0]);
+    // Any operations on the data retrieved from the query here.
+})
+
   console.log('---------------------');
   console.log('Running Cron Job');
+ 
 
   let messageOptions = {
     from: 'Tipping League',
-    to: 'xxxxxxx@hotmail.com',
+    to: result,
     subject: 'Tipping Reminder',
     text: "Hi there. Don't forget to tip this weekend."
   };
