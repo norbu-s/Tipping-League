@@ -51,6 +51,7 @@ cron.schedule('42 22 15 * *', function () {
         console.log(result)
         if (result.team1.teamScore === result.team1.teamScore) { addPoints }
         if (result.team1.teamScore > result.team1.teamScore) { }
+        if (result.team1.teamScore > result.team1.teamScore) { }
       })
      
       // console.log("return", teams)
