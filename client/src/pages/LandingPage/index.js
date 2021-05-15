@@ -33,8 +33,8 @@ function LandingPage(props) {
         </nav>
 
             <div className="sign-up">
-                <h2>Build you own custom tipping competition </h2>
-                <p>Click the button below to make you own tipping competition.</p>
+                <h2>Enter Tipping Competition </h2>
+                <p>Click the button below to enter and compete against payers from all around the world..</p>
                 <Link to="../SignUp/" className="btn btn-primary">Sign Up</Link>
             </div>
         <div className="login">
