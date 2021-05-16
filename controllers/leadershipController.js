@@ -1,14 +1,17 @@
-// const db = require("../models");
-// const router = require('express').Router();
+const db = require("../models");
+// const leaderBoard = require ("../mysqlQueries/leaderBoard");
 
-// const leadershipController = {
-//  findAll: function(req, res) {
-//     db.Leadership
-//       .findAll()
-//       .then(Leadership => res.json(Leadership))
-//       .catch(err => console.log(err))
-//   },
+const leadershipController = {
+  leaderBoard: function (req, res) {
+    db.points
+      .leaderBoard({
+        "SELECT  name, points from Tipping_League.Users Inner Join Tipping_League.Tips on Users.id = Tips.usersIdorder by points ASC;":
+        function(error, points) {
+          if (error) throw error;
+          console.log(points);
+        }
+      });
+  }
+}
 
-// }
-
-// module.exports = leadershipController;
+module.exports = leadershipController;

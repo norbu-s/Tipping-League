@@ -1,4 +1,5 @@
 
+import fetch from 'node-fetch';
 import React, { Component } from 'react';  
 import { Button, Card, CardFooter, CardBody, CardGroup, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';  
 
@@ -10,17 +11,22 @@ class Tips extends Component {
         super();
   
         this.state = {
-            teamsId: '',
+            team1: '',
+            team2: '',
             draw: '',
             fixtures:[]
         }
   
-        this.teamsId = this.teamsId.bind(this)
+        this.team1 = this.team1.bind(this);
+        this.team2 = this.team2.bind(this);
+        this.fixturesId = this.fixturesId.bind(this);
+        this.usersId = this.usersId.bind(this);
         this.draw = this.draw.bind(this);
         this.enterTips = this.enterTips.bind(this);
     }
     componentDidMount() {
-         fetch('/api/users/fixtures').then((Response) => Response.json())
+        fetch('http://localhost:3001/api/users/fixtures')
+            .then((Response) => Response.json())
             .then((result) => {
                 console.log(result);
                 this.setState({fixtures:result})
@@ -31,17 +37,43 @@ class Tips extends Component {
             })
     }
     
-    teamsId(event) {
-        this.setState({ teamsId: event.target.checked })
+    team1(event) {
+        this.setState({ teams1: fixtures.result.teamId.event.target.checked })
     }
-    
+    team2(event) {
+        this.setState({ teams2: fixtures.result.teamId.event.target.checked })
+    }
+    // fixturesId(event) {
+    //     this.setState({ fixturesId: fixtures.result.teamId.event.target.checked })
+    // }
+    // usersId(event) {
+    //     this.setState({ usersId: fixtures.result.teamId.event.target.checked })
+    // }
+
     draw(event) {
         this.setState({ draw: event.target.checked })
     }
-    
+
     async enterTips(event) {
-  
-       
+
+        fetch('http://localhost:3001/api/users/tips', {
+            method: 'post',  
+        headers: {  
+       'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+
+            body: JSON.stringify({
+                teamId: this.state.team1,
+                teamId: this.state.team2,
+                draw: this.state.draw,
+                fixturesId: this.state.fixturesId,
+                usersId: this.state.usersId
+            })
+        }).then((Response) => Response.json())
+            .then((result) => {
+                console.log(result);
+            })
     }
   
    render() {  
@@ -61,9 +93,13 @@ class Tips extends Component {
                                                         {this.state.fixtures.length > 0 ? this.state.fixtures.map(fixture => {
                                                             return (
                                                                 <span>
-                                                                     <Input type="checkbox" onChange={this.teamsId}   />
+                                                                     <Input type="checkbox" onChange={this.team1}   />
                                                                     {fixture.home_team}
+                                                                    <Input type="checkbox" onChange={this.team2} />
+                                                                    {fixture.away_team}
+                                                                    <Input type="checkbox" onChange={this.draw}   />
                                                                 </span>
+                                                                
                                                             )
                                                         }):""}
                                                     </InputGroup>

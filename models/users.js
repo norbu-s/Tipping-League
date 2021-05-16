@@ -1,5 +1,6 @@
 
 const bcrypt = require('bcrypt');
+const leaderBoard = require('../mysqlQueries/leaderBoard');
 module.exports = function (sequilize, DataTypes) {
 
   const Users = sequilize.define("Users", {
@@ -62,3 +63,4 @@ module.exports = function (sequilize, DataTypes) {
 
   return Users;
 };
+

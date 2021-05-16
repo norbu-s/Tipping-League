@@ -4,7 +4,10 @@ const usersController = require("../../controllers/usersController");
 const tipsController = require("../../controllers/tipsController");
 const resultsController = require("../../controllers/tipsController");
 const fixturesController = require("../../controllers/fixturesController");
-const jobController = require("../../controllers/jobController");
+const leadershipController = require("../../controllers/leadershipController");
+const bcrypt = require('bcrypt');
+
+const Users = require('../../models/users');
 
 router.get("/authenticated", (req, res) => {
   if (req.user) {
@@ -17,14 +20,24 @@ router.post("/login", passport.authenticate("local"), function (req, res) {
     res.json(req.user);
   });
 
-router.post("/register", usersController.SignUp)
 
-
-  // Route for logging user out
-  router.get("/logout", function(req, res) {
-    req.logout();
-    res.redirect("/");
+router.post("/register", usersController.SignUp, (req, res) => {
+  req.login(user, function(err) {
+    if (err) { return next(err); }
+    return res.json(req.user);
   });
+});
+
+
+router.get("/logged-in", (req, res) => {
+  res.json({isAuthenticated:req.isAuthenticated()});
+});
+
+router.get('/logout', (req, res) => {
+  req.logout(); // This is a simple functionality provided by passport to log out a user and destroy any sessions associated with the user.
+  res.send(200);
+  res.redirect("/");
+})
 
   // Route for getting some data about our user to be used client side
   router.get("/user_data", function(req, res) {
@@ -47,7 +60,7 @@ router.route("/tips")
     res.status(200).send("tip has been added!")
   })
 
-  router.get("tips/", tipsController.findAll)
+  router.get("tips/all", tipsController.findAll)
   router.get("tips/:id", tipsController.findById)
   router.put("tips/:id", tipsController.addPoints)
 
@@ -73,8 +86,7 @@ router.route("/tips")
 router.get("/fixtures", fixturesController.findAll)
     
 
-//Routes for scheduled Job
+//Routes for LeaderBoard
 
-router.get("/notification", jobController.mailingList)
-
+router.get("/leaderboard", leadershipController.leaderBoard)
 module.exports = router;

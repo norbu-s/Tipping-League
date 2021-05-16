@@ -10,9 +10,7 @@ function Home() {
     const [teams, setTeams] = React.useState(
         []
     )
-    //     const[searchText, setSearchText] = React.useState(
-    //     ""
-    //   )
+ 
     React.useEffect(function () {
         fetch('http://localhost:3001/api/rapid/table')
             .then(res => {

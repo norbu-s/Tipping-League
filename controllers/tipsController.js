@@ -16,10 +16,10 @@ module.exports = {
   create: function(req, res) {
     db.Tips
       .create({
-        game: req.body.game,
-        teams: req.body.teams,
-        competitonsId: req.body.competitonsId,
+       teamsId:req.body.teamsId,
+       usersId: req.body.usersId,
         draw: req.body.draw,
+       fixturesId:req.body.fixturesId,
       })
       .then(dbTips => res.json(dbTips))
       .catch(err => res.status(422).json(err));

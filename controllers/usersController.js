@@ -9,12 +9,8 @@ const usersController = {
         email: req.body.email,
         password: req.body.password,
         notification:req.body.notification,
-      })
-      .then(Users => res.json(Users))
-      .catch(err => {
-        console.log(err)
-        res.status(422).json(err)
-      });
+      }).then(Users => res.json(Users))
+      .catch(err => console.log(err))
   },
   findAll: function(req, res) {
     db.Users
