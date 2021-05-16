@@ -1,7 +1,8 @@
 const express = require("express");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
-const mysql = require("mysql")
+const mysql = require("mysql");
+const mysql2 = require('mysql2');
 const db = require('./models');
 const routes = require("./routes");
 const cors = require("cors");
@@ -13,9 +14,7 @@ const app = express();
 const fs = require('fs');
 const fetch = require("node-fetch");
 require ("dotenv").config();
-// const { default: axios } = require("axios");
-// const { addPoints } = require("./controllers/tipsController");
-var env       = process.env.NODE_ENV || 'development';
+var env = process.env.NODE_ENV || 'development';
 var config = require('./config/config.json')[env];
 
 
@@ -23,7 +22,7 @@ var connection = mysql.createConnection({
   host     : config.host,
   user     : config.username,
   password : config.password,
-  database : config.my_db
+  database: config.my_db
 })
 
 app.use(cors({

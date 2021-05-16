@@ -25,10 +25,6 @@ module.exports = function (sequilize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: true,
         },
-        results: {
-            type: DataTypes.INTEGER,
-            allowNull: true,
-        },
     });
     Fixtures.associate = (models) => {
     Fixtures.hasMany(models.Tips, {

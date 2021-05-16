@@ -7,6 +7,14 @@ module.exports = function (sequilize, DataTypes) {
       foreignKey: {
         name: "teamsId",
         allowNull: true,
+      },
+      usersId: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+        foreignKey: {
+          name: "usersId",
+          allowNull: true,
+        }
       }
     },
     draw:{
@@ -26,18 +34,6 @@ module.exports = function (sequilize, DataTypes) {
       }
     },
   });
-  // Tips.associate = (models) => {
-  //   Tips.hasOne(models.Fixtures, {
-  //     as: "Fixtures",
-  //     foreignKey:"fixturesId"
 
-  //   });
-  // };
-  // Tips.associate = (models) => {
-  //   Tips.hasOne(models.Teams, {
-  //     as: "Teams",
-  //     foreignKey:"teamsId"
-  //   });
-  // };
     return Tips;
   };
