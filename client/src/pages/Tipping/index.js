@@ -12,11 +12,23 @@ class Tips extends Component {
         this.state = {
             teamsId: '',
             draw: '',
+            fixtures:[]
         }
   
         this.teamsId = this.teamsId.bind(this)
         this.draw = this.draw.bind(this);
         this.enterTips = this.enterTips.bind(this);
+    }
+    componentDidMount() {
+         fetch('/api/users/fixtures').then((Response) => Response.json())
+            .then((result) => {
+                console.log(result);
+                this.setState({fixtures:result})
+                // if (result.Status == 'Invalid')
+                //     alert('Error');
+                // else
+                //     window.location.href = "/Home/"
+            })
     }
     
     teamsId(event) {
@@ -29,24 +41,7 @@ class Tips extends Component {
     
     async enterTips(event) {
   
-        fetch('http://localhost:3001/api/users/tips', {
-            method: 'post',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                teamsId: this.state.teamsId,
-                draw: this.state.draw
-            })
-        }).then((Response) => Response.json())
-            .then((result) => {
-                console.log(result);
-                if (result.Status == 'Invalid')
-                    alert('Error');
-                else
-                    window.location.href = "/Home/"
-            })
+       
     }
   
    render() {  
@@ -62,7 +57,15 @@ class Tips extends Component {
                                             <CardBody className="p-4">
                                                 <Form>
                                                     <InputGroup className="mb-3">
-                                                        <Input type="checkbox" onChange={this.teamsId} />
+                                                       
+                                                        {this.state.fixtures.length > 0 ? this.state.fixtures.map(fixture => {
+                                                            return (
+                                                                <span>
+                                                                     <Input type="checkbox" onChange={this.teamsId}   />
+                                                                    {fixture.home_team}
+                                                                </span>
+                                                            )
+                                                        }):""}
                                                     </InputGroup>
                                                     <InputGroup className="mb-3">
                                                         <Input type="checkbox" onChange={this.draw} />
