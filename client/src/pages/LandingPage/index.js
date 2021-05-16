@@ -31,14 +31,12 @@ function LandingPage(props) {
             {/* </ul> */}
           </div>  
         </nav>
-
             <div className="sign-up">
                 <h2>Enter Tipping Competition </h2>
                 <p>Click the button below to enter and compete against payers from all around the world..</p>
                 <Link to="../SignUp/" className="btn btn-primary">Sign Up</Link>
             </div>
         <div className="login">
-          
           <Login />
             </div>
         </div>

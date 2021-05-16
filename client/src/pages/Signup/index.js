@@ -61,10 +61,10 @@ class Reg extends Component {
     }).then((Response) => Response.json())  
       .then((result) => {
         console.log(result);
-        if (result.Status == 'Invalid')  
-                    alert('Invalid User');  
-                else
-                    window.location.href="/Home/"
+        // if (result.Status == 'Invalid')  
+        //             alert('Invalid User');  
+        //         else
+        //             window.location.href="/Home/"
 
   // if (! this.name) {
   //   errors.name = 'Name is required';

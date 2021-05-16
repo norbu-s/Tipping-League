@@ -1,4 +1,4 @@
-import ImageTimelapse from 'material-ui/svg-icons/image/timelapse'
+// import ImageTimelapse from 'material-ui/svg-icons/image/timelapse'
 import React from 'react'
 import Header from "../../components/Header"
 

@@ -36,7 +36,7 @@ app.use(cors({
 app.use(express.json());
 
 // Schedule tasks to be run on the server.
-cron.schedule('53 01 16 * *', function () {
+cron.schedule('23 12 16 * *', function () {
   fetch('https://heisenbug-premier-league-live-scores-v1.p.rapidapi.com/api/premierleague?matchday:1', {
     headers: {
       "x-rapidapi-key": process.env.API_KEY,
@@ -48,12 +48,12 @@ cron.schedule('53 01 16 * *', function () {
       return (res.json())
     }).then(results => {
       console.log(results)
-      results.forEach(result => {
-        console.log(result)
+      // results.forEach(result => {
+        // console.log(result)
         // if (result.team1.teamScore === result.team1.teamScore) { addPoints }
         // if (result.team1.teamScore > result.team1.teamScore) { }
         // if (result.team1.teamScore > result.team1.teamScore) { }
-      })
+      // })
      
       // console.log("return", teams)
       console.log('running a task every minute');

@@ -44,27 +44,5 @@ router.get("/matches", function (req, res) {
     });
 });
 
-// router.get("/results", function (req, res) {
-//     // res.json("it works")
-//     fetch('https://heisenbug-premier-league-live-scores-v1.p.rapidapi.com/api/premierleague?"matchday": "1"', {
-//         headers: {
-//             "x-rapidapi-key": process.env.API_KEY,
-//             "x-rapidapi-host": process.env.API_URL,
-//             "useQueryString": true
-//         }
-//     }
-//     ).then(res => {
-//         return (res.json())
-//     }).then(results => {
-//         console.log(results)
-//         res.json(results)
-//     }).catch(err => {
-//         res.json(err)
-//         console.log(err)
-//     });
-// });
-
-
-
 
 module.exports = router;

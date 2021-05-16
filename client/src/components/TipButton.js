@@ -1,12 +1,12 @@
-import React from 'react'
+// import React from 'react'
 
-funciton TipButton(props.)  {
+// funciton TipButton(props)  {
 
-    return (
-        <div>
+//     return (
+//         <div>
             
-        </div>
-    )
-}
+//         </div>
+//     )
+// }
 
-export default TipButton
+// export default TipButton

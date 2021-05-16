@@ -4,25 +4,7 @@ import { Button, Card, CardFooter, CardBody, CardGroup, Col, Container, Form, In
 
 import Header from "../../components/Header";
 
-
-
-    // React.useEffect(function () {
-    //     fetch('http://localhost:3001/api/users/fixtures')
-    //         .then(res => {
-    //             return (res.json())
-    //         }).then(teams => {
-    //             setTeams(teams.records)
-    //         })
-    // }, [])
 class Tips extends Component {
-    // function() {
-    //     fetch('http://localhost:3001/api/users/fixtures')
-    //         .then(res => {
-    //             return (res.json())
-    //         }).then(teams => {
-    //             setTeams(teams.records)
-    //         })[])
-    // }
 
     constructor() {
         super();
