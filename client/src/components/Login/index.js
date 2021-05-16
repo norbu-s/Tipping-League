@@ -43,7 +43,7 @@ class Login extends Component {
                 if (result.Status == 'Invalid')  
                     alert('Invalid User');  
                 else
-                    this.props.history.push("/Home");  
+                    window.location.href="/Home/";  
             })  
     }  
   
