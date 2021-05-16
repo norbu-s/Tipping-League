@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link, useHistory } from "react-router-dom";
  
-// import './App.css';  
+import './style.css';  
 import { Button, Card, CardBody, CardGroup, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';  
 class Login extends Component {  
     constructor() {  

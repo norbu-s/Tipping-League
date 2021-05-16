@@ -1,8 +1,17 @@
-.landing-page{
-    background-color: purple;
+html,
+body,
+#root {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    background-color: burlywood;
 }
 
-
+.login{
+   background-color: blue;
+   height: 400px;
+   width:200px;
+}
 .sign-up{
     /* background-color: blue; */
     text-align: center;
