@@ -1,4 +1,5 @@
 const express = require("express");
+const cookieParser = require("cookie-parser");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
 const mysql = require("mysql");
@@ -16,7 +17,7 @@ const fetch = require("node-fetch");
 require("dotenv").config();
 var env = process.env.NODE_ENV || "development";
 var config = require("./config/config.json")[env];
-var MySQLStore = require("express-mysql-session")(session);
+const Sequelize = require("sequelize");
 
 var connection = mysql.createConnection({
   host: config.host,
@@ -29,7 +30,7 @@ app.use(
   cors({
     credentials: true,
     origin: "http://localhost:3000",
-    optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+    optionsSuccessStatus: 200,
   })
 );
 
@@ -114,26 +115,9 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "public")));
 }
 
-var sessionStore = new MySQLStore({
-  host: config.host,
-  port: 3306,
-  user: config.username,
-  password: config.password,
-  database: config.my_db,
-});
-
-app.use(
-  session({
-    secret: "keyboard cat",
-    resave: false,
-    saveUninitialized: false,
-    store: sessionStore,
-  })
-); // session secret
-
 app.use(passport.initialize());
 
-app.use(passport.session()); // persistent login sessions
+app.use(passport.session());
 
 app.use("/", routes);
 

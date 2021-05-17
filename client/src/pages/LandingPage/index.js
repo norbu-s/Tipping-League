@@ -1,15 +1,15 @@
 import React from "react";
-
 import { Link } from "react-router-dom";
 import Login from "../../components/Login";
 import "../LandingPage/style.css";
+import Footer from "../../components/Footer";
 
 function LandingPage(props) {
   console.log(props);
   return (
     <div className="landing-page">
-      <nav class="navbar navbar-dark primary-color">
-        <a class="navbar-brand" href="/" />
+      <nav className="navbar navbar-dark primary-color">
+        <a className="navbar-brand" href="/" />
         <img
           src="../../components/images/Logo.png"
           alt=""
@@ -24,16 +24,16 @@ function LandingPage(props) {
           {" "}
           Click{" "}
           <Link to="../SignUp/" className="button">
-            Here
+            <strong>Here</strong>
           </Link>{" "}
           to Sign Up!!
         </p>
-        {/* <Link to="../SignUp/" className="button">Sign Up</Link> */}
         <h4>OR</h4>
       </div>
       <div className="login">
         <Login />
       </div>
+      <Footer />
     </div>
   );
 }

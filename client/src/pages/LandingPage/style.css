@@ -7,67 +7,85 @@ body,
     background: url("../../components/images/landing.jpeg");
     background-size: cover;
 }
-h1{
-    color: blue;
-}
+
 
 p{
     color:black;
 }
 
-.button{
-    color:blue;
-    size: 25px;
-}
-
 
 .login{
     float: right;
-    border: blue;
-    color:white;
+    /* border: blue; */
+    color:black;
     font-size: 60px;
     margin-top: 10px;
     margin-left:1000px;
     padding: 10px;
     margin-right:530px;
     background-position: top;
-    height: 400px;
-    background: url("../../components/images/loginlogo.png");
-    background-size:390px;
+    height: 600px;
+    /* background: url("../../components/images/loginlogo.png"); */
+    /* background-size:390px; */
 }
 
-
-
-
-.login{
-    
-    padding: 10px;
-    margin-right:530px;
-}
 
 .form-group{
     padding: 10px;
 }
 
 .form-control{
+    height: 20px;
     align-self: center;
 }
 
 h3{
     padding: 5px;
 }
-label{
-    padding-right: 10px;
+
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 20px;
 }
 
-.custom-checkbox{
-    padding: 5px;
-    margin-left: 10px;
+.input{
+    height: 20px;
 }
 
-#logo-div{
-  width:"300";
-  height:"300";
-  float:left;
-  margin: 0 10px 0;
+.CardTitle{
+    color: tomato;
+
 }
+
+
+.login-input::placeholder {
+    font-family: Oxygen, sans-serif;
+    font-size: 16px;color: rgba(46, 213, 116, 0.839);
+    color: rgba(15, 15, 15, 0.4);
+}
+
+.login-btn {
+    padding: 2px 30px;
+    /* background-color: #417cef; */
+    border: 0;
+    font-size: 18px;
+    border-radius: 3px;
+    font-family: Oxygen, sans-serif;
+    background-color: rgba(15, 15, 15, 0.03);
+    margin-top: 20px;
+    border: 2px solid #417cef;
+    transition: background-color 0.3s ease-out;
+    cursor: pointer;
+}
+
+.login-btn:hover,
+.login-btn:focus {
+    background-color: #417cef;
+    color: white;
+}
+
+

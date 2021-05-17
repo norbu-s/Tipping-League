@@ -9,12 +9,12 @@ function LeaderTable(props) {
         </tr>
       </thead>
       <tbody>
-        {props.users ? (
-          props.users.map((user) => {
+        {props.teams ? (
+          props.teams.map((team) => {
             return (
-              <tr key={user.name}>
+              <tr key={team.name}>
                 {" "}
-                <td>{user.tips.points}</td>
+                <td>{team.tips.points}</td>
               </tr>
             );
           })

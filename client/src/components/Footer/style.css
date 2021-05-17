@@ -1,0 +1,20 @@
+footer {
+    padding: 10px 0;
+    background-color: rgb(0, 217, 255);
+    color:white;
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    height: 50px;
+    width: 100%;
+    font-size: 20px;
+}
+
+p{ 
+  text-align: center;
+}
+
+.links{
+   float: right;
+
+}

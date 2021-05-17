@@ -1,12 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
-// import Search from '../../components/Search';
+// import { Link } from "react-router-dom";
 import LeaderTable from "../../components/LeaderTable";
 import Header from "../../components/Header";
-// import Button from "../../components/Button";
+import Footer from "../../components/Footer";
 
 function LeaderBoard() {
-  const [users, setTeams] = React.useState([]);
+  const [users, setUsers] = React.useState([]);
 
   React.useEffect(function () {
     fetch("http://localhost:3001/api/users/leadership")
@@ -14,18 +13,16 @@ function LeaderBoard() {
         return res.json();
       })
       .then((users) => {
-        setTeams(users.records);
+        setUsers(users);
       });
   }, []);
   console.log("return", users);
   return (
-    <div className="App">
+    <div>
       <Header />
       <h1>Global Standing</h1>
-      <Link className={`nav-link dawn-color`} to="/tips">
-        Click here to Enter you Tips!!
-      </Link>
       <LeaderTable users={users} />
+      <Footer />
     </div>
   );
 }

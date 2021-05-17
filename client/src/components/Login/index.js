@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import { Link, useHistory } from "react-router-dom";
-
-import "./style.css";
+import "../Login/style.css";
 import {
   Button,
   Card,
@@ -13,15 +11,11 @@ import {
   Form,
   Input,
   InputGroup,
-  InputGroupAddon,
-  InputGroupText,
   Row,
 } from "reactstrap";
 class Login extends Component {
   constructor() {
     super();
-
-    // let history = useHistory();
 
     this.state = {
       email: "",
