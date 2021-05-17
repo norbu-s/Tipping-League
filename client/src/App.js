@@ -14,46 +14,41 @@ import "../src/App.css";
 
 // const image = { url:("../src/components/images/Logo.png") };
 
-
 function App() {
   // <View style={styles.container}>
   //   <ImageBackground source={image} style={styles.image}>
   //     <Text style={styles.text}>Inside</Text>
   //   </ImageBackground>
   // </View>
-    return (
-      <Router basename="/">
-        <div className="App">
-          <Switch>
-            <Route exact path="/">
-              <Landing />
-            </Route>
-            <Route exact path="/Home">
-              <Home />
-              </Route>
-            <Route exact path="/Signup">
-              <SignUp />
-            </Route>
-            <Route exact path="/Tips">
-              <Tipping />
-            </Route>
-            <Route exact path="/Results">
-              <Results />
-            </Route>
-            <Route exact path="/Leadership">
-              <Leadership />
-                </Route>
-              <Route exact path="/Logout">
-              <Landing />
-            </Route>
-          </Switch>
-        </div>
-      </Router>
-    );
-  }
-
+  return (
+    <Router basename="/">
+      <div className="App">
+        <Switch>
+          <Route exact path="/">
+            <Landing />
+          </Route>
+          <Route exact path="/Home">
+            <Home />
+          </Route>
+          <Route exact path="/Signup">
+            <SignUp />
+          </Route>
+          <Route exact path="/Tips">
+            <Tipping />
+          </Route>
+          <Route exact path="/Results">
+            <Results />
+          </Route>
+          <Route exact path="/Leadership">
+            <Leadership />
+          </Route>
+          <Route exact path="/Logout">
+            <Landing />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
+  );
+}
 
 export default App;
-
-
-
