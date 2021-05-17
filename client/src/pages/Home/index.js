@@ -24,7 +24,7 @@ function Home() {
         <div className="App">
             <Header />
             <h1>English Premier League Standings</h1>
-            <Link className={`nav-link dawn-color`} to="/tips">Click here to Enter you Tips!!</Link>     
+           <h2> <Link className="link" to="/tips"  >Click here to Enter you Tips!!</Link>  </h2>  
             <Table teams={teams }/>
         </div>
     );

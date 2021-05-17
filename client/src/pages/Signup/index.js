@@ -1,7 +1,9 @@
 // import axios from 'axios';
 import React, { Component } from 'react';  
 import { Button, Card, CardFooter, CardBody, CardGroup, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';  
-class Reg extends Component {  
+import { Link } from "react-router-dom";
+
+class Reg extends Component {
   
   constructor() {  
     super();  
@@ -104,7 +106,7 @@ class Reg extends Component {
                   <Form>  
                     <div className="row" className="mb-2 pageheading">  
                       <div className="heading">  
-                        <h1>Please fill in Your details to Sign up</h1>
+                        <h2>Please fill in Your details to Sign up</h2>
                         </div>  
                     </div>  
                     <InputGroup className="mb-3">  
@@ -123,12 +125,14 @@ class Reg extends Component {
                       <Input type="checkbox"  onChange={this.notification} />  
                     </InputGroup>   
                     <Button onClick={this.register} color="success" block>Create Account</Button>
-                    <useFrom />
-                  </Form>  
+                    <div className="back">
+                    <Link to="/" className="button">Click here to go back</Link>
+                    </div>
+                  </Form>
                 </CardBody>  
               </Card>  
             </Col>  
-            </Row>
+            </Row> 
         </Container>
       </div>  
     );  

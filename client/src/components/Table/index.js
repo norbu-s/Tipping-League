@@ -1,3 +1,6 @@
+import "./style.css";
+
+
 function Table(props) {
     console.log(props)
     return (

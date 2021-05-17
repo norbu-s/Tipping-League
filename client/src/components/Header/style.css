@@ -4,15 +4,15 @@ header{
 }
 
 #index-navbar{
-   background-color: white;
-    color: black;
+   background-color:yellow;
     max-width: 100%; 
     padding: 10px;
+    position: relative;
+
 }
 
 #navbarSupportedContent{
   float:right;
-
 }
 
 #index-link{

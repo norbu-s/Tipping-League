@@ -6,32 +6,41 @@ body,
     box-sizing: border-box;
     background: url("../../components/images/landing.jpeg");
     background-size: cover;
-    color:blue–green;
+}
+h1{
+    color: blue;
+}
+
+p{
+    color:black;
 }
 
 .button{
-    font-size: larger;
+    color:blue;
+    size: 25px;
 }
 
-.login{
-    margin-top: 10px;
-    margin-left:1000px;
-    padding: 5px;
-    background-position: top;
-    background-color:lightskyblue;
-    height: 250px;
-}
-
-
-
-h2{
-    align-items: center;
-    padding: 10px;
-    margin-top: 10px;
-}
 
 .login{
     float: right;
+    border: blue;
+    color:white;
+    font-size: 60px;
+    margin-top: 10px;
+    margin-left:1000px;
+    padding: 10px;
+    margin-right:530px;
+    background-position: top;
+    height: 400px;
+    background: url("../../components/images/loginlogo.png");
+    background-size:390px;
+}
+
+
+
+
+.login{
+    
     padding: 10px;
     margin-right:530px;
 }
