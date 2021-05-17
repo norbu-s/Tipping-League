@@ -1,5 +1,4 @@
 module.exports = function (sequilize, DataTypes) {
-
   const Tips = sequilize.define("Tips", {
     teamsId: {
       type: DataTypes.INTEGER,
@@ -14,10 +13,10 @@ module.exports = function (sequilize, DataTypes) {
         foreignKey: {
           name: "usersId",
           allowNull: true,
-        }
-      }
+        },
+      },
     },
-    draw:{
+    draw: {
       type: DataTypes.BOOLEAN,
       allowNull: true,
     },
@@ -31,9 +30,15 @@ module.exports = function (sequilize, DataTypes) {
       foreignKey: {
         name: "fixturesId",
         allowNull: false,
-      }
+      },
     },
   });
 
-    return Tips;
+  Tips.associate = (models) => {
+    Tips.belongsTo(models.Users, {
+      foreignKey: "usersId",
+    });
   };
+
+  return Tips;
+};

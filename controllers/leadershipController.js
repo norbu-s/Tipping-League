@@ -1,33 +1,22 @@
-const Users = require("../models/users");
+const db = require("../models");
 
 const leadershipController = {
   findAll: function (req, res) {
-    Users.findAll({
-      where: { id: usersId },
+    db.Users.findAll({
+      // where: { id: usersId },
       include: [
         {
-          model: Tips,
-          as: "id",
-          where: {
-            required: false,
-          },
+          model: db.Tips,
+          as: "tips",
+          // order: [["points", "ASC"]],
+          required: false,
         },
       ],
-    }).success(function (result) {
-      callback(result);
+    }).then(function (result) {
+      // console.log(result);
+      res.json(result);
     });
   },
 };
-// const leadershipController = {
-//   leaderBoard: function (req, res) {
-//     db.Tips.leaderBoard({
-//       "SELECT name, points from Tipping_League.Users Inner Join Tipping_League.Tips on Users.id = Tips.usersId order by points ASC;":
-//         function (error, points) {
-//           if (error) throw error;
-//           console.log(points);
-//         },
-//     });
-//   },
-// };
 
 module.exports = leadershipController;

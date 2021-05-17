@@ -7,19 +7,22 @@ import Leadership from "./pages/Leadership";
 import Results from "./pages/Results";
 import SignUp from "./pages/SignUp";
 import Tipping from "./pages/Tipping";
-// import League from "./pages/League";
-// import { ImageBackground, StyleSheet, Text, View } from "react-native";
 import "bootstrap";
 import "../src/App.css";
-
-// const image = { url:("../src/components/images/Logo.png") };
+import isLoggedin from "./utils/authApi";
 
 function App() {
-  // <View style={styles.container}>
-  //   <ImageBackground source={image} style={styles.image}>
-  //     <Text style={styles.text}>Inside</Text>
-  //   </ImageBackground>
-  // </View>
+  const [isAuthenticated, setIsAuthenticated] = React.useState(false);
+  const value = { isAuthenticated, setIsAuthenticated };
+  console.log(isAuthenticated);
+  // We check if user is already logged in, and if they are then we set isAuthenticated to true
+  React.useEffect(() => {
+    console.log("check login status");
+    isLoggedin().then((response) => {
+      setIsAuthenticated(response.data.isAuthenticated);
+    });
+  }, []);
+
   return (
     <Router basename="/">
       <div className="App">

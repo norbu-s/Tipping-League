@@ -5,19 +5,25 @@ const tipsController = require("../../controllers/tipsController");
 const resultsController = require("../../controllers/tipsController");
 const fixturesController = require("../../controllers/fixturesController");
 const leadershipController = require("../../controllers/leadershipController");
-const bcrypt = require("bcrypt");
+// const bcrypt = require("bcrypt");
 
 const Users = require("../../models/users");
+// const { request } = require("http");
 
 router.get("/authenticated", (req, res) => {
+  console.log("checking", req.user);
   if (req.user) {
     return res.json({ isAuthenticated: true, id: req.user.id });
   }
   return res.json({ isAuthenticated: false });
 });
 
-router.post("/login", passport.authenticate("local"), function (req, res) {
-  res.json(req.user);
+router.post("/login", passport.authenticate("local"), (req, res) => {
+  // Sending back a password, even a hashed password, isn't a good idea, so we only send the email and id from the user object
+  res.json({
+    email: req.user.email,
+    id: req.user.id,
+  });
 });
 
 router.post("/register", usersController.SignUp, (req, res) => {
@@ -29,9 +35,9 @@ router.post("/register", usersController.SignUp, (req, res) => {
   });
 });
 
-router.get("/logged-in", (req, res) => {
-  res.json({ isAuthenticated: req.isAuthenticated() });
-});
+// router.get("/logged-in", (req, res) => {
+//   res.json({ isAuthenticated: req.isAuthenticated() });
+// });
 
 router.get("/logout", (req, res) => {
   req.logout(); // This is a simple functionality provided by passport to log out a user and destroy any sessions associated with the user.
