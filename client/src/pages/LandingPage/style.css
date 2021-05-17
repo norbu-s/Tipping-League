@@ -12,6 +12,14 @@ body,
 p{
     color:black;
 }
+.button{
+    color: red;
+}
+
+.navbar navbar-dark primary-color{
+    text-align: center;
+    margin-right: 500px;
+}
 
 
 .login{

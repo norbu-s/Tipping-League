@@ -8,7 +8,7 @@ function Home() {
   const [teams, setTeams] = React.useState([]);
 
   React.useEffect(function () {
-    fetch("http://localhost:3001/api/rapid/table")
+    fetch("/api/rapid/table")
       .then((res) => {
         return res.json();
       })

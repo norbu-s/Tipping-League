@@ -18,35 +18,29 @@ import {
 
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import TipsTable from "../../components/TipsTable";
 
 class Tips extends Component {
-  constructor() {
-    super();
+  state = {
+    team1: "",
+    team2: "",
+    draw: "",
+    fixtures: [],
+  };
 
-    this.state = {
-      team1: "",
-      team2: "",
-      draw: "",
-      fixtures: [],
-    };
+  // this.team1 = this.team1.bind(this);
+  // this.team2 = this.team2.bind(this);
+  // this.fixturesId = this.fixturesId.bind(this);
+  // this.usersId = this.usersId.bind(this);
+  // this.draw = this.draw.bind(this);
+  // this.enterTips = this.enterTips.bind(this);
 
-    this.team1 = this.team1.bind(this);
-    this.team2 = this.team2.bind(this);
-    this.fixturesId = this.fixturesId.bind(this);
-    this.usersId = this.usersId.bind(this);
-    this.draw = this.draw.bind(this);
-    this.enterTips = this.enterTips.bind(this);
-  }
   componentDidMount() {
-    fetch("http://localhost:3001/api/users/fixtures")
+    fetch("/api/users/fixtures")
       .then((Response) => Response.json())
       .then((result) => {
-        console.log(result);
+        console.log("result", result);
         this.setState({ fixtures: result });
-        // if (result.Status == 'Invalid')
-        //     alert('Error');
-        // else
-        //     window.location.href = "/Home/"
       });
   }
 
@@ -68,7 +62,7 @@ class Tips extends Component {
   }
 
   async enterTips(event) {
-    fetch("http://localhost:3001/api/users/tips", {
+    fetch("/api/users/tips", {
       method: "post",
       headers: {
         "Content-Type": "application/json",
@@ -84,8 +78,8 @@ class Tips extends Component {
       }),
     })
       .then((Response) => Response.json())
-      .then((result) => {
-        console.log(result);
+      .then((results) => {
+        console.log(results);
       });
   }
 
@@ -129,6 +123,7 @@ class Tips extends Component {
                         Enter Tips
                       </Button>
                     </Form>
+                    <TipsTable result={this.state.fixture} />
                   </CardBody>
                 </Card>
               </Col>

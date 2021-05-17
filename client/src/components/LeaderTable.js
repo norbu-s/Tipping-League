@@ -13,8 +13,8 @@ function LeaderTable(props) {
           props.users.map((user) => {
             return (
               <tr key={user.name}>
-                {" "}
-                <td>{user.tips.points}</td>
+                <td>{user.name}</td>
+                <td>{user.tips[0] ? user.tips[0].points : 0}</td>
               </tr>
             );
           })

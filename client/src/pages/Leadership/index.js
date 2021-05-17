@@ -8,7 +8,7 @@ function LeaderBoard() {
   const [users, setUsers] = React.useState([]);
 
   React.useEffect(function () {
-    fetch("http://localhost:3001/api/users/leadership")
+    fetch("/api/users/leadership")
       .then((res) => {
         return res.json();
       })

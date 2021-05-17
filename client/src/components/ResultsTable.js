@@ -1,27 +1,36 @@
-function LeaderTable(props) {
+function ResultsTable(props) {
   console.log(props);
   return (
     <table>
       <thead>
         <tr>
-          <td>Name</td>
-          <td>Points</td>
+          <td>Match Details</td>
+          <td>Team1</td>
+          <td>Team2</td>
+          <td>Team1 Score</td>
+          <td>Team2 Score</td>
         </tr>
       </thead>
       <tbody>
-        {props.teams ? (
-          props.teams.map((team) => {
+        {props.match ? (
+          props.matches.map((match) => {
             return (
-              <tr key={team.name}>
+              <tr key={match.when}>
                 {" "}
-                <td>{team.tips.points}</td>
+                <td>{match.when}</td>
+                <td>{match.teamName}</td>
+                <td>{match.teamName}</td>
+                <td>{match.teamScore}</td>
               </tr>
             );
           })
         ) : (
           <tr>
-            <td>Name</td>
-            <td>Points</td>
+            <td>Match Details</td>
+            <td>Team1</td>
+            <td>Team2</td>
+            <td>Team1 Score</td>
+            <td>Team2 Score</td>
           </tr>
         )}
       </tbody>
@@ -29,4 +38,4 @@ function LeaderTable(props) {
   );
 }
 
-export default LeaderTable;
+export default ResultsTable;

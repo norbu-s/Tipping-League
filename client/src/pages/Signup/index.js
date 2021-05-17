@@ -1,4 +1,3 @@
-// import axios from 'axios';
 import React, { Component } from "react";
 import {
   Button,
@@ -59,7 +58,7 @@ class Reg extends Component {
   }
 
   async register(event) {
-    fetch("http://localhost:3001/api/users/register", {
+    fetch("/api/users/register", {
       method: "post",
       headers: {
         "Content-Type": "application/json",

@@ -32,7 +32,7 @@ router.get("/table", function (req, res) {
 router.get("/results", function (req, res) {
   // res.json("it works")
   fetch(
-    "https://heisenbug-premier-league-live-scores-v1.p.rapidapi.com/api/premierleague?matchday=35'",
+    "https://heisenbug-premier-league-live-scores-v1.p.rapidapi.com/api/premierleague?matchday=32",
     {
       headers: {
         "x-rapidapi-key": process.env.API_KEY,

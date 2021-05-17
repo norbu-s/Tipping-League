@@ -9,26 +9,20 @@ function LandingPage(props) {
   return (
     <div className="landing-page">
       <nav className="navbar navbar-dark primary-color">
-        <a className="navbar-brand" href="/" />
-        <img
-          src="../../components/images/Logo.png"
-          alt=""
-          width="30"
-          height="24"
-        />
+        <span>
+          <h2>Welcome to Tipping League</h2>
+        </span>
       </nav>
       <div className="sign-up">
-        <h2>Enter Tipping Competition </h2>
         <p> Compete against players from all around the world..</p>
         <p>
           {" "}
-          Click{" "}
+          Click here to
           <Link to="../SignUp/" className="button">
-            <strong>Here</strong>
+            <strong>"Sign Up!!"</strong>
           </Link>{" "}
-          to Sign Up!!
         </p>
-        <h4>OR</h4>
+        <h3>OR</h3>
       </div>
       <div className="login">
         <Login />

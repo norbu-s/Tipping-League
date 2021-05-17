@@ -1,9 +1,10 @@
-.Container{
-  
+h2{
+  color: black;
 }
 
 
-.back{
+.justify-content-center{
+  background-color: blue;
   padding: 20px;
   margin-top: 50px;
 }

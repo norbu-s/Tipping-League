@@ -3,12 +3,13 @@ import { Link } from "react-router-dom";
 import Table from "../../components/Table";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import ResultsTable from "../../components/ResultsTable";
 
 function Results() {
   const [matches, setMatches] = React.useState([]);
 
   React.useEffect(function () {
-    fetch("http://localhost:3001/api/rapid/results")
+    fetch("/api/rapid/results")
       .then((res) => {
         return res.json();
       })
@@ -22,10 +23,9 @@ function Results() {
       <Header />
       <h1>Results for the last Round</h1>
       <h2>
-        {" "}
         <Link className="link" to="/tips"></Link>{" "}
       </h2>
-      <Table matches={matches} />
+      <ResultsTable matches={matches} />
       <Footer />
     </div>
   );
