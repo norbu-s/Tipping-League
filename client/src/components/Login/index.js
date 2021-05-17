@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link, useHistory } from "react-router-dom";
  
 import './style.css';  
-import { Button, Card, CardBody, CardGroup, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';  
+import { Button, Card, CardBody, CardTitle, CardGroup, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';  
 class Login extends Component {  
     constructor() {  
         super();
@@ -57,24 +57,24 @@ class Login extends Component {
   
                             <CardGroup>  
                                 <Card className="p-2">  
-                                    <CardBody>  
+                                    <Card body inverse color="success">
+                                        <CardTitle tag="h5">Login</CardTitle>
                                         <Form>  
-                                            <div className="row" className="mb-2 pageheading">  
+                                            {/* <div className="row" className="mb-2 pageheading">  
                                                 <div className="col-sm-12 btn btn-primary">  
                                                     Login  
-                                            </div>  
-                                            </div>  
+                                                </div>  
+                                            </div>   */}
                                             <InputGroup className="mb-3">  
-  
                                                 <Input type="text" onChange={this.email} placeholder="Enter Email" />  
                                             </InputGroup>  
                                             <InputGroup className="mb-4">  
   
                                                 <Input type="password" onChange={this.password} placeholder="Enter Password" />  
                                             </InputGroup>  
-                                            <Button onClick={this.login} color="success" block>Login</Button>  
+                                            <Button onClick={this.login} color="Button" block>Login</Button>  
                                         </Form>  
-                                    </CardBody>  
+                                    </Card> 
                                 </Card>  
                             </CardGroup>  
                         </Col>  
