@@ -9,20 +9,7 @@ var db = {};
 console.log(config);
 console.log(process.env);
 
-if (config.use_env_variable) {
-  var sequelize = new Sequelize(process.env[config.use_env_variable]);
-} else {
-  var sequelize = new Sequelize(
-    config.database,
-    config.username,
-    config.password,
-    {
-      dialect: config.dialect,
-      port: config.port,
-      host: config.host,
-    }
-  );
-}
+var sequelize = new Sequelize(config);
 
 fs.readdirSync(__dirname)
   .filter(function (file) {
