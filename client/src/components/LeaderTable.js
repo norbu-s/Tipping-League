@@ -1,7 +1,7 @@
 function LeaderTable(props) {
   console.log(props);
   return (
-    <table>
+    <table class="table table-dark table-striped">
       <thead>
         <tr>
           <td>Name</td>

@@ -11,8 +11,8 @@ function Results() {
       .then((res) => {
         return res.json();
       })
-      .then((matches) => {
-        setMatches(matches.matches);
+      .then((results) => {
+        setMatches(results.matches);
       });
   }, []);
   console.log("return", matches);

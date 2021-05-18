@@ -76,7 +76,7 @@ let transporter = nodemailer.createTransport({
   },
 });
 
-cron.schedule("55 21 15 * *", function () {
+cron.schedule("25 14 18 * *", function () {
   connection.query(
     "SELECT email From Tipping_League.Users where notification = 1;",
     function (error, results, fields) {

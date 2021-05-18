@@ -1,7 +1,7 @@
 function TipsTable(props) {
   // console.log(props);
   return (
-    <table>
+    <table className="table table-dark table-striped">
       <thead>
         <tr>
           <td>Date</td>
@@ -23,9 +23,9 @@ function TipsTable(props) {
           })
         ) : (
           <tr>
-            <td>Date</td>
-            <td>Team1</td>
-            <td>Team2</td>
+            <td></td>
+            <td></td>
+            <td></td>
           </tr>
         )}
       </tbody>

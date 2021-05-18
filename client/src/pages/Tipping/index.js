@@ -1,5 +1,6 @@
 import fetch from "node-fetch";
 import React, { Component } from "react";
+
 import {
   Button,
   Card,
@@ -44,16 +45,16 @@ class Tips extends Component {
       .then((Response) => Response.json())
       .then((result) => {
         console.log("result", result);
-        State({ fixtures: result });
+        this.setState({ fixtures: result });
       });
   }
 
   team1(event) {
-    setState({ teams1: event.target.checked });
+    this.setState({ teams1: event.target.checked });
   }
 
   team2(event) {
-    setState({ teams2: event.target.checked });
+    this.setState({ teams2: event.target.checked });
   }
 
   draw(event) {
@@ -90,11 +91,15 @@ class Tips extends Component {
           <Container>
             <Row className="justify-content-center">
               <Col md="9" lg="7" xl="6">
+                {console.log(this.state.fixtures)}
+                <TipsTable matches={this.state.fixtures} />
+                <Footer />
                 {/* <Card className="mx-4">
                   <CardBody className="p-4"> */}
-                <Form>
+                {/* <Form>
                   <InputGroup className="mb-3">
                     <TipsTable result={this.state.fixtures} />
+
                     {this.state.fixtures.length > 0
                       ? this.state.fixtures.map((fixture) => {
                           return (
@@ -115,7 +120,7 @@ class Tips extends Component {
                   <Button onClick={this.enterTips} color="success" block>
                     Enter Tips
                   </Button>
-                </Form>
+                </Form> */}
                 {/* <TipsTable result={this.state.fixtures} /> */}
                 {/* </CardBody>
                 </Card> */}

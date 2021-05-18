@@ -3,7 +3,7 @@ import "./style.css";
 function Table(props) {
   console.log(props);
   return (
-    <table>
+    <table className="table table-dark table-striped">
       <thead>
         <tr>
           <td>Team</td>

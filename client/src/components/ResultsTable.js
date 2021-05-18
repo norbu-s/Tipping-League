@@ -1,7 +1,7 @@
 function ResultsTable(props) {
-  console.log(props);
+  console.log(props, "props");
   return (
-    <table>
+    <table class="table table-dark table-striped">
       <thead>
         <tr>
           <td>Match Details</td>
@@ -12,15 +12,16 @@ function ResultsTable(props) {
         </tr>
       </thead>
       <tbody>
-        {props.match ? (
+        {props.matches ? (
           props.matches.map((match) => {
             return (
               <tr key={match.when}>
                 {" "}
                 <td>{match.when}</td>
-                <td>{match.team1[0].teamName}</td>
-                <td>{match.teamName}</td>
-                <td>{match.teamScore}</td>
+                <td>{match.team1.teamName}</td>
+                <td>{match.team1.teamScore}</td>
+                <td>{match.team2.teamName}</td>
+                <td>{match.team2.teamScore}</td>
               </tr>
             );
           })
