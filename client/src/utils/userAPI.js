@@ -1,8 +1,7 @@
 import axios from "axios";
-const url = window.location.hostname.contains("localhost")
+const url = window.location.hostname.includes("localhost")
   ? "http://localhost:3001"
   : "";
-
 const userAPI = {
   registerUser: function (userData) {
     return axios.post(url + "/api/user/register", userData, {
