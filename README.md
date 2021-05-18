@@ -48,6 +48,7 @@ N/A
 
 - Github Repo: https://github.com/norbu-s/Tipping-League
 - Deployed Link:
+- Presentation - https://docs.google.com/presentation/d/1dPEEEeh8vLCug6AuAogen3SWBLcWuLW60Sb_9G4ke-M/edit?usp=sharing
 
 Questions
 
