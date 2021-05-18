@@ -40,8 +40,11 @@ class Login extends Component {
     this.setState({ password: event.target.value });
   }
   login(event) {
-    // debugger;
-    fetch("http://localhost:3001/api/users/login", {
+    const url = window.location.hostname.contains("localhost")
+      ? "http://localhost:3001"
+      : "";
+
+    fetch(url + "/api/users/login", {
       method: "post",
       headers: {
         Accept: "application/json",
