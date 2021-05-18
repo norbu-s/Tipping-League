@@ -20,6 +20,7 @@ if (config.use_env_variable) {
       host: config.host,
     }
   );
+  console.log(config.dialect);
 }
 
 fs.readdirSync(__dirname)
