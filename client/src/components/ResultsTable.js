@@ -6,9 +6,9 @@ function ResultsTable(props) {
         <tr>
           <td>Match Details</td>
           <td>Team1</td>
-          <td>Team2</td>
           <td>Team1 Score</td>
-          <td>Team2 Score</td>
+          <td>Team2</td>
+          <>Team2 Score</>
         </tr>
       </thead>
       <tbody>
