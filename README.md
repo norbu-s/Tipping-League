@@ -11,7 +11,7 @@ Table of Contents
 ## 3.Testing
 ## 4.Technologies Used
 ## 5.Screenshots
-- Questions
+## Questions
 
 # Motivations
 
