@@ -1,12 +1,12 @@
 function TipsTable(props) {
-  console.log(props);
+  // console.log(props);
   return (
     <table>
       <thead>
         <tr>
           <td>Date</td>
-          <td>Away Team</td>
-          <td>Home Team</td>
+          <td>Team1</td>
+          <td>Team2</td>
           {/* <td>Away Team</td> */}
         </tr>
       </thead>
@@ -15,8 +15,8 @@ function TipsTable(props) {
           props.result.map((result) => {
             return (
               <tr key={results.date}>
-                <td>{results.away_team}</td>
-                <td>{results.home_team}</td>
+                <td>{result.away_team}</td>
+                <td>{result.home_team}</td>
                 {/* <td>{user.tips[0] ? user.tips[0].points : 0}</td> */}
               </tr>
             );
@@ -24,8 +24,8 @@ function TipsTable(props) {
         ) : (
           <tr>
             <td>Date</td>
-            <td>Away Team</td>
-            <td>Home Team</td>
+            <td>Team1</td>
+            <td>Team2</td>
           </tr>
         )}
       </tbody>

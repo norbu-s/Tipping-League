@@ -8,11 +8,7 @@ function LandingPage(props) {
   console.log(props);
   return (
     <div className="landing-page">
-      <nav className="navbar navbar-dark primary-color">
-        <span>
-          <h2>Welcome to Tipping League</h2>
-        </span>
-      </nav>
+      <h2>Welcome to Tipping League</h2>
       <div className="sign-up">
         <p> Compete against players from all around the world..</p>
         <p>

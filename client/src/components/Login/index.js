@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import "../Login/style.css";
+import { Link, useHistory } from "react-router-dom";
+
+import "../../components/Login/style.css";
 import {
   Button,
   Card,
@@ -11,11 +13,15 @@ import {
   Form,
   Input,
   InputGroup,
+  InputGroupAddon,
+  InputGroupText,
   Row,
 } from "reactstrap";
 class Login extends Component {
   constructor() {
     super();
+
+    // let history = useHistory();
 
     this.state = {
       email: "",
@@ -54,6 +60,24 @@ class Login extends Component {
       });
   }
 
+  // render() {
+  //   return (
+  //     <form onSubmit={this.handleSubmit}>
+  //       <label>
+  //         User Name:
+  //         <input type="text" onChange={this.email} />
+  //       </label>
+  //       <label>
+  //         Password:
+  //         <input type="text" onChange={this.handleChange} />
+  //       </label>
+  //       <Button onClick={this.login} color="Button" block>
+  //         Login
+  //       </Button>
+  //       {/* <input type="submit" value="Submit" /> */}
+  //     </form>
+  //   );
+  // }
   render() {
     return (
       <div className="app flex-row align-items-center">
@@ -65,20 +89,20 @@ class Login extends Component {
                   <Card body inverse color="success">
                     <CardTitle tag="h5">Login</CardTitle>
                     <Form>
-                      <InputGroup className="mb-3">
-                        <Input
-                          type="text"
-                          onChange={this.email}
-                          placeholder="Enter Email"
-                        />
-                      </InputGroup>
-                      <InputGroup className="mb-4">
-                        <Input
-                          type="password"
-                          onChange={this.password}
-                          placeholder="Enter Password"
-                        />
-                      </InputGroup>
+                      {/* <InputGroup className="mb-3"> */}
+                      <Input
+                        type="text"
+                        onChange={this.email}
+                        placeholder="Enter Email"
+                      />
+                      {/* </InputGroup> */}
+                      {/* <InputGroup className="mb-4"> */}
+                      <Input
+                        type="password"
+                        onChange={this.password}
+                        placeholder="Enter Password"
+                      />
+                      {/* </InputGroup> */}
                       <Button onClick={this.login} color="Button" block>
                         Login
                       </Button>

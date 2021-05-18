@@ -85,6 +85,7 @@ router.get("results/", resultsController.findAll);
 
 //Routes for Fixtures
 router.get("/fixtures", fixturesController.findAll);
+router.get("/fixtures/id", fixturesController.findByPk);
 
 //Routes for LeaderBoard
 

@@ -18,7 +18,7 @@ function ResultsTable(props) {
               <tr key={match.when}>
                 {" "}
                 <td>{match.when}</td>
-                <td>{match.teamName}</td>
+                <td>{match.team1[0].teamName}</td>
                 <td>{match.teamName}</td>
                 <td>{match.teamScore}</td>
               </tr>

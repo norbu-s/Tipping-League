@@ -1,40 +1,18 @@
-html,
-body,
-#root {
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-    background: url("../../components/images/landing.jpeg");
-    background-size: cover;
+h2{
+    text-align: center;
+    padding:20px;
 }
-
-
 p{
+    font-size: x-large;
     color:black;
 }
 .button{
     color: red;
 }
 
-.navbar navbar-dark primary-color{
+h3{
     text-align: center;
-    margin-right: 500px;
-}
-
-
-.login{
-    float: right;
-    /* border: blue; */
-    color:black;
-    font-size: 60px;
-    margin-top: 10px;
-    margin-left:1000px;
-    padding: 10px;
-    margin-right:530px;
-    background-position: top;
-    height: 600px;
-    /* background: url("../../components/images/loginlogo.png"); */
-    /* background-size:390px; */
+    padding:20px;
 }
 
 

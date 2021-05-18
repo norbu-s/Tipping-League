@@ -1,10 +1,39 @@
-h2{
-  color: black;
+.button{
+    font-size: larger;
 }
 
+.login{
+    margin-top: 10px;
+    margin-left:1000px;
+    padding: 5px;
+    background-position: top;
+    background-color:lightskyblue;
+    height: 250px;
+}
 
-.justify-content-center{
-  background-color: blue;
-  padding: 20px;
-  margin-top: 50px;
+.form-group{
+    padding: 10px;
+}
+
+.form-control{
+    align-self: center;
+}
+
+h3{
+    padding: 5px;
+}
+label{
+    padding-right: 10px;
+}
+
+.custom-checkbox{
+    padding: 5px;
+    margin-left: 10px;
+}
+
+#logo-div{
+  width:"300";
+  height:"300";
+  float:left;
+  margin: 0 10px 0;
 }
