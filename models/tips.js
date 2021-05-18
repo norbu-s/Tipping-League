@@ -1,5 +1,5 @@
-module.exports = function (sequilize, DataTypes) {
-  const Tips = sequilize.define("Tips", {
+module.exports = function (sequelize, DataTypes) {
+  const Tips = sequelize.define("Tips", {
     teamsId: {
       type: DataTypes.INTEGER,
       allowNull: true,

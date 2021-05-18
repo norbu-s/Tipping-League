@@ -1,6 +1,5 @@
-module.exports = function (sequilize, DataTypes) {
-
-  const Teams = sequilize.define("Teams", {
+module.exports = function (sequelize, DataTypes) {
+  const Teams = sequelize.define("Teams", {
     team_name: {
       type: DataTypes.STRING,
       allowNull: true,
@@ -9,8 +8,8 @@ module.exports = function (sequilize, DataTypes) {
   Teams.associate = (models) => {
     Teams.hasMany(models.Tips, {
       as: "Tips",
-      foreignKey: "teamsId"
+      foreignKey: "teamsId",
     });
-  }
+  };
   return Teams;
-}
+};

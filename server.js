@@ -17,7 +17,7 @@ const fs = require("fs");
 const fetch = require("node-fetch");
 var env = process.env.NODE_ENV || "development";
 var config = require("./config/config.json")[env];
-const Sequelize = require("sequelize");
+const sequelize = require("sequelize");
 
 var connection = mysql.createConnection({
   host: config.host,
