@@ -18,8 +18,10 @@ Table of Contents
 Start of ever English Premier League season my mates are always look for a good tipping application,
 we never seems to find a reliable application.
 
-Instructions for Use
-Testing
+# Instructions for Use
+
+# Testing
+N/A
 
 # Technologies Used
 
