@@ -6,11 +6,11 @@ An online tipping application where you can tip and compete against player from 
 
 Table of Contents
 
-- Motivations
-- Instructions for Use
-- Testing
-- Technologies Used
-- Screenshots
+## 1.Motivations
+## 2.Instructions for Use
+## 3.Testing
+## 4.Technologies Used
+## 5.Screenshots
 - Questions
 
 # Motivations
@@ -18,8 +18,10 @@ Table of Contents
 Start of ever English Premier League season my mates are always look for a good tipping application,
 we never seems to find a reliable application.
 
-Instructions for Use
-Testing
+# Instructions for Use
+
+# Testing
+N/A
 
 # Technologies Used
 
