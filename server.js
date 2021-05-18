@@ -54,14 +54,6 @@ cron.schedule("23 12 16 * *", function () {
     })
     .then((results) => {
       console.log(results);
-      // results.forEach(result => {
-      // console.log(result)
-      // if (result.team1.teamScore === result.team1.teamScore) { addPoints }
-      // if (result.team1.teamScore > result.team1.teamScore) { }
-      // if (result.team1.teamScore > result.team1.teamScore) { }
-      // })
-
-      // console.log("return", teams)
       console.log("running a task every minute");
     });
 });
