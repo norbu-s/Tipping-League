@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const cookieParser = require("cookie-parser");
 const path = require("path");
@@ -14,7 +15,6 @@ const nodemailer = require("nodemailer");
 const app = express();
 const fs = require("fs");
 const fetch = require("node-fetch");
-require("dotenv").config();
 var env = process.env.NODE_ENV || "development";
 var config = require("./config/config.json")[env];
 const Sequelize = require("sequelize");
