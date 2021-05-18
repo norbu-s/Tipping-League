@@ -6,11 +6,11 @@ An online tipping application where you can tip and compete against player from 
 
 Table of Contents
 
-- Motivations
-- Instructions for Use
-- Testing
-- Technologies Used
-- Screenshots
+## 1.Motivations
+## 2.Instructions for Use
+## 3.Testing
+## 4.Technologies Used
+## 5.Screenshots
 - Questions
 
 # Motivations
