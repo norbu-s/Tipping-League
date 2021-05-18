@@ -5,7 +5,7 @@ import Home from "./pages/Home";
 import Landing from "./pages/LandingPage";
 import Leadership from "./pages/Leadership";
 import Results from "./pages/Results";
-import SignUp from "./pages/SignUp";
+import Reg from "./pages/SignUp";
 import Tipping from "./pages/Tipping";
 import "bootstrap";
 import "../src/App.css";
@@ -34,7 +34,7 @@ function App() {
             <Home />
           </Route>
           <Route exact path="/Signup">
-            <SignUp />
+            <Reg />
           </Route>
           <Route exact path="/Tips">
             <Tipping />
