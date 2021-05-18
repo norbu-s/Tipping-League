@@ -5,7 +5,7 @@ import Home from "./pages/Home";
 import Landing from "./pages/LandingPage";
 import Leadership from "./pages/Leadership";
 import Results from "./pages/Results";
-import SignUp from "./pages/SignUp";
+import SignUp from "./pages/Signup";
 import Tipping from "./pages/Tipping";
 import "bootstrap";
 import "../src/App.css";
