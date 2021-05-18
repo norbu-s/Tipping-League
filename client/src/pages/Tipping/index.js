@@ -21,26 +21,30 @@ import Footer from "../../components/Footer";
 import TipsTable from "../../components/TipsTable";
 
 class Tips extends Component {
-  state = {
-    team1: 0,
-    team2: 0,
-    draw: 0,
-    fixtures: [],
-  };
+  constructor() {
+    super();
 
-  // this.team1 = this.team1.bind(this);
-  // this.team2 = this.team2.bind(this);
-  // this.fixturesId = this.fixturesId.bind(this);
-  // this.usersId = this.usersId.bind(this);
-  // this.draw = this.draw.bind(this);
-  // this.enterTips = this.enterTips.bind(this);
+    this.state = {
+      team1: 0,
+      team2: 0,
+      draw: 0,
+      fixtures: [],
+    };
+
+    this.team1 = this.team1.bind(this);
+    this.team2 = this.team2.bind(this);
+    // this.fixturesId = this.fixturesId.bind(this);
+    // this.usersId = this.usersId.bind(this);
+    this.draw = this.draw.bind(this);
+    this.enterTips = this.enterTips.bind(this);
+  }
 
   componentDidMount() {
     fetch("/api/users/fixtures/")
       .then((Response) => Response.json())
       .then((result) => {
         console.log("result", result);
-        this.setState({ fixtures: result });
+        State({ fixtures: result });
       });
   }
 

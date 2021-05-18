@@ -75,31 +75,7 @@ class Reg extends Component {
       .then((result) => {
         console.log(result);
         if (result.Status == "Invalid") alert("Invalid User");
-        else window.location.href = "/Home/";
-
-        // if (! this.name) {
-        //   errors.name = 'Name is required';
-        // // } else if (abcdefghijklmnopqrstuvwxyz.test(value.Name)) {
-        // //   errors.Name = 'Name cannot have special characters';
-        //   if (! this.email) {
-        //     errors.email = 'Email required';
-        //   } else if (!/\S+@\S+\.\S+/.test(this.email)) {
-        //     this.email = 'Email address is invalid';
-        //   }
-        //   if (!this.password) {
-        //     errors.password = 'Password is required';
-        //   } else if (this.password.length < 6) {
-        //     errors.password = 'Password needs to be 6 characters or more';
-        //   }
-        //   if (!this.password2) {
-        //     errors.password2 = 'Password is required';
-        //   } else if (this.password2 !== this.password) {
-        //     errors.password2 = 'Passwords do not match';
-        //   }
-        //   if (Result.Status == 'Success')
-        //     window.location.href="/Home"
-        //  }  else
-        //         alert('Sorrrrrry !!!! Un-authenticated User !!!!!')
+        else window.location.href = "/Home";
       });
   }
 
@@ -117,37 +93,37 @@ class Reg extends Component {
                         <h2>Please fill in Your details to Sign up</h2>
                       </div>
                     </div>
-                    <InputGroup className="mb-3">
-                      <Input
-                        type="text"
-                        onChange={this.name}
-                        placeholder="Enter Your Full Name"
-                      />
-                    </InputGroup>
-                    <InputGroup className="mb-3">
-                      <Input
-                        type="text"
-                        onChange={this.email}
-                        placeholder="Enter Email"
-                      />
-                    </InputGroup>
-                    <InputGroup className="mb-3">
-                      <Input
-                        type="password"
-                        onChange={this.password}
-                        placeholder="Enter Password"
-                      />
-                    </InputGroup>
-                    <InputGroup className="mb-3">
-                      <Input
-                        type="password"
-                        onChange={this.password2}
-                        placeholder="Enter Password"
-                      />
-                    </InputGroup>
-                    <InputGroup className="mb-3">
-                      <Input type="checkbox" onChange={this.notification} />
-                    </InputGroup>
+                    {/* <InputGroup className="mb-3"> */}
+                    <Input
+                      type="text"
+                      onChange={this.name}
+                      placeholder="Enter Your Full Name"
+                    />
+                    {/* </InputGroup> */}
+                    {/* <InputGroup className="mb-3"> */}
+                    <Input
+                      type="text"
+                      onChange={this.email}
+                      placeholder="Enter Email"
+                    />
+                    {/* </InputGroup> */}
+                    {/* <InputGroup className="mb-3"> */}
+                    <Input
+                      type="password"
+                      onChange={this.password}
+                      placeholder="Enter Password"
+                    />
+                    {/* </InputGroup> */}
+                    {/* <InputGroup className="mb-3"> */}
+                    <Input
+                      type="password"
+                      onChange={this.password2}
+                      placeholder="Enter Password"
+                    />
+                    {/* </InputGroup> */}
+                    {/* <InputGroup className="mb-3"> */}
+                    <Input type="checkbox" onChange={this.notification} />
+                    {/* </InputGroup> */}
                     <Button onClick={this.register} color="success" block>
                       Create Account
                     </Button>
