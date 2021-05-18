@@ -17,7 +17,7 @@ import {
 import { Link } from "react-router-dom";
 import Footer from "../../components/Footer";
 
-class Reg extends Component {
+class SignUp extends Component {
   constructor() {
     super();
 
@@ -144,4 +144,4 @@ class Reg extends Component {
   }
 }
 
-export default Reg;
+export default SignUp;
