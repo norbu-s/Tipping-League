@@ -2,7 +2,7 @@
 
 # Description
 
-An online tipping aplication where you can tip and compete against player from all around the world.
+An online tipping application where you can tip and compete against player from all around the world.
 
 Table of Contents
 
@@ -34,7 +34,12 @@ Testing
 - node-cron
 - nodemailer
 
-- Screenshots
+# Screenshots
+
+# Links
+
+- Github Repo: https://github.com/norbu-s/Tipping-League
+- Deployed Link:
 
 Questions
 
